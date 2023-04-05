@@ -9,31 +9,28 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] : date("Y-m-d");
 ?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Reports</h3>
-		<!-- <div class="card-tools">
-			<a href="?page=offenses/manage_record" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
-		</div> -->
+		<h3 class="card-title">Thống kê</h3>
 	</div>
 	<div class="card-body">
 		<div class="">
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
-                    <label for="date_start" class="control-label">Date Start</label>
+                    <label for="date_start" class="control-label">Ngày bắt đầu</label>
                     <input type="date" class="form-control" id="date_start" value="<?php echo date("Y-m-d",strtotime($date_start)) ?>">
                 </div>
             </div>
             <div class="col-4">
             <div class="form-group">
-                    <label for="date_end" class="control-label">Date End</label>
+                    <label for="date_end" class="control-label">Ngày kết thúc</label>
                     <input type="date" class="form-control" id="date_end" value="<?php echo date("Y-m-d",strtotime($date_end)) ?>">
                 </div>
             </div>
             <div class="col-2 row align-items-end pb-1">
                 <div class="w-100">
                     <div class="form-group d-flex justify-content-between align-middle">
-                        <button class="btn btn-flat btn-default bg-lightblue" type="button" id="filter"><i class="fa fa-filter"></i> Filter</button>
-                        <button class="btn btn-flat btn-success" type="button" id="print"><i class="fa fa-print"></i> Print</button>
+                        <button class="btn btn-flat btn-default bg-lightblue" type="button" id="filter"><i class="fa fa-filter"></i> Tra cứu</button>
+                        <button class="btn btn-flat btn-success" type="button" id="print"><i class="fa fa-print"></i> In</button>
                     </div>
                 </div>
             </div>
@@ -44,47 +41,47 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] : date("Y-m-d");
 					<col width="5%">
 					<col width="15%">
 					<col width="15%">
-					<col width="25%">
-					<col width="25%">
-					<col width="5%">
+					<col width="20%">
+					<col width="20%">
+					<col width="15%">
 					<col width="10%">
 				</colgroup>
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>DateTime</th>
-						<th>Ticket No.</th>
-						<th>License ID</th>
-						<th>Officer</th>
-						<th>Status</th>
-						<th>Total Fine</th>
+						<th>ID</th>
+						<th>Thời gian</th>
+						<th>Số QĐXP</th>
+						<th>Số GPLX</th>
+						<th>Người lập</th>
+						<th>Trạng thái</th>
+						<th>Tiền phạt</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
 					$i = 1;
-						$qry = $conn->query("SELECT r.*,d.license_id_no FROM `offense_list` r inner join `drivers_list` d on r.driver_id = d.id where date(r.date_created) between '{$date_start}' and '{$date_end}' order by unix_timestamp(r.date_created) desc ");
+						$qry = $conn->query("SELECT r.*,d.license_id_no FROM `violation_list` r inner join `drivers_list` d on r.driver_id = d.id where date(r.date_created) between '{$date_start}' and '{$date_end}' order by unix_timestamp(r.date_created) desc ");
 						while($row = $qry->fetch_assoc()):
 					?>
 						<tr>
-							<td class="text-center"><?php echo $i++; ?></td>
+							<td><?php echo $i++; ?></td>
 							<td><?php echo date("Y-m-d H:i A",strtotime($row['date_created'])) ?></td>
 							<td><?php echo $row['ticket_no'] ?></td>
 							<td><?php echo $row['license_id_no'] ?></td>
 							<td><?php echo $row['officer_name'] ?></td>
-							<td class="text-center">
+							<td>
                     <?php if($row['status'] == 1): ?>
-                        <span class="badge badge-success">Paid</span>
+                        <span class="badge badge-success">Đã thanh toán</span>
                     <?php else: ?>
-                        <span class="badge badge-secondary">Pending</span>
+                        <span class="badge badge-secondary">Chưa thanh toán</span>
                     <?php endif; ?>
                 </td>
-              <td class="text-right"><?php echo number_format($row['total_amount']) ?></td>
+              <td class="text-center"><?php echo number_format($row['total_amount'])?></td>
 						</tr>
 					<?php endwhile; ?>
 					<?php if($qry->num_rows <=0 ): ?>
                         <tr>
-                            <th class="text-center" colspan='7'> No Records.</th>
+                            <th class="text-center" colspan='7'>Thông tin trống</th>
                         </tr>
 					<?php endif; ?>
 				</tbody>
@@ -115,8 +112,7 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] : date("Y-m-d");
             '<img class="mx-4" src="<?php echo validate_image($_settings->info('logo')) ?>" width="50px" height="50px"/>'+
             '<div class="px-2">'+
             '<h3 class="text-center"><?php echo $_settings->info('name') ?></h3>'+
-            '<h3 class="text-center">Traffic Offense Reports</h3>'+
-            '<h4 class="text-center">as of</h4>'+
+            '<h3 class="text-center">Thống kê vi phạm</h3>'+
             '<h4 class="text-center">'+rdate+'</h4>'+
             '</div>'+
             '</div><hr/>');

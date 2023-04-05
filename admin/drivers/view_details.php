@@ -94,7 +94,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             </thead>
             <tbody>
                 <?php 
-                $olist = $conn->query("SELECT i.*,o.code,o.name FROM `offense_items` i inner join `offenses` o on i.offense_id = o.id where i.driver_offense_id in (SELECT id FROM `offense_list` where driver_id = '{$driver_id}') order by unix_timestamp(i.date_created) asc  ");
+                $olist = $conn->query("SELECT i.*,o.code,o.name FROM `violation_items` i inner join `violations` o on i.violation_id = o.id where i.driver_violation_id in (SELECT id FROM `violation_list` where driver_id = '{$driver_id}') order by unix_timestamp(i.date_created) asc  ");
                 if($conn->error){
                     echo $conn->error ."\n";
                 }
@@ -130,11 +130,11 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             '<img class="mx-4" src="<?php echo validate_image($_settings->info('logo')) ?>" width="50px" height="50px"/>'+
             '<div class="px-2">'+
             '<h3 class="text-center"><?php echo $_settings->info('name') ?></h3>'+
-            '<h3 class="text-center">Driver\'s Information and Traffic Offense Records</h3>'+
+            '<h3 class="text-center"> Thông tin người vi phạm</h3>'+
             '</div>'+
             '</div><hr/>');
             _el.append(_p)
-            var nw = window.open("","_blank","width=1200,height=1200")
+            var nw = window.open("","_blank","width=1500,height=1500")
                 nw.document.write(_el.html())
                 nw.document.close()
                 setTimeout(() => {

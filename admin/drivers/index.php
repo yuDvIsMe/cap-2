@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Drivers</h3>
+		<h3 class="card-title">Danh sách người vi phạm</h3>
 		<div class="card-tools">
 			<a href="?page=drivers/manage_driver" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>
@@ -68,7 +68,7 @@
 			_conf("Bạn có chắc chắn muốn xóa thông tin này không?","delete_driver",[$(this).attr('data-id')])
 		})
 		$('.view_details').click(function(){
-			uni_modal("<i class='fa fa-id-card'></i><b>Thông tin người vi phạm</b>","drivers/view_details.php?id="+$(this).attr('data-id'),'large')
+			uni_modal("<i class='fa fa-id-card'></i><b> Thông tin người vi phạm</b>","drivers/view_details.php?id="+$(this).attr('data-id'),'large')
 		})
 		$('.table').dataTable({
 			columnDefs: [

@@ -7,7 +7,7 @@
 	<div class="card-header">
 		<h3 class="card-title">Danh sách biên bản vi phạm</h3>
 		<div class="card-tools">
-			<a href="?page=offenses/manage_record" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
+			<a href="?page=violations/manage_record" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -37,7 +37,7 @@
 				<tbody>
 					<?php 
 					$i = 1;
-						$qry = $conn->query("SELECT r.*,d.license_id_no FROM `offense_list` r inner join `drivers_list` d on r.driver_id = d.id order by unix_timestamp(r.date_created) desc ");
+						$qry = $conn->query("SELECT r.*,d.license_id_no FROM `violation_list` r inner join `drivers_list` d on r.driver_id = d.id order by unix_timestamp(r.date_created) desc ");
 						while($row = $qry->fetch_assoc()):
 					?>
 						<tr>
@@ -59,7 +59,7 @@
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=offenses/manage_record&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Chỉnh sửa</a>
+				                    <a class="dropdown-item" href="?page=violations/manage_record&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Chỉnh sửa</a>
 				                    <div class="dropdown-divider"></div>
 				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
@@ -75,19 +75,19 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Bạn có chắc chắn muốn xóa biên bản này không?","delete_offense",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn muốn xóa biên bản này không?","delete_violation",[$(this).attr('data-id')])
 		})
 		$('.view_details').click(function(){
-			uni_modal("<i class='fa fa-ticket'></i><b> Thông tin cụ thể biên bản xử phạt</b>","offenses/view_details.php?id="+$(this).attr('data-id'),'mid-large')
+			uni_modal("<i class='fa fa-ticket'></i><b> Thông tin cụ thể biên bản xử phạt</b>","violations/view_details.php?id="+$(this).attr('data-id'),'mid-large')
 		})
 		$('.table').dataTable({
 			columnDefs:[{ orderable: false, targets: [5,6] }]
 		});
 	})
-	function delete_offense($id){
+	function delete_violation($id){
 		start_loader();
 		$.ajax({
-			url:_base_url_+"classes/Master.php?f=delete_offense_record",
+			url:_base_url_+"classes/Master.php?f=delete_violation_record",
 			method:"POST",
 			data:{id: $id},
 			dataType:"json",

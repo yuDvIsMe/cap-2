@@ -2,6 +2,7 @@
 require_once('../config.php');
 Class Master extends DBConnection {
 	private $settings;
+	private $permitted_chars;
 	public function __construct(){
 		global $_settings;
 		$this->settings = $_settings;
@@ -21,7 +22,7 @@ Class Master extends DBConnection {
 			exit;
 		}
 	}
-	function save_offense(){
+	function save_violation(){
 		extract($_POST);
 		$data = "";
 		foreach($_POST as $k =>$v){
@@ -34,40 +35,40 @@ Class Master extends DBConnection {
 			if(!empty($data)) $data .=",";
 				$data .= " `description`='".addslashes(htmlentities($description))."' ";
 		}
-		$check = $this->conn->query("SELECT * FROM `offenses` where `code` = '{$code}' ".(!empty($id) ? " and id != {$id} " : "")." ")->num_rows;
+		$check = $this->conn->query("SELECT * FROM `violations` where `code` = '{$code}' ".(!empty($id) ? " and id != {$id} " : "")." ")->num_rows;
 		if($this->capture_err())
 			return $this->capture_err();
 		if($check > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = "Offense code already exist.";
+			$resp['msg'] = "Mã vi phạm trùng lặp";
 			return json_encode($resp);
 			exit;
 		}
 		if(empty($id)){
-			$sql = "INSERT INTO `offenses` set {$data} ";
+			$sql = "INSERT INTO `violations` set {$data} ";
 			$save = $this->conn->query($sql);
 		}else{
-			$sql = "UPDATE `offenses` set {$data} where id = '{$id}' ";
+			$sql = "UPDATE `violations` set {$data} where id = '{$id}' ";
 			$save = $this->conn->query($sql);
 		}
 		if($save){
 			$resp['status'] = 'success';
 			if(empty($id))
-				$this->settings->set_flashdata('success',"New Offense successfully saved.");
+				$this->settings->set_flashdata('success',"Tạo mới thành công");
 			else
-				$this->settings->set_flashdata('success',"Offense successfully updated.");
+				$this->settings->set_flashdata('success',"Cập nhật thành công");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error."[{$sql}]";
 		}
 		return json_encode($resp);
 	}
-	function delete_offense(){
+	function delete_violation(){
 		extract($_POST);
-		$del = $this->conn->query("DELETE FROM `offenses` where id = '{$id}'");
+		$del = $this->conn->query("DELETE FROM `violations` where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success',"offense successfully deleted.");
+			$this->settings->set_flashdata('success',"Xóa thành công");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -134,12 +135,11 @@ Class Master extends DBConnection {
 			$_POST[$k] = addslashes($v);
 		}
 		extract($_POST);
-		$name = ucwords($lastname.', '.$firstname.' '.$middlename);
 		$chk = $this->conn->query("SELECT * FROM `drivers_list` where  license_id_no = '{$license_id_no}' ".($id>0? " and id!= '{$id}' " : ""))->num_rows;
 		$this->capture_err();
 		if($chk > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = "Licesnse ID already exist in the database. Please review and try again.";
+			$resp['msg'] = "Số GPLX này đã có trong hệ thống, vui lòng kiểm tra lại.";
 			return json_encode($resp);
 			exit;
 		}
@@ -169,9 +169,9 @@ Class Master extends DBConnection {
 		if($save){
 			$resp['status'] = 'success';
 			if(empty($id))
-				$this->settings->set_flashdata('success',"New Driver successfully saved.");
+				$this->settings->set_flashdata('success',"Người vi phạm mới đã được thêm vào hệ thống");
 			else
-				$this->settings->set_flashdata('success',"Driver Details successfully updated.");
+				$this->settings->set_flashdata('success',"Cập nhật thông tin người vi phạm thành công.");
 			$id = empty($id) ? $this->conn->insert_id : $id;
 			$dir = 'uploads/drivers/';
 			if(!is_dir(base_app.$dir))
@@ -205,7 +205,7 @@ Class Master extends DBConnection {
 			$resp['status'] = 'success';
 			if(is_file(base_app.$image_path))
 				unlink((base_app.$image_path));
-			$this->settings->set_flashdata('success',"Driver's Info successfully deleted.");
+			$this->settings->set_flashdata('success',"Xóa thông tin người vi phạm thành công");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -229,61 +229,61 @@ Class Master extends DBConnection {
 		}
 		return json_encode($resp);
 	}
-	function save_offense_record(){
+	function save_violation_record(){
 		extract($_POST);
 		$data = "";
 		foreach($_POST as $k =>$v){
-			if(!in_array($k,array('id','fine','offense_id'))){
+			if(!in_array($k,array('id','fine','violation_id'))){
 				$v = addslashes($v);
 				if(!empty($data)) $data .=",";
 				$data .= " `{$k}`='{$v}' ";
 			}
 		}
-		$chk = $this->conn->query("SELECT * FROM `offense_list` where  ticket_no = '{$ticket_no}' ".(($id>0)? " and id!= '{$id}' " : ""))->num_rows;
+		$chk = $this->conn->query("SELECT * FROM `violation_list` where  ticket_no = '{$ticket_no}' ".(($id>0)? " and id!= '{$id}' " : ""))->num_rows;
 		$this->capture_err();
 		if($chk > 0){
 			$resp['status'] = 'failed';
-			$resp['msg'] = "Offense Ticker No. already exist in the database. Please review and try again.";
+			$resp['msg'] = "violation Ticker No. already exist in the database. Please review and try again.";
 			return json_encode($resp);
 			exit;
 		}
 
 		if(empty($id)){
-			$sql = "INSERT INTO `offense_list` set {$data} ";
+			$sql = "INSERT INTO `violation_list` set {$data} ";
 		}else{
-			$sql = "UPDATE `offense_list` set {$data} where id = '{$id}' ";
+			$sql = "UPDATE `violation_list` set {$data} where id = '{$id}' ";
 		}
 		$save = $this->conn->query($sql);
 		$this->capture_err();
-		$driver_offense_id = empty($id) ? $this->conn->insert_id : $id;
-		$this->conn->query("DELETE FROM `offense_items` where `driver_offense_id` = '{$driver_offense_id}'");
+		$driver_violation_id = empty($id) ? $this->conn->insert_id : $id;
+		$this->conn->query("DELETE FROM `violation_items` where `driver_violation_id` = '{$driver_violation_id}'");
 		$this->capture_err();
 		$data = "";
-		foreach($offense_id as $k => $v){
+		foreach($violation_id as $k => $v){
 			if(!empty($data)) $data .= ", ";
-			$data .= "('{$driver_offense_id}','{$v}','{$fine[$k]}','{$status}','{$date_created}')";
+			$data .= "('{$driver_violation_id}','{$v}','{$fine[$k]}','{$status}','{$date_created}')";
 		}
-		$save2= $this->conn->query("INSERT INTO `offense_items` (`driver_offense_id`,`offense_id`,`fine`,`status`,`date_created`) VALUES {$data}");
+		$save2= $this->conn->query("INSERT INTO `violation_items` (`driver_violation_id`,`violation_id`,`fine`,`status`,`date_created`) VALUES {$data}");
 		$this->capture_err();
 		if($save && $save2){
 			if(empty($id))
-				$this->settings->set_flashdata('success'," New Offense Record successfully saved.");
+				$this->settings->set_flashdata('success'," Tạo biển bản thành công");
 			else
-				$this->settings->set_flashdata('success'," Offense Record successfully updated.");
+				$this->settings->set_flashdata('success'," Cập nhật biên bản thành công");
 			$resp['status'] = 'success';
-			$resp['id'] = $driver_offense_id;
+			$resp['id'] = $driver_violation_id;
 		}else{
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error."[{$sql}]";
 		}
 		return json_encode($resp);
 	}
-	function delete_offense_record(){
+	function delete_violation_record(){
 		extract($_POST);
-		$del = $this->conn->query("DELETE FROM `offense_list` where id = '{$id}'");
+		$del = $this->conn->query("DELETE FROM `violation_list` where id = '{$id}'");
 		if($del){
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success',"Offense Record successfully deleted.");
+			$this->settings->set_flashdata('success',"Xóa thành công");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -297,11 +297,11 @@ $Master = new Master();
 $action = !isset($_GET['f']) ? 'none' : strtolower($_GET['f']);
 $sysset = new SystemSettings();
 switch ($action) {
-	case 'save_offense':
-		echo $Master->save_offense();
+	case 'save_violation':
+		echo $Master->save_violation();
 	break;
-	case 'delete_offense':
-		echo $Master->delete_offense();
+	case 'delete_violation':
+		echo $Master->delete_violation();
 	break;
 	case 'upload_files':
 		echo $Master->upload_files();
@@ -313,11 +313,11 @@ switch ($action) {
 		echo $Master->delete_driver();
 	break;
 	
-	case 'save_offense_record':
-		echo $Master->save_offense_record();
+	case 'save_violation_record':
+		echo $Master->save_violation_record();
 	break;
-	case 'delete_offense_record':
-		echo $Master->delete_offense_record();
+	case 'delete_violation_record':
+		echo $Master->delete_violation_record();
 	break;
 	case 'delete_img':
 		echo $Master->delete_img();

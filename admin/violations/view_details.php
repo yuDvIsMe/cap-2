@@ -1,21 +1,21 @@
 <?php
 require_once('../../config.php');
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT r.*,d.license_id_no, d.name as driver from `offense_list` r inner join `drivers_list` d on r.driver_id = d.id where r.id = '{$_GET['id']}' ");
+    $qry = $conn->query("SELECT r.*,d.license_id_no, d.name as driver from `violation_list` r inner join `drivers_list` d on r.driver_id = d.id where r.id = '{$_GET['id']}' ");
     if($conn->error){
         echo $conn->error ."\n";
-        echo "SELECT r.*,d.license_id_no, d.name as driver from `offense_list` r inner join `drivers_list` on r.driver_id = d.id where r.id = '{$_GET['id']}' ";
+        echo "SELECT r.*,d.license_id_no, d.name as driver from `violation_list` r inner join `drivers_list` on r.driver_id = d.id where r.id = '{$_GET['id']}' ";
     }
-    $qry2 = $conn->query("SELECT i.*,o.code,o.name from `offense_items` i inner join `offenses` o on i.offense_id = o.id where i.driver_offense_id = '{$_GET['id']}' ");
+    $qry2 = $conn->query("SELECT i.*,o.code,o.name from `violation_items` i inner join `violations` o on i.violation_id = o.id where i.driver_violation_id = '{$_GET['id']}' ");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=$v;
         }
     }
-    $offense_arr = array();
+    $violation_arr = array();
 	if($qry2->num_rows > 0){
         while($row = $qry2->fetch_assoc()){
-            $offense_arr[]=$row;
+            $violation_arr[]=$row;
         }
     }
 }
@@ -104,7 +104,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             </thead>
             <tbody>
                 <?php 
-                foreach($offense_arr as $row):
+                foreach($violation_arr as $row):
                 ?>
                 <tr>
                     <th><?php echo $row['code'] ?></th>
@@ -112,7 +112,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <th class='text-right'><?php echo number_format($row['fine'],2) ?></th>
                 </tr>
                 <?php endforeach; ?>
-                <?php if(count($offense_arr) <= 0): ?>
+                <?php if(count($violation_arr) <= 0): ?>
                 <tr>
                     <th class="text-center" colspan="3">No Record.</th>
                 </tr>
@@ -141,13 +141,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             _p.prepend('<div class="d-flex mb-3 w-100 align-items-center justify-content-center">'+
             '<div class="px-2">'+
             '<h5 class="text-center"><?php echo $_settings->info('name') ?></h5>'+
-            '<h5 class="text-center">Traffic Offense Ticket</h5>'+
+            '<h5 class="text-center">Biên bản vi phạm giao thông</h5>'+
             '</div>'+
             '</div><hr/>');
             _el.append(_h)
             _el.append('<style>html, body, .wrapper {min-height: unset !important;}#print_out{width:50% !important;}</style>')
             _el.append(_p)
-            var nw = window.open("","_blank","width=1200,height=1200")
+            var nw = window.open("","_blank","width=1500,height=1500")
                 nw.document.write(_el.html())
                 nw.document.close()
                 setTimeout(() => {

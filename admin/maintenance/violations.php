@@ -8,7 +8,7 @@
 		<h3 class="card-title">Danh sách các lỗi vi phạm</h3>
 		<?php if($_settings->userdata('type') == 1): ?>
 		<div class="card-tools">
-			<a href="?page=maintenance/manage_offense" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
+			<a href="?page=maintenance/manage_violation" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>
 		<?php endif; ?>
 	</div>
@@ -37,8 +37,8 @@
 				</colgroup>
 			<?php endif; ?>
 				<thead>
-					<tr>
-						<th>STT</th>
+					<tr class="text-center">
+						<th>ID</th>
 						<th>Ngày tạo</th>
 						<th>Tên</th>
 						<th>Mô tả</th>
@@ -52,33 +52,33 @@
 				<tbody>
 					<?php 
 					$i = 1;
-						$qry = $conn->query("SELECT * from `offenses` order by unix_timestamp(date_created) desc ");
+						$qry = $conn->query("SELECT * from `violations` order by unix_timestamp(date_created) desc ");
 						while($row = $qry->fetch_assoc()):
                             $row['description'] = strip_tags(stripslashes(html_entity_decode($row['description'])));
 					?>
-						<tr title="<?php echo $row['description'] ?>">
-							<td class="text-center"><?php echo $i++; ?></td>
+						<tr class="text-center" title="<?php echo $row['description'] ?>">
+							<td><?php echo $i++; ?></td>
 							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
-							<td><?php echo $row['name'] ?></td>
-							<td ><p class="truncate m-0"><?php echo $row['description'] ?></p></td>
-							<td class="text-right"><?php echo number_format($row['fine'],2) ?></td>
+							<td><?php echo '['.$row['code'].'] - '.$row['name'] ?></td>
+							<td><p class="truncate m-0"><?php echo $row['description'] ?></p></td>
+							<td><?php echo number_format($row['fine'],2) ?></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success">Active</span>
+                                    <span class="badge badge-success">Khả dụng</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger">Inactive</span>
+                                    <span class="badge badge-danger">Không khả dụng</span>
                                 <?php endif; ?>
                             </td>
 							<?php if($_settings->userdata('type') == 1): ?>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Chỉnh sửa
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=maintenance/manage_offense&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item" href="?page=maintenance/manage_violation&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Cập nhật</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
 							</td>
 							<?php endif; ?>
@@ -93,14 +93,14 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this offense permanently?","delete_offense",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chăn muốn xóa vi phạm này?","delete_violation",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})
-	function delete_offense($id){
+	function delete_violation($id){
 		start_loader();
 		$.ajax({
-			url:_base_url_+"classes/Master.php?f=delete_offense",
+			url:_base_url_+"classes/Master.php?f=delete_violation",
 			method:"POST",
 			data:{id: $id},
 			dataType:"json",

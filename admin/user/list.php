@@ -15,9 +15,9 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of System Users</h3>
+		<h3 class="card-title">Danh sách tài khoản</h3>
 		<div class="card-tools">
-			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -33,36 +33,36 @@
 					<col width="10%">
 				</colgroup>
 				<thead>
-					<tr>
-						<th>#</th>
-						<th>Avatar</th>
-						<th>Name</th>
-						<th>Username</th>
-						<th>Type</th>
-						<th>Action</th>
+					<tr class="text-center">
+						<th>ID</th>
+						<th>Ảnh địa diện</th>
+						<th>Tên</th>
+						<th>Tên đăng nhập</th>
+						<th>Loại tài khoản</th>
+						<th>Thao tác</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
 					$i = 1;
-						$qry = $conn->query("SELECT *,concat(firstname,' ',lastname) as name from `users` where id != '1' and id != '{$_settings->userdata('id')}' order by concat(firstname,' ',lastname) asc ");
+						$qry = $conn->query("SELECT *,lastname from `users` where id != '1' and id != '{$_settings->userdata('id')}' order by lastname asc ");
 						while($row = $qry->fetch_assoc()):
 					?>
-						<tr>
-							<td class="text-center"><?php echo $i++; ?></td>
-							<td class="text-center"><img src="<?php echo validate_image($row['avatar']) ?>" class="img-avatar img-thumbnail p-0 border-2" alt="user_avatar"></td>
-							<td><?php echo ucwords($row['name']) ?></td>
+						<tr class="text-center">
+							<td><?php echo $i++; ?></td>
+							<td><img src="<?php echo validate_image($row['avatar']) ?>" class="img-avatar img-thumbnail p-0 border-2" alt="user_avatar"></td>
+							<td><?php echo ucwords($row['lastname']) ?></td>
 							<td ><p class="m-0 truncate-1"><?php echo $row['username'] ?></p></td>
-							<td><?php echo ($row['type'] == 1) ? 'Administrator' : 'Staff' ?></td>
+							<td><?php echo ($row['type'] == 1) ? 'Quản trị viên' : 'Nhân viên' ?></td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Thao tác
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=user/manage_user&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item" href="?page=user/manage_user&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Chỉnh sửa</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
 							</td>
 						</tr>
@@ -76,7 +76,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this User permanently?","delete_user",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn muốn xóa tài khoản này không?","delete_user",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})

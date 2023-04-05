@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT * from `offense_list` where id = '{$_GET['id']}' ");
+    $qry = $conn->query("SELECT * from `violation_list` where id = '{$_GET['id']}' ");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=stripslashes($v);
@@ -24,7 +24,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		<h3 class="card-title"><?php echo isset($id) ? "Cập nhật ": "Tạo " ?> biên bản vi phạm</h3>
 	</div>
 	<div class="card-body">
-		<form action="" id="offense-form">
+		<form action="" id="violation-form">
 			<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
         <div class="row">
             <div class="col-6">
@@ -75,15 +75,15 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <div class="row">
                     <!-- <div class="col-auto float-left">
                         <div class="form-group">
-                            <lable class="control-label" for="offense_id">Lỗi</lable>
+                            <lable class="control-label" for="violation_id">Lỗi</lable>
                         </div>
                     </div> -->
                     <div class="col-7">
                         <div class="form-group">
-                            <select id="offense_id" class="custom-select select2" >
+                            <select id="violation_id" class="custom-select select2" >
                                 <option value=""></option>
                                 <?php 
-                                $driver = $conn->query("SELECT * FROM `offenses` order by `name` asc ");
+                                $driver = $conn->query("SELECT * FROM `violations` order by `name` asc ");
                                 while($row = $driver->fetch_assoc()):
                                 ?>
                                 <option value="<?php echo $row['id'] ?>"data-code="<?php echo $row['code'] ?>" data-fine="<?php echo $row['fine'] ?>" data-name="<?php echo $row['name'] ?>"><?php echo ucwords($row['name']) ?></option>
@@ -110,12 +110,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <tbody>
                         <?php
                         if(isset($id)):
-                        $olist = $conn->query("SELECT i.*,o.code,o.name FROM `offense_items` i inner join `offenses` o on i.offense_id = o.id where i.driver_offense_id ='{$id}' ");
+                        $olist = $conn->query("SELECT i.*,o.code,o.name FROM `violation_items` i inner join `violations` o on i.violation_id = o.id where i.driver_violation_id ='{$id}' ");
                         while($row = $olist->fetch_assoc()):
                         ?>
                         <tr>
                             <td><?php echo $row['code'] ?>
-                                <input type="hidden" name="offense_id[]" value="<?php echo $row['offense_id'] ?>">
+                                <input type="hidden" name="violation_id[]" value="<?php echo $row['violation_id'] ?>">
                                 <input type="hidden" name="fine[]" value="<?php echo $row['fine'] ?>">
                             </td>
                             <td><?php echo $row['name'] ?></td>
@@ -151,8 +151,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		</form>
 	</div>
 	<div class="card-footer">
-		<button class="btn btn-flat btn-primary" form="offense-form">Lưu</button>
-		<a class="btn btn-flat btn-default" href="?page=offenses">Hủy</a>
+		<button class="btn btn-flat btn-primary" form="violation-form">Lưu</button>
+		<a class="btn btn-flat btn-default" href="?page=violations">Hủy</a>
 	</div>
 </div>
 <script>
@@ -174,35 +174,35 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
        
         $('.select2').select2({placeholder:"Please Select here",width:"relative"})
         $('#add_to_list').click(function(){
-            var offense_id =  $('#offense_id').val()
-            var fine =  $('#offense_id option[value="'+offense_id+'"]').attr('data-fine')
-            var offense =  $('#offense_id option[value="'+offense_id+'"]').attr('data-name')
-            var code =  $('#offense_id option[value="'+offense_id+'"]').attr('data-code')
+            var violation_id =  $('#violation_id').val()
+            var fine =  $('#violation_id option[value="'+violation_id+'"]').attr('data-fine')
+            var violation =  $('#violation_id option[value="'+violation_id+'"]').attr('data-name')
+            var code =  $('#violation_id option[value="'+violation_id+'"]').attr('data-code')
             var tr = $("<tr>")
-            tr.append('<td>'+code+'<input type="hidden" name="offense_id[]" value="'+offense_id+'"><input type="hidden" name="fine[]" value="'+fine+'"></td>');
-            tr.append('<td>'+offense+'</td>');
+            tr.append('<td>'+code+'<input type="hidden" name="violation_id[]" value="'+violation_id+'"><input type="hidden" name="fine[]" value="'+fine+'"></td>');
+            tr.append('<td>'+violation+'</td>');
             tr.append('<td class="text-right">'+(parseFloat(fine).toLocaleString('en-US'))+'</td>');
             tr.append('<td><button class="btn  btn-sm btn-default text-danger" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button></td>');
             $('#fine-list tbody').append(tr)
             if($('#td-none').length > 0)
              $('#td-none').remove();
              calculate_total();
-             $('#offense_id').val('').trigger('change')
+             $('#violation_id').val('').trigger('change')
         })
        
-		$('#offense-form').submit(function(e){
+		$('#violation-form').submit(function(e){
 			e.preventDefault();
             var _this = $(this)
 			 $('.err-msg').remove();
 			start_loader();
-            if($('[name="offense_id[]"]').length <= 0)
+            if($('[name="violation_id[]"]').length <= 0)
             {
-                alert_toast('Please add atleast 1 offense item first','warning')
+                alert_toast('Vui lòng thêm một vi phạm vào biên bản','warning')
                 end_loader();
                 return false;
             }
 			$.ajax({
-				url:_base_url_+"classes/Master.php?f=save_offense_record",
+				url:_base_url_+"classes/Master.php?f=save_violation_record",
 				data: new FormData($(this)[0]),
                 cache: false,
                 contentType: false,
@@ -218,12 +218,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				success:function(resp){
 					if(typeof resp =='object' && resp.status == 'success'){
                         end_loader();
-                        uni_modal("<i class='fa fa-ticket'></i> Driver's Offense Ticket Details","offenses/view_details.php?id="+resp.id,'mid-large')
+                        uni_modal("<i class='fa fa-ticket'></i> Thông tin biên bản vi phạm giao thông","violations/view_details.php?id="+resp.id,'mid-large')
                         setTimeout(() => {
                             end_loader();
                         }, 500);
                         $('#uni_modal').on('hide.bs.modal',function(e){
-                            location.href="./?page=offenses";
+                            location.href="./?page=violations";
                         })
 					}else if(resp.status == 'failed' && !!resp.msg){
                         var el = $('<div>')

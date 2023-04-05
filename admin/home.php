@@ -9,8 +9,8 @@
                 <span class="info-box-text">Tổng số vi phạm hôm nay</span>
                 <span class="info-box-number text-right">
                   <?php 
-                    $offense = $conn->query("SELECT * FROM `offense_list` where date(date_created) = '".date('Y-m-d')."' ")->num_rows;
-                    echo number_format($offense);
+                    $violation = $conn->query("SELECT * FROM `violation_list` where date(date_created) = '".date('Y-m-d')."' ")->num_rows;
+                    echo number_format($violation);
                   ?>
                   <?php ?>
                 </span>
@@ -50,7 +50,7 @@
                 <span class="info-box-text">Biên bản vi phạm</span>
                 <span class="info-box-number text-right">
                 <?php 
-                    $to = $conn->query("SELECT id FROM `offenses` where status = 1 ")->num_rows;
+                    $to = $conn->query("SELECT id FROM `violations` where status = 1 ")->num_rows;
                     echo number_format($to);
                   ?>
                 </span>
