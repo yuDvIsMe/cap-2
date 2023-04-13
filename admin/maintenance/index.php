@@ -24,7 +24,7 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th>#</th>
+						<th>ID</th>
 						<th>Date Created</th>
 						<th>Package</th>
 						<th>Description</th>

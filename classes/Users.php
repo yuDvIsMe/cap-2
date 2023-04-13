@@ -37,7 +37,7 @@ Class Users extends DBConnection {
 		if(empty($id)){
 			$qry = $this->conn->query("INSERT INTO users set {$data}");
 			if($qry){
-				$this->settings->set_flashdata('success','User Details successfully saved.');
+				$this->settings->set_flashdata('success','Tạo tài khoản thành công');
 				return 1;
 			}else{
 				return 2;
@@ -46,7 +46,7 @@ Class Users extends DBConnection {
 		}else{
 			$qry = $this->conn->query("UPDATE users set $data where id = {$id}");
 			if($qry){
-				$this->settings->set_flashdata('success','User Details successfully updated.');
+				$this->settings->set_flashdata('success','Cập nhật tài khoản thành công');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -68,7 +68,7 @@ Class Users extends DBConnection {
 		$avatar = $this->conn->query("SELECT avatar FROM users where id = '{$id}'")->fetch_array()['avatar'];
 		$qry = $this->conn->query("DELETE FROM users where id = $id");
 		if($qry){
-			$this->settings->set_flashdata('success','User Details successfully deleted.');
+			$this->settings->set_flashdata('success','Xóa thành công');
 			if(is_file(base_app.$avatar))
 				unlink(base_app.$avatar);
 			$resp['status'] = 'success';
@@ -103,7 +103,7 @@ Class Users extends DBConnection {
 			$save = $this->conn->query($sql);
 
 			if($save){
-			$this->settings->set_flashdata('success','User Details successfully updated.');
+			$this->settings->set_flashdata('success','Cập nhật thông tin thành công');
 			foreach($_POST as $k => $v){
 				if(!in_array($k,array('id','password'))){
 					if(!empty($data)) $data .=" , ";
@@ -146,7 +146,7 @@ Class Users extends DBConnection {
 			$save = $this->conn->query($sql);
 
 			if($save){
-			$this->settings->set_flashdata('success','User Details successfully updated.');
+			$this->settings->set_flashdata('success','Cập nhật thông tin thành công');
 			foreach($_POST as $k => $v){
 				if(!in_array($k,array('id','password'))){
 					if(!empty($data)) $data .=" , ";

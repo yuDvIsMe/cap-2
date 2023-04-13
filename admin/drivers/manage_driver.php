@@ -37,50 +37,29 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						<input type="text" maxlength="50" class="form-control form" required name="license_id_no" value="<?php echo isset($license_id_no) ? $license_id_no : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="lastname" class="control-label">Last Name</label>
-						<input type="text" class="form-control form" required name="lastname" value="<?php echo isset($lastname) ? $lastname : '' ?>">
+						<label for="name" class="control-label">Họ và tên</label>
+						<input type="text" class="form-control form" required name="name" value="<?php echo isset($name) ? $name : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="firstname" class="control-label">First Name</label>
-						<input type="text" class="form-control form" required name="firstname" value="<?php echo isset($firstname) ? $firstname : '' ?>">
-					</div>
-					<div class="form-group">
-						<label for="middlename" class="control-label">Middle Name</label>
-						<input type="text" class="form-control form" name="middlename" value="<?php echo isset($middlename) ? $middlename : '' ?>">
-					</div>
-					<div class="form-group">
-						<label for="dob" class="control-label">DOB</label>
+						<label for="dob" class="control-label">Ngày sinh</label>
 						<input type="date" class="form-control form" required name="dob" value="<?php echo isset($dob) ? date("Y-m-d",strtotime($dob)) : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="present_address" class="control-label">Present Address</label>
-						<textarea rows="3" class="form-control" style="resize:none" required name="present_address"><?php echo isset($present_address) ? $present_address : '' ?></textarea>
-					</div>
-					<div class="form-group">
-						<label for="permanent_address" class="control-label">Permanent Address</label>
+						<label for="permanent_address" class="control-label">Địa chỉ thường trú</label>
 						<textarea rows="3" class="form-control" style="resize:none" required name="permanent_address"><?php echo isset($permanent_address) ? $permanent_address : '' ?></textarea>
 					</div>
 				</div>
 				<div class="col-6">
 					<div class="form-group">
-						<label for="civil_status" class="control-label">Civil Status</label>
-						<select name="civil_status" id="civil_status" class="custom-select select2">
-							<option <?php echo (isset($civil_status) && $civil_status == 'Single') ? 'selected' : '' ?>>Single</option>
-							<option <?php echo (isset($civil_status) && $civil_status == 'Married') ? 'selected' : '' ?>>Married</option>
-							<option <?php echo (isset($civil_status) && $civil_status == 'Divorced') ? 'selected' : '' ?>>Divorced</option>
-							<option <?php echo (isset($civil_status) && $civil_status == 'Windowed') ? 'selected' : '' ?>>Windowed</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label for="nationality" class="control-label">Nationality</label>
+						<label for="nationality" class="control-label">Quốc tịch</label>
 						<input type="text" class="form-control form" required name="nationality" value="<?php echo isset($nationality) ? $nationality : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="contact" class="control-label">Contact Number</label>
+						<label for="contact" class="control-label">Số điện thoại</label>
 						<input type="text" maxlength="13" class="form-control form" required name="contact" value="<?php echo isset($contact) ? $contact : '' ?>">
 					</div>
 					<div class="form-group">
-						<label for="license_type" class="control-label">License Type</label>
+						<label for="license_type" class="control-label">Loại bằng</label>
 						<select name="license_type" id="license_type" class="custom-select select2">
 							<option <?php echo (isset($license_type) && $license_type == 'A1') ? 'selected' : '' ?>>A1</option>
 							<option <?php echo (isset($license_type) && $license_type == 'A2') ? 'selected' : '' ?>>A2</option>
@@ -97,11 +76,11 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="" class="control-label">Photo</label>
+						<label for="" class="control-label">Hình ảnh</label>
 						<div class="custom-file">
 						<input type="hidden" name="image_path" value="<?php echo isset($image_path) ? $image_path : '' ?>">
 						<input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">
-						<label class="custom-file-label" for="customFile">Choose file</label>
+						<label class="custom-file-label" for="customFile">Chọn tệp</label>
 						</div>
 					</div>
 					<div class="form-group d-flex justify-content-center">
@@ -113,8 +92,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		</form>
 	</div>
 	<div class="card-footer">
-		<button class="btn btn-flat btn-primary" form="driver-form">Save</button>
-		<a class="btn btn-flat btn-default" href="?page=drivers">Cancel</a>
+		<button class="btn btn-flat btn-primary" form="driver-form">Lưu</button>
+		<a class="btn btn-flat btn-default" href="?page=drivers">Hủy</a>
 	</div>
 </div>
 <script>

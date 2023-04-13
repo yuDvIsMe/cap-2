@@ -32,7 +32,7 @@
                       </a>
                     </li> 
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=offenses" class="nav-link nav-offenses">
+                      <a href="<?php echo base_url ?>admin/?page=violations" class="nav-link nav-violations">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>
                           Biên bản vi phạm
@@ -58,7 +58,7 @@
                     </li>
                     <li class="nav-header">Maintenance</li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=maintenance/offenses" class="nav-link nav-maintenance_offenses">
+                      <a href="<?php echo base_url ?>admin/?page=maintenance/violations" class="nav-link nav-maintenance_violations">
                         <i class="nav-icon fas fa-traffic-light"></i>
                         <p>
                           Danh sách lỗi vi phạm
@@ -74,11 +74,22 @@
                         </p>
                       </a>
                     </li>
+                   
+                    <li class="nav-header">News</li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
-                        <i class="nav-icon fas fa-cogs"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>
-                          Cài đặt chung
+                          Danh sách bài viết
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-header">Quiz</li>
+                    <li class="nav-item dropdown">
+                      <a href="#" class="nav-link nav-system_info">
+                        <i class="nav-icon fas fa-question"></i>
+                        <p>
+                          Quản lý câu hỏi
                         </p>
                       </a>
                     </li>
