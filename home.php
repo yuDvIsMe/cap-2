@@ -23,7 +23,7 @@
             <img src="img/trangchu.png" alt="Image">
         </div>
         <div class="carousel-text">
-            <h1>Chào mừng</h1>
+            <h1>Chào mừng TVMS</h1>
             <p>
                 Giới thiệu
             </p>
