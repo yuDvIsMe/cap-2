@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Danh sách các lỗi vi phạm</h3>
+		<h3 class="card-title font-weight-bold">Danh sách các lỗi vi phạm</h3>
 		<?php if($_settings->userdata('type') == 1): ?>
 		<div class="card-tools">
 			<a href="?page=maintenance/manage_violation" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
@@ -61,7 +61,7 @@
 							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
 							<td><?php echo '['.$row['code'].'] - '.$row['name'] ?></td>
 							<td><p class="truncate m-0"><?php echo $row['description'] ?></p></td>
-							<td><?php echo number_format($row['fine'],2) ?></td>
+							<td><?php echo number_format($row['fine']) ?> VNĐ</td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
                                     <span class="badge badge-success">Khả dụng</span>

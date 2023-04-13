@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Danh sách người vi phạm</h3>
+		<h3 class="card-title font-weight-bold">Danh sách người vi phạm</h3>
 		<div class="card-tools">
 			<a href="?page=drivers/manage_driver" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>

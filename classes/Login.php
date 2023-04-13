@@ -18,13 +18,12 @@ class Login extends DBConnection {
 	public function login(){
 		extract($_POST);
 
-		$qry = $this->conn->query("SELECT * from users where username = '$username' and password = md5('$password') ");
+		$qry = $this->conn->query("SELECT * from users where username = '$username' and password = md5('$password')");
 		if($qry->num_rows > 0){
 			foreach($qry->fetch_array() as $k => $v){
 				if(!is_numeric($k) && $k != 'password'){
 					$this->settings->set_userdata($k,$v);
 				}
-
 			}
 			$this->settings->set_userdata('login_type',1);
 		return json_encode(array('status'=>'success'));

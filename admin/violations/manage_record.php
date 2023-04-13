@@ -37,7 +37,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <input type="text" class="form-control" name="ticket_no" id="ticket_no" value="<?php echo isset($ticket_no) ? $ticket_no : '' ?>" required>
                 </div>
                 <div class="form-group">
-                    <lable class="control-label" for="driver_id">Driver</lable>
+                    <lable class="control-label" for="driver_id">Người vi phạm</lable>
                     <select name="driver_id" id="driver_id" class="custom-select select2" required>
                         <option value=""></option>
                         <?php 
@@ -86,7 +86,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                                 $driver = $conn->query("SELECT * FROM `violations` order by `name` asc ");
                                 while($row = $driver->fetch_assoc()):
                                 ?>
-                                <option value="<?php echo $row['id'] ?>"data-code="<?php echo $row['code'] ?>" data-fine="<?php echo $row['fine'] ?>" data-name="<?php echo $row['name'] ?>"><?php echo ucwords($row['name']) ?></option>
+                                <option value="<?php echo $row['id'] ?>"data-code="<?php echo $row['code'] ?>" data-fine="<?php echo $row['fine'] ?>" data-name="<?php echo $row['name'] ?>"><?php echo "[".$row['code']."]".ucwords($row['name']) ?></option>
                                 <?php endwhile; ?>
                             </select>
                         </div>

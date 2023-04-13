@@ -15,7 +15,7 @@
 </style>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">Danh sách tài khoản</h3>
+		<h3 class="card-title font-weight-bold">Danh sách tài khoản</h3>
 		<div class="card-tools">
 			<a href="?page=user/manage_user" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo mới</a>
 		</div>
