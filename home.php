@@ -1,55 +1,42 @@
-<div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky nav-sticky" style="height: 78px;">
+<div class="d-none d-md-block">
     <div class="container-fluid">
-        <a href="<?php echo base_url ?>" class="navbar-brand">TVMS</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        
-    </div>
-    <a class="btn-login" href="<?php echo base_url . 'admin' ?>">
-        Đăng nhập
-    </a>
-    <a class="btn-login" href="<?php echo base_url ?>?page=sign-up">
-        Đăng ký
-    </a>
-</div>
-
-
-<div class="carousel">
-
-    <div class="carousel-item">
-        <div class="carousel-img">
-            <img src="img/trangchu.png" alt="Image">
-        </div>
-        <div class="carousel-text">
-            <h1>Chào mừng TVMS</h1>
-            <p>
-                Giới thiệu
-            </p>
-        </div>
-    </div>
-</div>
-<!-- Carousel End -->
-
-<!-- Video Modal Start-->
-<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <!-- 16:9 aspect ratio -->
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
+        <div class="row" style = "display: flex; align-items: center;">
+            <div class="col-md-8">
+                <div class="top-bar-left">
+                    <div class="text">
+                        <h1 href="<?php echo base_url ?>" class="home-title">TVMS</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="top-bar-right">
+                    <div class="social-login">
+                        <a class="btn-login" href="<?php echo base_url . 'admin' ?>">
+                            Đăng nhập
+                        </a>
+                        <a class="btn-login" href="<?php echo base_url ?>?page=sign-up">
+                            Đăng ký
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Video Modal End -->
 
+<div class="single mt-125">
+    <div class="">
+        <div class="section-header">
+            <h2 >Chào mừng</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img class="img-home" src="img/trangchu.png" alt="Image">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
 
 <!-- Fact Start -->
 <div class="fact">
