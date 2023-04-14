@@ -33,7 +33,7 @@
                     <div style="display: flex">
                         <div>
                             <input class="form-control" type="text" id="submit" style="width: 260px" placeholder="Mã bảo mật"/>
-                            <p id="key" style="color: red; margin: 0;">Vui lòng nhập mã bảo mật</p>
+                            <p id="key" style="margin: 0;">Vui lòng nhập mã bảo mật</p>
                         </div>
 
                         <div class="code">
@@ -48,7 +48,7 @@
 
             <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="printmsg()" >Tra cứu</button>
         </div>
-        <div style="margin-top: 84px;">
+        <div style="margin-top: 84px; color: red;">
             <h6>
                 Tra cứu, nộp phạt quyết định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ:
             </h6>

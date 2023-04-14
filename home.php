@@ -39,7 +39,7 @@
 <!-- Carousel End -->
 
 <!-- Fact Start -->
-<div class="fact">
+<div class="fact" data-aos="fade-up" data-aos-duration="2000">
     <div class="container">
         <div class="row align-items-center">
             <a class="col-lg-3 col-md-6 " style="cursor: pointer;" href="<?php echo base_url ?>?page=about">

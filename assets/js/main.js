@@ -171,8 +171,6 @@ function printmsg() {
 	const usr_input = document
 		.getElementById("submit").value;
 	
-	// Check whether the input is equal
-	// to generated captcha or not
 	if (usr_input == captcha.innerHTML) {
 		var s = document.getElementById("key")
 			.innerHTML = "Mã bảo mật đúng";
