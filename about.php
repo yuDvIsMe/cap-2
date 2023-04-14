@@ -1,6 +1,5 @@
 <?php require_once('inc/header.php') ?>
 <?php require_once('inc/subnav.php') ?>
-<!-- About Start -->
 <div class="about mt-125">
     <div class="container">
         <div class="row align-items-center">

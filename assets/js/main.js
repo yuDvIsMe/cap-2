@@ -166,7 +166,7 @@ function generate() {
 	// Store generated input
 	captcha.innerHTML = uniquechar;
 }
-
+generate();
 function printmsg() {
 	const usr_input = document
 		.getElementById("submit").value;
@@ -184,4 +184,3 @@ function printmsg() {
 		generate();
 	}
 }
-

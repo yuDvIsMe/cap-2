@@ -12,13 +12,14 @@
                 <a href="<?php echo base_url ?>?page=news" class="nav-item nav-link">Tin tức</a>
                 <a href="<?php echo base_url ?>?page=information-lookup" class="nav-item nav-link">Tra cứu thông tin</a>
                 <a href="<?php echo base_url ?>?page=contact" class="nav-item nav-link">Liên hệ</a>
-                <a class="btn-login" href="<?php echo base_url ?>?page=log-in">
-                    Đăng nhập
-                </a>
-                <a class="btn-login" href="<?php echo base_url ?>?page=sign-up">
-                    Đăng ký
-                </a>
+                
             </div>
         </div>
     </div>
+    <a class="btn-login" href="<?php echo base_url ?>?page=log-in">
+        Đăng nhập
+    </a>
+    <a class="btn-login" href="<?php echo base_url ?>?page=sign-up">
+        Đăng ký
+    </a>
 </div>

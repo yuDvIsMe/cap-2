@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky nav-sticky">
+<div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky nav-sticky" style="height: 78px;">
     <div class="container-fluid">
         <a href="<?php echo base_url ?>" class="navbar-brand">TVMS</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
