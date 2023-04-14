@@ -73,7 +73,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this package permanently?","delete_package",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn muốn xóa không?","delete_package",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})

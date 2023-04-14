@@ -77,7 +77,7 @@
                    
                     <li class="nav-header">News</li>
                     <li class="nav-item dropdown">
-                      <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
+                      <a href="<?php echo base_url ?>admin/?page=news" class="nav-link nav-system_info">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                           Danh sách bài viết
