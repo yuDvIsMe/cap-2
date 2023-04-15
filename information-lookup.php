@@ -93,3 +93,10 @@
     </div>
 </div>
 <?php require_once('inc/footer.php') ?>
+<script>
+    $(document).ready(function(){
+		$('.view_details').click(function(){
+			uni_modal("<i class='fa fa-ticket'></i><b> Thông tin cụ thể biên bản xử phạt</b>","violations/view_details.php?id="+$(this).attr('data-id'),'mid-large')
+		})
+	})
+</script>
