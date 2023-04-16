@@ -4,7 +4,8 @@
             <div class="col-md-8">
                 <div class="top-bar-left">
                     <div class="text">
-                        <h1 href="<?php echo base_url ?>" class="home-title">TVMS</h1>
+                        <a href="<?php echo base_url ?>" class="home-title"><h1>TVMS</h1></a>
+                        <a href="<?php echo base_url ?>" class="home-title"><h2>Cổng dịch vụ công thành phố</h2></a>
                     </div>
                 </div>
             </div>
@@ -26,9 +27,6 @@
 
 <div class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarCollapse" style="display: flex!important;justify-content: center;">
             <div class="navbar-nav align-items-center">
                 <a href="<?php echo base_url ?>" class="nav-item nav-link item-subnav" style="font-size: 28px;"><i class="fas fa-home"></i></a>

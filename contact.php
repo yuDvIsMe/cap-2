@@ -5,7 +5,7 @@
     <div class="container">
         <ul class="breadcrumb">
             <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=home">Trang chủ</a>
+                <a  href="<?php echo base_url ?>">Trang chủ</a>
                 <a style="padding-left: 10px">></a>
             </li>
             <li class="item-breadcrumb">

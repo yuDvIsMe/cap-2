@@ -33,7 +33,7 @@
                     <div style="display: flex">
                         <div>
                             <input class="form-control" type="text" id="submit" style="width: 260px" placeholder="Mã bảo mật"/>
-                            <p id="key" style="margin: 0;">Vui lòng nhập mã bảo mật</p>
+                            <p id="key" style="color: red; margin: 0;">Vui lòng nhập mã bảo mật</p>
                         </div>
 
                         <div class="code">

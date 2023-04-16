@@ -4,7 +4,8 @@
             <div class="col-md-8">
                 <div class="top-bar-left">
                     <div class="text">
-                        <h1 href="<?php echo base_url ?>" class="home-title">TVMS</h1>
+                        <a href="<?php echo base_url ?>" class="home-title"><h1>TVMS</h1></a>
+                        <a href="<?php echo base_url ?>" class="home-title"><h2>Cổng dịch vụ công thành phố</h2></a>
                     </div>
                 </div>
             </div>
@@ -24,13 +25,40 @@
     </div>
 </div>
 
-<div class="single mt-125">
-    <div class="">
-        <div class="section-header">
-            <h2 >Chào mừng</h2>
-        </div>
+<div class="single">
+    <div style="margin-top: 40px;">
         <div class="row">
             <div class="col-md-12">
+                <div class="fact single-item-home" data-aos="fade-up" data-aos-duration="2000">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <a class="col-lg-3 col-md-6 " style="cursor: pointer;" href="<?php echo base_url ?>?page=about" >
+                                <div class="fact-item" >
+                                    <i class="fas fa-user icon-home"></i>
+                                    <h2>Giới thiệu</h2>
+                                </div>
+                            </a>
+                            <a class="col-lg-3 col-md-6" style="cursor: pointer;" href="<?php echo base_url ?>?page=news">
+                                <div class="fact-item">
+                                    <i class="fas fa-newspaper icon-home"></i>
+                                    <h2>Tin tức</h2>
+                                </div>
+                            </a>
+                            <a class="col-lg-3 col-md-6" style="cursor: pointer;" href="<?php echo base_url ?>?page=information-lookup">
+                                <div class="fact-item">
+                                    <i class="fas fa-credit-card icon-home"></i>
+                                    <h2>Tra cứu thông tin</h2>
+                                </div>
+                            </a>
+                            <a class="col-lg-3 col-md-6" style="cursor: pointer;" href="<?php echo base_url ?>?page=contact">
+                                <div class="fact-item">
+                                    <i class="fas fa-address-card icon-home"></i>
+                                    <h2>Liên hệ</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <img class="img-home" src="img/trangchu.png" alt="Image">
             </div>
         </div>
@@ -39,33 +67,3 @@
 <!-- Carousel End -->
 
 <!-- Fact Start -->
-<div class="fact" data-aos="fade-up" data-aos-duration="2000">
-    <div class="container">
-        <div class="row align-items-center">
-            <a class="col-lg-3 col-md-6 " style="cursor: pointer;" href="<?php echo base_url ?>?page=about">
-                <div class="fact-item">
-                    <img src="img/icon-4.png" alt="Icon">
-                    <h2>Giới thiệu</h2>
-                </div>
-            </a>
-            <a class="col-lg-3 col-md-6" style="cursor: pointer;" href="<?php echo base_url ?>?page=news">
-                <div class="fact-item">
-                    <img src="img/icon-1.png" alt="Icon">
-                    <h2>Tin tức</h2>
-                </div>
-            </a>
-            <a class="col-lg-3 col-md-6" style="cursor: pointer;" href="<?php echo base_url ?>?page=information-lookup">
-                <div class="fact-item">
-                    <img src="img/icon-8.png" alt="Icon">
-                    <h2>Tra cứu thông tin</h2>
-                </div>
-            </a>
-            <a class="col-lg-3 col-md-6" style="cursor: pointer;" href="<?php echo base_url ?>?page=contact">
-                <div class="fact-item">
-                    <img src="img/icon-6.png" alt="Icon">
-                    <h2>Liên hệ</h2>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>

@@ -222,7 +222,7 @@ a:focus {
         position: absolute;
         width: 100%;
         /* top: 35px; */
-        padding: 20px 60px;
+        padding: 8px 60px;
         background: rgba(9, 42, 73, .2)!important;
         z-index: 9;
     }
@@ -547,15 +547,18 @@ a:focus {
     margin-bottom: 30px;
     padding: 30px 0 25px 0;
     text-align: center;
-    background: #ffffff;
+    background-color: #ffffffbf;
     border: 1px solid transparent;
     box-shadow: 0 0 30px rgba(0, 0, 0, .1);
     transition: .3s;
+    border-radius: 5px;
 }
 
 .fact .fact-item:hover {
     border-color: rgba(0, 0, 0, .1);
     box-shadow: none;
+    background-color: #fff;
+    opacity: 0.9;
 }
 
 .fact .fact-item img {
@@ -1333,7 +1336,7 @@ a:focus {
 
 .single img {
     width: 100%;
-    margin: 0 0 25px 0;
+    /* margin: 0 0 25px 0; */
 }
 
 .single .table,
@@ -1523,7 +1526,19 @@ a:focus {
 
 .img-home{
     object-fit: cover;
-    height: 200px;
+    height: 300px;
+}
+
+.single-item-home{
+    position: absolute; 
+    height:100%;
+    display: flex; 
+    align-items: center;
+}
+
+.icon-home{
+    color: #3c8dbc;
+    font-size: 60px;
 }
 
 .item-subnav{
