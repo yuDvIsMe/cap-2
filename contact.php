@@ -3,6 +3,15 @@
 <!-- Contact Start -->
 <div class="contact mt-125">
     <div class="container">
+        <ul class="breadcrumb">
+            <li class="item-breadcrumb">
+                <a  href="<?php echo base_url ?>">Trang chủ</a>
+                <a style="padding-left: 10px">></a>
+            </li>
+            <li class="item-breadcrumb">
+                <a  href="<?php echo base_url ?>?page=contact">Liên hệ</a>
+            </li>
+        </ul>
         <div class="row">
             <div class="col-md-6" style="border-right: rgb(160, 160, 160) 2px solid;">
                 <div class="section-header">

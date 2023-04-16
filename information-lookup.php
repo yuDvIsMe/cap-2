@@ -2,6 +2,15 @@
 <?php require_once('inc/subnav.php') ?>
 <div class="feature mt-125">
     <div class="container">
+        <ul class="breadcrumb">
+            <li class="item-breadcrumb">
+                <a  href="<?php echo base_url ?>?page=home">Trang chủ</a>
+                <a style="padding-left: 10px">></a>
+            </li>
+            <li class="item-breadcrumb">
+                <a  href="<?php echo base_url ?>?page=information-lookup">Tra cứu thông tin</a>
+            </li>
+        </ul>
         <h1>Tra cứu hồ sơ vi phạm</h1>
         <div class="input-infor">
             <div class="enter-infor">
@@ -39,7 +48,7 @@
 
             <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="printmsg()" >Tra cứu</button>
         </div>
-        <div style="margin-top: 84px;">
+        <div style="margin-top: 84px; color: red;">
             <h6>
                 Tra cứu, nộp phạt quyết định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ:
             </h6>
