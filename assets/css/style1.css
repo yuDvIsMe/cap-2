@@ -60,11 +60,11 @@ a:focus {
 }
 
 .back-to-top:hover {
-    background: #3c8dbc;
+    background: #002b49;
 }
 
 .back-to-top:hover i {
-    color: #003861;
+    color: #3c8dbc;
 }
 
 @media (min-width: 992px) {
@@ -202,12 +202,13 @@ a:focus {
 .navbar-dark .navbar-nav .nav-link.active {
     padding: 10px 10px 8px 10px;
     color: #ffffff;
+    transition: 0.5;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
     color: #003861;
-    transition: none;
+    transition: 0.5;
 }
 
 .navbar .dropdown-menu {
@@ -899,7 +900,7 @@ a:focus {
 .testimonial {
     position: relative;
     width: 100%;
-    padding: 45px 0;
+    padding: 12px 0;
 }
 
 .testimonial .testimonials-carousel {
@@ -1524,6 +1525,10 @@ a:focus {
 
 /* ---------------------------------------------------- */
 
+.display-flex{
+    display: flex;
+}
+
 .img-home{
     object-fit: cover;
     height: 300px;
@@ -1608,14 +1613,15 @@ a:focus {
     background-color: #3c8dbc;
     color: #fff;
     border-color: #fff;
-    border-radius: 0.25rem;
+    border-radius: 0.4rem;
     margin-left: -40px;
-    transition: .3s;
+    transition: .5s;
 }
 
 .btn-submit:hover{
     background-color: #439ed3;
-    transition: .3s;
+    border-radius: 0.4rem;
+    transition: .5s;
 }
 
 .input-infor{
