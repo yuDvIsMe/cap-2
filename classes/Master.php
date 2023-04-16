@@ -311,6 +311,13 @@ class Master extends DBConnection
 				$data .= " `{$k}`='{$v}' ";
 			}
 		}
+		if (isset($_FILES['image']) && $_FILES['image']['tmp_name'] != '') {
+			$fname = 'uploads/new_img/' . strtotime(date('y-m-d H:i')) . '_' . $_FILES['image']['name'];
+			$move = move_uploaded_file($_FILES['image']['tmp_name'], '../' . $fname);
+			if ($move) {
+				$data .= " , image = '{$fname}' ";
+			}
+		}
 
 		if (!empty($id)) {
 			$sql = "UPDATE `news_list` SET {$data} WHERE `id`='{$id}'";

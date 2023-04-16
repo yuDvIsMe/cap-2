@@ -29,7 +29,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     </div>
                 </div>
                 <div class="form-group col-6 d-flex justify-content-center">
-                    <img src="<?php echo validate_image(isset($meta['image']) ? $meta['image'] : '') ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
+                    <img src="<?php echo validate_image(isset($image) ? $image : '') ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
                 </div>
                 <div class="form-group">
                     <label for="content" class="control-label">Nội dung</label>
@@ -48,10 +48,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </div>
 <style>
     img#cimg {
-        height: 15vh;
-        width: 15vh;
-        object-fit: cover;
-        border-radius: 100% 100%;
+        height: 50vh;
+		width: 100%;
+		object-fit: contain;
     }
 </style>
 <script>
