@@ -64,6 +64,3 @@
         </div>
     </div>
 </div>
-<!-- Carousel End -->
-
-<!-- Fact Start -->

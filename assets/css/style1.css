@@ -1529,6 +1529,11 @@ a:focus {
     height: 300px;
 }
 
+.text {
+    display: flex;
+    align-items: flex-end;
+}
+
 .single-item-home{
     position: absolute; 
     height:100%;
