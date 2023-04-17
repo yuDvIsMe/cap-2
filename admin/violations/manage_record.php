@@ -7,6 +7,16 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         }
     }
 }
+
+function generateRandomString() {
+    $characters = '0123456789';
+    $randomString = 'G';
+    for ($i = 0; $i < 8; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
+    return $randomString;
+}
 ?>
 <style>
     .uploaded_img{
@@ -34,7 +44,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </div>
                 <div class="form-group">
                     <lable class="control-label" for="ticket_no">Số QĐXP</lable>
-                    <input type="text" class="form-control" name="ticket_no" id="ticket_no" value="<?php echo isset($ticket_no) ? $ticket_no : '' ?>" required>
+                    <input type="hidden" class="form-control" name="ticket_no" id="ticket_no" value="<?php echo isset($ticket_no) ? $ticket_no : generateRandomString() ?>" required>
                 </div>
                 <div class="form-group">
                     <lable class="control-label" for="driver_id">Người vi phạm</lable>

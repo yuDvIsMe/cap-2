@@ -15,12 +15,11 @@
         <div class="container-fluid">
 			<table class="table table-bordered table-stripped table-hover">
 				<colgroup>
-					<col width="5%">
 					<col width="10%">
-					<col width="25%">
-					<col width="15%">
+					<col width="20%">
 					<col width="35%">
-					<col width="10%">
+					<col width="20%">
+					<col width="15%">
 				</colgroup>
 				<thead>
 					<tr class="text-center">
@@ -28,7 +27,6 @@
 						<th>Ngày đăng</th>
 						<th>Tiêu đề</th>
 						<th>Ảnh</th>
-						<th>Chi tiết</th>
 						<th>Thao tác</th>
 					</tr>
 				</thead>
@@ -43,7 +41,6 @@
 							<td><?php echo date("Y-m-d H:i",strtotime($row['post_date'])) ?></td>
 							<td><?php echo $row['title'] ?></td>
 							<td><img src="<?php echo validate_image($row['image']) ?>" class="img-avatar img-thumbnail p-0 border-2" alt="news_image"></td>
-							<td><p class="truncate m-0"><?php echo $row['content'] ?></p></td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
 				                  		Chỉnh sửa
