@@ -20,7 +20,7 @@
                 </p>
             </div>
             <div class="col-md-6" style="display: flex; height: 100%; flex-direction: column;">
-                <a href="news-detail.html" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Sử dụng “giấy đăng kiểm giả” có thể bị khởi tố hình sự </a>
+                <a href="<?php echo base_url ?>?page=news-detail" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Sử dụng “giấy đăng kiểm giả” có thể bị khởi tố hình sự </a>
                 <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Sơ kết phong trào thi đua “Thanh niên CAND học tập, thực hiện 06 điều Bác Hồ dạy” </a>
                 <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Đắk Nông: Tuyên truyền ATGT và trao tặng công trình "Thắp sáng học đường"</a>
                 <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Đẩy mạnh công tác tuyên truyền bảo đảm TTATGT trong trường học Xử lý nghiêm xe chở mía quá khổ, quá tải</a>
@@ -31,6 +31,38 @@
                 <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Đẩy mạnh tuyên truyền tại các cơ sở giáo dục ở Khánh Hòa </a>
             </div>
         </div>
+        <div class="testimonial">
+        <div class="container">
+            <div class="section-header">
+            </div>
+            <div class="owl-carousel testimonials-carousel">
+                <div class="testimonial-item-news">
+                    <img class="img-testimonial-item-news" src="img/news-2.png" alt="Image">
+                    <a href="news-detail.html">
+                        Khởi tố "cặp tình nhân" diễn xiếc trên đèo hải vân
+                    </a>
+                </div>
+                <div class="testimonial-item-news">
+                    <img class="img-testimonial-item-news" src="img/news-3.png" alt="Image">
+                    <a href="news-detail.html">
+                        CSGT Đắk Nông bắt giữ đối tượng tàng trữ chất ma tuý
+                    </a>
+                </div>
+                <div class="testimonial-item-news">
+                    <img class="img-testimonial-item-news" src="img/news-4.png" alt="Image">
+                    <a href="news-detail.html">
+                        Xử lý vi phạm nồng độ cồn để người dân "tâm phục"
+                    </a>
+                </div>
+                <div class="testimonial-item-news">
+                    <img class="img-testimonial-item-news" src="img/news-1.png" alt="Image">
+                    <a href="<?php echo base_url ?>?page=news-detail">
+                        Sử dụng “đăng kiểm giả” có thể bị khởi tố hình sự
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
 

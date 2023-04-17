@@ -1,6 +1,6 @@
 <div>
     <div class="d-none d-md-block">
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding: 15px 0">
             <div class="row" style = "display: flex; align-items: center;">
                 <div class="col-md-8">
                     <div class="top-bar-left">
@@ -66,6 +66,7 @@
             <img class="img-home" src="img/trangchu.png" alt="Image">
         </div>
     </div>
+    
     <div class="testimonial">
         <div class="container">
             <div class="section-header">
