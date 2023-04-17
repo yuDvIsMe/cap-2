@@ -35,37 +35,24 @@
             </div>
         </div>
         <div class="testimonial">
-        <div class="container">
-            <div class="section-header">
-            </div>
-            <div class="owl-carousel testimonials-carousel">
-                <div class="testimonial-item-news">
-                    <img class="img-testimonial-item-news" src="img/news-2.png" alt="Image">
-                    <a href="news-detail.html">
-                        Khởi tố "cặp tình nhân" diễn xiếc trên đèo hải vân
-                    </a>
+            <div class="container">
+                <div class="section-header">
                 </div>
-                <div class="testimonial-item-news">
-                    <img class="img-testimonial-item-news" src="img/news-3.png" alt="Image">
-                    <a href="news-detail.html">
-                        CSGT Đắk Nông bắt giữ đối tượng tàng trữ chất ma tuý
-                    </a>
-                </div>
-                <div class="testimonial-item-news">
-                    <img class="img-testimonial-item-news" src="img/news-4.png" alt="Image">
-                    <a href="news-detail.html">
-                        Xử lý vi phạm nồng độ cồn để người dân "tâm phục"
-                    </a>
-                </div>
-                <div class="testimonial-item-news">
-                    <img class="img-testimonial-item-news" src="img/news-1.png" alt="Image">
-                    <a href="<?php echo base_url ?>?page=news-detail">
-                        Sử dụng “đăng kiểm giả” có thể bị khởi tố hình sự
-                    </a>
+                <div class="owl-carousel testimonials-carousel">
+                    <?php
+                    $qry = $conn->query("SELECT * from `news_list` order by unix_timestamp(post_date) desc ");
+                    while ($row = $qry->fetch_assoc()) :
+                    ?>
+                        <div class="testimonial-item-news">
+                            <img class="img-testimonial-item-news" src="<?php echo $row['image'] ?>" alt="Image">
+                            <a href="news-detail.html">
+                                <?php echo $row['title'] ?>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 

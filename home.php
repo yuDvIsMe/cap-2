@@ -1,7 +1,7 @@
 <div>
     <div class="d-none d-md-block">
         <div class="container-fluid">
-            <div class="row" style = "display: flex; align-items: center;">
+            <div class="row" style="display: flex; align-items: center;">
                 <div class="col-md-8">
                     <div class="top-bar-left">
                         <div class="text">
@@ -29,9 +29,7 @@
             </div>
         </div>
     </div>
-
-
-
+    
     <div class="single">
         <div style="margin-top: 40px;">
             <div class="display-flex">
@@ -70,7 +68,6 @@
             <img class="img-home" src="img/trangchu.png" alt="Image">
         </div>
     </div>
-    
     <div class="testimonial">
         <div class="container">
             <div class="section-header">
