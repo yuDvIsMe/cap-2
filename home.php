@@ -1,3 +1,4 @@
+
 <div>
     <div class="d-none d-md-block">
         <div class="container-fluid">
@@ -79,7 +80,7 @@
                 ?>
                     <div class="testimonial-item-news">
                         <img class="img-testimonial-item-news" src="<?php echo $row['image'] ?>" alt="Image">
-                        <a href="news-detail.html">
+                        <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id']?>">
                             <?php echo $row['title'] ?>
                         </a>
                     </div>
