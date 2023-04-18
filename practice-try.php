@@ -9,10 +9,10 @@
                 <a style="padding-left: 10px">></a>
             </li>
             <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=contact">Liên hệ</a>
+                <a  href="<?php echo base_url ?>?page=practice-try">Thi thử</a>
             </li>
         </ul>
-        <h1 class="title-component">Liên hệ</h1>
+        <h1 class="title-component">Thi thử về giao thông đường bộ</h1>
         <div class="row">
             <div class="col-md-6" style="border-right: rgb(160, 160, 160) 2px solid;">
                 <div class="section-header">

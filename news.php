@@ -12,6 +12,7 @@
                 <a href="<?php echo base_url ?>?page=news">Tin tức</a>
             </li>
         </ul>
+        <h1 class="title-component">Tin tức về giao thông đường bộ</h1>
         <div class="row">
             <div class="col-md-6">
                 <?php
@@ -45,7 +46,7 @@
                     ?>
                         <div class="testimonial-item-news">
                             <img class="img-testimonial-item-news" src="<?php echo $row['image'] ?>" alt="Image">
-                            <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>">
+                            <a  href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" class="title-news-detail">
                                 <?php echo $row['title'] ?>
                             </a>
                         </div>

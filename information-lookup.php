@@ -8,10 +8,10 @@
                 <a style="padding-left: 10px">></a>
             </li>
             <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=information-lookup">Tra cứu thông tin</a>
+                <a  href="<?php echo base_url ?>?page=information-lookup">Tra cứu hồ sơ vi phạm</a>
             </li>
         </ul>
-        <h1>Tra cứu hồ sơ vi phạm</h1>
+        <h1 class="title-component">Tra cứu hồ sơ vi phạm</h1>
         <div class="input-infor">
             <div class="enter-infor">
                 <div>

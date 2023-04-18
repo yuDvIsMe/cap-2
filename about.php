@@ -11,6 +11,7 @@
                 <a  href="<?php echo base_url ?>?page=about">Giới thiệu</a>
             </li>
         </ul>
+        <h1 class="title-component">Giới thiệu về Cổng dịch vụ công thành phố</h1>
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="about-img">

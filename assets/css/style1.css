@@ -239,7 +239,7 @@ a:focus {
     
     .navbar a.nav-link {
         padding: 8px 15px;
-        font-size: 14px;
+        font-size: 16px;
         letter-spacing: 1px;
         text-transform: uppercase;
     }
@@ -1223,7 +1223,7 @@ a:focus {
 .contact {
     position: relative;
     width: 100%;
-    padding: 45px 0 15px 0;
+    /* padding: 45px 0 15px 0; */
 }
 
 .contact .contact-info {
@@ -1525,13 +1525,24 @@ a:focus {
 
 /* ---------------------------------------------------- */
 
-.display-flex{
+.display-flex {
     display: flex;
+}
+
+.title-component {
+    padding-bottom: 30px;
+}
+
+.title-news-detail {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .img-home{
     object-fit: cover;
-    height: 300px;
+    height: 380px;
 }
 
 .text {

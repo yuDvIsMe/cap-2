@@ -9,10 +9,10 @@
                 <a style="padding-left: 10px">></a>
             </li>
             <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=contact">Liên hệ</a>
+                <a  href="<?php echo base_url ?>?page=traffic-laws">Luật giao thông</a>
             </li>
         </ul>
-        <h1 class="title-component">Liên hệ</h1>
+        <h1 class="title-component">Luật giao thông đường bộ</h1>
         <div class="row">
             <div class="col-md-6" style="border-right: rgb(160, 160, 160) 2px solid;">
                 <div class="section-header">
@@ -103,3 +103,11 @@
 </div>
 <!-- Contact End -->
 <?php require_once('inc/footer.php') ?>
+
+<!-- Tìm kiếm theo xe máy, xe ô tô -->
+<!-- Icon chọn lựa tìm kiếm -->
+
+<!-- Hình ảnh, tiêu đề, hành vi cụ thể, Xem chi tiết-->
+<!-- Hình ảnh, tiêu đề, nội dung cụ thể, tiền phạt, Xem chi tiết điều khoản -->
+<!-- Hình thức bổ sung( hành vi hợp nhất ): nội dung, tiền phạt, Xem chi tiết điều khoản -->
+<!-- Hành vi liên quan: Tiêu đề, tiền phạt, xem chi tiết -->
