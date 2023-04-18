@@ -45,7 +45,7 @@
                     ?>
                         <div class="testimonial-item-news">
                             <img class="img-testimonial-item-news" src="<?php echo $row['image'] ?>" alt="Image">
-                            <a href="news-detail.html">
+                            <a href="<?php echo base_url ?>?page=news-detail" class="news-content">
                                 <?php echo $row['title'] ?>
                             </a>
                         </div>

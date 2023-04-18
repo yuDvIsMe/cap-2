@@ -966,7 +966,7 @@ a:focus {
 .testimonial .owl-nav {
     position: relative;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
 }
@@ -1560,6 +1560,10 @@ a:focus {
     justify-content: flex-end;
     /* height: 35px;
     font-size: 0; */
+}
+
+.news-content{
+    -webkit-line-clamp: 3; 
 }
 
 .breadcrumb {
