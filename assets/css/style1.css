@@ -1738,6 +1738,12 @@ a:focus {
     transition: .5s;
 }
 
+.icon-img{
+    width: 70px; 
+    height: 70px; 
+    margin-right: 10px;
+}
+
 .fill-form .icon:hover {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.347);
     transition: .5s;
@@ -1763,6 +1769,26 @@ a:focus {
 
 .fill-form .icon:hover h5 {
     color: #478abd;
+}
+
+.detail-icon {
+    display: flex !important;
+    align-items: center;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 23px;
+    padding: 25px 15px;
+    transition: .5s;
+}
+
+.detail-icon:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.347);
+    transition: .5s;
+}
+
+.title-law {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 /* Login */
@@ -1925,9 +1951,22 @@ a:focus {
     }
 }
 
-/*-------------------------------------
-		4. 	Travel-box
---------------------------------------*/
+
+.come-back{
+    display: flex;
+    background-color: rgb(57 198 238);
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+}
+
+.come-back:hover {
+    color: #000;
+    background-color: rgb(0, 147, 181);
+}
 
 .vehicle-type {
     display: flex;
@@ -1947,9 +1986,6 @@ a:focus {
   .fade:not(.show) {
     opacity: 1;
 }
-  .tab-para p {
-    font-size: 24px;
-  }
   /* .desc-tabs */
   .desc-tabs {
     border: transparent;
@@ -1984,10 +2020,8 @@ a:focus {
   .desc-tabs .nav-tabs > li > a {
     color: #000;
     background: #ccc;
-    cursor: default;
     font-size: 20px;
     font-weight: 500;
-    font-family: "Poppins", sans-serif;
     text-transform: capitalize;
     padding: 17px 40px 17px 46px;
     margin-right: 10px;
