@@ -32,7 +32,9 @@
                 <a href="<?php echo base_url ?>" class="nav-item nav-link item-subnav" style="font-size: 28px;"><i class="fas fa-home"></i></a>
                 <a href="<?php echo base_url ?>?page=about" class="nav-item nav-link item-subnav">Giới thiệu</a>
                 <a href="<?php echo base_url ?>?page=news" class="nav-item nav-link item-subnav">Tin tức</a>
-                <a href="<?php echo base_url ?>?page=information-lookup" class="nav-item nav-link item-subnav">Tra cứu thông tin</a>
+                <a href="<?php echo base_url ?>?page=information-lookup" class="nav-item nav-link item-subnav">Tra cứu hồ sơ vi phạm</a>
+                <a href="<?php echo base_url ?>?page=traffic-laws" class="nav-item nav-link item-subnav">Luật giao thông</a>
+                <a href="<?php echo base_url ?>?page=practice-try" class="nav-item nav-link item-subnav">Thi thử</a>
                 <a href="<?php echo base_url ?>?page=contact" class="nav-item nav-link item-subnav">Liên hệ</a>
             </div>
         </div>

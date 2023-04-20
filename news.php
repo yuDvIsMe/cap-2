@@ -5,30 +5,53 @@
     <div class="container">
         <ul class="breadcrumb">
             <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=home">Trang chủ</a>
+                <a href="<?php echo base_url ?>?page=home">Trang chủ</a>
                 <a style="padding-left: 10px">></a>
             </li>
             <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=news">Tin tức</a>
+                <a href="<?php echo base_url ?>?page=news">Tin tức</a>
             </li>
         </ul>
+        <h1 class="title-component">Tin tức về giao thông đường bộ</h1>
         <div class="row">
             <div class="col-md-6">
-                <img src="img/news-1.png" alt="" style="width: 100%; height: 100%;">
-                <p style="font-size: 24px; color: #000;">
-                    Sử dụng “đăng kiểm giả” có thể bị khởi tố hình sự
-                </p>
+                <?php
+                $qry = $conn->query("SELECT * from `news_list` order by unix_timestamp(post_date) desc limit 1 ");
+                while ($row = $qry->fetch_assoc()) :
+                ?>
+                    <img src="<?php echo $row['image'] ?>" alt="" style="width: 100%; height: 100%;">
+                    <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" style="font-size: 24px; color: #000;">
+                        <?php echo $row['title'] ?>
+                    </a>
+                <?php endwhile; ?>
             </div>
             <div class="col-md-6" style="display: flex; height: 100%; flex-direction: column;">
-                <a href="news-detail.html" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Sử dụng “giấy đăng kiểm giả” có thể bị khởi tố hình sự </a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Sơ kết phong trào thi đua “Thanh niên CAND học tập, thực hiện 06 điều Bác Hồ dạy” </a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Đắk Nông: Tuyên truyền ATGT và trao tặng công trình "Thắp sáng học đường"</a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Đẩy mạnh công tác tuyên truyền bảo đảm TTATGT trong trường học Xử lý nghiêm xe chở mía quá khổ, quá tải</a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Thiếu tá Cảnh sát giao thông 23 lần hiến máu cứu người</a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Lái ô tô chạy quá tốc độ, chống đối CSGT bị khởi tố</a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> CSGT TP Hồ Chí Minh chặn đứng hai vụ tụ tập đua xe trái phép</a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Quyên góp ủng hộ bệnh nhân nghèo điều trị tại viện Bệnh viện Đa khoa Đức Giang</a>
-                <a href="" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> Đẩy mạnh tuyên truyền tại các cơ sở giáo dục ở Khánh Hòa </a>
+                <?php
+                $qry = $conn->query("SELECT * from `news_list` order by unix_timestamp(post_date) desc ");
+                while ($row = $qry->fetch_assoc()) :
+                ?>
+                    <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> <?php echo $row['title'] ?>
+                    </a>
+                <?php endwhile; ?>
+            </div>
+        </div>
+        <div class="testimonial">
+            <div class="container">
+                <div class="section-header">
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <?php
+                    $qry = $conn->query("SELECT * from `news_list` order by unix_timestamp(post_date) desc ");
+                    while ($row = $qry->fetch_assoc()) :
+                    ?>
+                        <div class="testimonial-item-news">
+                            <img class="img-testimonial-item-news" src="<?php echo $row['image'] ?>" alt="Image">
+                            <a  href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" class="title-news-detail">
+                                <?php echo $row['title'] ?>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
             </div>
         </div>
     </div>
