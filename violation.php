@@ -19,6 +19,12 @@ if(isset($_GET['ticket_no'])){
         }
     }
 }
+
+if (empty($ticket_no)) {
+    echo "<h1>⚠️Không tìm thấy</h1>";
+    die();
+}
+
 ?>
 <div class="container-fluid">
     <div class="w-100 d-flex justify-content-end mb-2">
