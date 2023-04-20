@@ -13,110 +13,253 @@
             </li>
         </ul>
         <h1 class="title-component">Luật giao thông đường bộ</h1>
-        <div class="row">
-            <div class="fill-form">
-                <div class="row">
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/hieulenh.png" alt="">
-                            <h5 >Hiệu lệnh, chỉ dẫn</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/chuyenduong,nhuongduong.jpg" alt="">
-                            <h5 >Chuyển hướng, nhường đường</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/dung,doxe.png" alt="">
-                            <h5>Dừng xe, đỗ xe</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/thietbi,coi.png" alt="">
-                            <h5>Thiết vị ưu tiên, còi</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/tocdo.png" alt="">
-                            <h5>Tốc độ, khoảng cách an toàn</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/vanchuyen.png" alt="">
-                            <h5>Vận chuyển người, hàng hoá</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/trangthietbi.png" alt="">
-                            <h5>Trang thiết bị phương tiện</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/cam.png" alt="">
-                            <h5>Đường cấm, đường một chiều</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/nongdocon.png" alt="">
-                            <h5>Nồng độ cồn, chất kích thích</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/giayto.png" alt="">
-                            <h5>Giấy tờ xe</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/bienbao.png" alt="">
-                            <h5>Biển báo giao thông</h5>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="col-lg-3" href="#">
-                        <div class="info-post">
-                            <div class="icon">
-                            <img src="img/luatgiaothong/khac.png" alt="">
-                            <h5>Khác</h5>
-                            </div>
-                        </div>
-                    </a>
-                    
-                </div>
-            </div>
+        
+        
+        <section  class="travel-box">
+        	<div class="container">
+        		<div class="row">
+        			<div class="col-md-12">
+        				<div class="single-travel-boxes">
+        					<div id="desc-tabs" class="desc-tabs">
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active">
+									 	<a href="#motorbike" class="vehicle-type" aria-controls="tours" role="tab" data-toggle="tab">
+									 		<i class="fa fa-motorcycle"></i>
+									 		Xe máy
+									 	</a>
+									</li>
+									<li role="presentation">
+										<a href="#car" class="vehicle-type" aria-controls="hotels" role="tab" data-toggle="tab">
+											<i class="fa fa-car"></i>
+											Ô tô
+										</a>
+									</li>
+								</ul>
+								<div class="tab-content" >
+									<div role="tabpanel" class="tab-pane active fade in" id="motorbike">
+										<div class="tab-para">
+                                            <div class="row">
+                                                <div class="fill-form">
+                                                    <div class="row">
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/hieulenh.png" alt="">
+                                                                <h5 >Hiệu lệnh, chỉ dẫn</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/chuyenduong,nhuongduong.jpg" alt="">
+                                                                <h5 >Chuyển hướng, nhường đường</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/dung,doxe.png" alt="">
+                                                                <h5>Dừng xe, đỗ xe</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/thietbi,coi.png" alt="">
+                                                                <h5>Thiết vị ưu tiên, còi</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/tocdo.png" alt="">
+                                                                <h5>Tốc độ, khoảng cách an toàn</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/vanchuyen.png" alt="">
+                                                                <h5>Vận chuyển người, hàng hoá</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/trangthietbi.png" alt="">
+                                                                <h5>Trang thiết bị phương tiện</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/cam.png" alt="">
+                                                                <h5>Đường cấm, đường một chiều</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/nongdocon.png" alt="">
+                                                                <h5>Nồng độ cồn, chất kích thích</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/giayto.png" alt="">
+                                                                <h5>Giấy tờ xe</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/bienbao.png" alt="">
+                                                                <h5>Biển báo giao thông</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/khac.png" alt="">
+                                                                <h5>Khác</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                </div>
 
-        </div>
+                                            </div>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane fade in" id="car">
+										<div class="tab-para">
+											<div class="row">
+                                                <div class="fill-form">
+                                                    <div class="row">
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/hieulenh.png" alt="">
+                                                                <h5 >Hiệu lệnh, chỉ dẫn</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/chuyenduong,nhuongduong.jpg" alt="">
+                                                                <h5 >Chuyển hướng, nhường đường</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/dung,doxeoto.png" alt="">
+                                                                <h5>Dừng xe, đỗ xe</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/thietbi,coi.png" alt="">
+                                                                <h5>Thiết vị ưu tiên, còi</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/tocdo.png" alt="">
+                                                                <h5>Tốc độ, khoảng cách an toàn</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/vanchuyenoto.png" alt="">
+                                                                <h5>Vận chuyển người, hàng hoá</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/trangthietbi.png" alt="">
+                                                                <h5>Trang thiết bị phương tiện</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/cam.png" alt="">
+                                                                <h5>Đường cấm, đường một chiều</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/nongdocon.png" alt="">
+                                                                <h5>Nồng độ cồn, chất kích thích</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/giayto.png" alt="">
+                                                                <h5>Giấy tờ xe</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/bienbao.png" alt="">
+                                                                <h5>Biển báo giao thông</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <a class="col-lg-3" href="#">
+                                                            <div class="info-post">
+                                                                <div class="icon">
+                                                                <img src="img/luatgiaothong/khac.png" alt="">
+                                                                <h5>Khác</h5>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                </div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+
+        </section>
     </div>
 
 </div>
