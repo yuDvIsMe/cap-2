@@ -14,87 +14,106 @@
         </ul>
         <h1 class="title-component">Luật giao thông đường bộ</h1>
         <div class="row">
-            <div class="col-md-6" style="border-right: rgb(160, 160, 160) 2px solid;">
-                <div class="section-header">
-                    <h4>Bạn cần hỗ trợ gì ?</h4>
-                    <p>Yêu cầu của bạn sẽ được xử lý và phản hồi trong thời gian sớm nhất.</p>
-                </div>
-                <div class="contact-form">
-                    <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                        <div class="control-group">
-                            <div>
-                                Họ tên <span style="color: red">*</span>
+            <div class="fill-form">
+                <div class="row">
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/hieulenh.png" alt="">
+                            <h5 >Hiệu lệnh, chỉ dẫn</h5>
                             </div>
-                            <input type="text" class="form-control" id="name" required="required" data-validation-required-message="Vui lòng nhập họ tên" />
-                            <p class="help-block text-danger"></p>
                         </div>
-                        <div class="control-group">
-                            <div>
-                                Email <span style="color: red">*</span>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/chuyenduong,nhuongduong.jpg" alt="">
+                            <h5 >Chuyển hướng, nhường đường</h5>
                             </div>
-                            <input type="email" class="form-control" id="email" required="required" data-validation-required-message="Vui lòng nhập email" />
-                            <p class="help-block text-danger"></p>
                         </div>
-                        <div class="control-group">
-                            <div>
-                                Nội dung <span style="color: red">*</span>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/dung,doxe.png" alt="">
+                            <h5>Dừng xe, đỗ xe</h5>
                             </div>
-                            <textarea class="form-control" id="message" required="required" data-validation-required-message="Vui lòng nhập nội dung"></textarea>
-                            <p class="help-block text-danger"></p>
                         </div>
-                        <div>
-                            <button class="btn-send-contact" type="submit" id="sendMessageButton">Gửi</button>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/thietbi,coi.png" alt="">
+                            <h5>Thiết vị ưu tiên, còi</h5>
+                            </div>
                         </div>
-                    </form>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/tocdo.png" alt="">
+                            <h5>Tốc độ, khoảng cách an toàn</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/vanchuyen.png" alt="">
+                            <h5>Vận chuyển người, hàng hoá</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/trangthietbi.png" alt="">
+                            <h5>Trang thiết bị phương tiện</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/cam.png" alt="">
+                            <h5>Đường cấm, đường một chiều</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/nongdocon.png" alt="">
+                            <h5>Nồng độ cồn, chất kích thích</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/giayto.png" alt="">
+                            <h5>Giấy tờ xe</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/bienbao.png" alt="">
+                            <h5>Biển báo giao thông</h5>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="col-lg-3" href="#">
+                        <div class="info-post">
+                            <div class="icon">
+                            <img src="img/luatgiaothong/khac.png" alt="">
+                            <h5>Khác</h5>
+                            </div>
+                        </div>
+                    </a>
+                    
                 </div>
-            </div>
-
-
-            <div class="col-md-6">
-                <div class="section-header">
-                    <h4>Liên hệ với chúng tôi</h4>
-                    <p>
-                        Đường dây nóng và thời gian làm việc của chúng tôi
-                    </p>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-envelope"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Email: </h3>
-                        <p>support@csgt.vn</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Hotline: </h3>
-                        <p>069 2342593</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Fax:</h3>
-                        <p>84 24 38220885</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Thời gian làm việc:</h3>
-                        <p>8h - 21h (Thứ 2 - Thứ 7)</p>
-                    </div>
-                </div>
-
             </div>
 
         </div>

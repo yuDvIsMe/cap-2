@@ -55,13 +55,13 @@
                                     <h2>Tra cứu hồ sơ vi phạm</h2>
                                 </div>
                             </a>
-                            <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=contact">
+                            <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=traffic-laws">
                                 <div class="fact-item">
                                     <i class="fas fa-book icon-home"></i>
                                     <h2>Luật giao thông</h2>
                                 </div>
                             </a>
-                            <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=contact">
+                            <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=practice-try">
                                 <div class="fact-item">
                                     <i class="fas fa-edit icon-home"></i>
                                     <h2>Thi thử</h2>
