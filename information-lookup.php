@@ -19,7 +19,7 @@
                 </div>
 
                 <div>
-                    <input class="form-control" style="width: 500px" placeholder="Nhập số quyết định">
+                    <input class="form-control" style="width: 500px" id="ticket_no" placeholder="Nhập số quyết định">
                     <p id="" style="color: red; margin: 0;">Vui lòng nhập số quyết định</p>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" onclick="printmsg()" >Tra cứu</button>
+            <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" id="submitButton" >Tra cứu</button>
         </div>
         <div style="margin-top: 84px; color: red;">
             <h6>
@@ -60,43 +60,11 @@
             </p>
         </div>
     </div>
-</div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">Biên bản vi phạm</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            <div class="modal-body" style="display: flex; justify-content: space-between;">
-                <div class="col-md-8" style="display: flex">
-                    <a style="color: #000; margin-right: 10px">Số quyết định: </a>
-                    <p>G012312874123-5243312</p>
-                </div>
-                <div class="col-md-4" style="display: flex">
-                    <a style="color: #000; margin-right: 10px">Ngày quyết định: </a>
-                    <p>16/02/2023</p>
-                </div>
-            </div>
-
-            <div class="modal-body"style="display: flex; justify-content: space-between;">
-                
-                <div class="col-md-8" style="display: flex">
-                    <a style="color: #000; margin-right: 10px; width: 244px;">Hành vi vi phạm: </a>
-                    <p>Điều khiển xe mô tô 2 bánh mang biển số: 92F1-19312 chuyển hướng không tín hiệu đèn giao thông</p>
-                </div>
-                <div class="col-md-4" style="display: flex">
-                    <a style="color: #000; margin-right: 10px">Số tiền phạt: </a>
-                    <p>500.000 VND</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Thanh toán</button>
+            <div class="modal-body" id="modal" style="display: flex; justify-content: space-between;">
             </div>
         </div>
     </div>
@@ -104,8 +72,16 @@
 <?php require_once('inc/footer.php') ?>
 <script>
     $(document).ready(function(){
-		$('.view_details').click(function(){
-			uni_modal("<i class='fa fa-ticket'></i><b> Thông tin cụ thể biên bản xử phạt</b>","violations/view_details.php?id="+$(this).attr('data-id'),'mid-large')
+        $ticketNo = $('#ticket_no')
+
+		$('#submitButton').click(async function(e){
+            console.log(e)
+
+            const response = await fetch(`violation.php?ticket_no=${$ticketNo.val()}`)
+
+            const html = await response.text();
+
+            $("#modal").html(html);
 		})
 	})
 </script>

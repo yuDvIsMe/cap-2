@@ -168,6 +168,8 @@ function generate() {
 }
 generate();
 function printmsg() {
+    
+
 	const usr_input = document
 		.getElementById("submit").value;
 	

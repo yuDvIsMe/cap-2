@@ -56,18 +56,24 @@ $(document).ready(function(){
 		});
 
     // 2. range js
+
+        if ($( "#slider-range" ).slider) {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 12000,
+                values: [ 2677, 9241 ],
+                slide: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+        }
         
-        $( "#slider-range" ).slider({
-            range: true,
-            min: 0,
-            max: 12000,
-            values: [ 2677, 9241 ],
-            slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-            }
-        });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-        " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
         
         
         // Quantity Buttons Shop
@@ -156,13 +162,18 @@ $(document).ready(function(){
         });
 
     // 5. datepicker
+        if ($('[data-toggle="datepicker"]').datepicker) {
+
             $('[data-toggle="datepicker"]').datepicker();
+        }
+
 
     // 6. Smooth Scroll spy
-        
-        $('.header-area').sticky({
-           topSpacing:0
-        });
+        if ($('.header-area').sticky) {
+            $('.header-area').sticky({
+                topSpacing:0
+             });
+        }
         
         //=============
 
@@ -181,18 +192,18 @@ $(document).ready(function(){
 
     // 7.animation support
 
-        $(window).load(function(){
+        // $(window).load(function(){
 
-            $(".about-us-txt h2").removeClass("animated fadeInUp").css({'opacity':'0'});
-            $(".about-us-txt button").removeClass("animated fadeInDown").css({'opacity':'0'});
-        });
+        //     $(".about-us-txt h2").removeClass("animated fadeInUp").css({'opacity':'0'});
+        //     $(".about-us-txt button").removeClass("animated fadeInDown").css({'opacity':'0'});
+        // });
 
-        $(window).load(function(){
+        // $(window).load(function(){
 
-            $(".about-us-txt h2").addClass("animated fadeInUp").css({'opacity':'0'});
-            $(".about-us-txt button").addClass("animated fadeInDown").css({'opacity':'0'});
+        //     $(".about-us-txt h2").addClass("animated fadeInUp").css({'opacity':'0'});
+        //     $(".about-us-txt button").addClass("animated fadeInDown").css({'opacity':'0'});
 
-        });
+        // });
         
 
 });	

@@ -2191,3 +2191,7 @@ a:focus {
     margin-right: 15px;
   }
   
+.whitespace-nowrap {
+    white-space: nowrap
+}
+  
