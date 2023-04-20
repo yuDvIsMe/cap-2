@@ -27,11 +27,8 @@ if (empty($ticket_no)) {
 
 ?>
 <div class="container-fluid">
-    <div class="w-100 d-flex justify-content-end mb-2">
-        <button class="btn btn-flat btn-sm btn-default bg-lightblue" type="button" id="print"><i class="fa fa-print"></i> In biên bản</button>
-        <button class="btn btn-flat btn-sm btn-default bg-black" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
-    </div>
-    <div class="border border-dark px-2 py-2" id="print_out">
+    <h2 class="text-center">Biên bản xử phạt vi phạm hành chính</h2>
+    <div class="border border-dark px-2 py-2" style="overflow: hidden;" id="print_out">
         
     <style>
         img#cimg{
@@ -74,11 +71,6 @@ if (empty($ticket_no)) {
                         </div>
                     </div>
                 </td>
-                <td width="20%" class="border-3 border-dark">
-                    <div class="w-100 d-flex align-items-center justify-content-center">
-                        <img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="<?php $_settings->info('short_name') ?>" class="img-thumnail" id="cimg">
-                    </div>
-                </td>
             </tr>
             <tr>
                 <td colspan='2'>
@@ -115,7 +107,7 @@ if (empty($ticket_no)) {
                 <tr>
                     <th><?php echo $row['code'] ?></th>
                     <th><?php echo $row['name'] ?></th>
-                    <th class='text-right'><?php echo number_format($row['fine'],2) ?></th>
+                    <th class='text-right'><?php echo number_format($row['fine']) ?></th>
                 </tr>
                 <?php endforeach; ?>
                 <?php if(count($violation_arr) <= 0): ?>
@@ -127,13 +119,15 @@ if (empty($ticket_no)) {
             <tfoot>
                 <tr>
                     <th class='text-center' colspan="2">Tổng cộng</th>
-                    <th class="text-right"><?php echo number_format($total_amount,2) ?></th>
+                    <th class="text-right"><?php echo number_format($total_amount) ?></th>
                 </tr>
             </tfoot>
         </table>
         <hr class="bg-dark border-dark">
-        <b>Nhận xét:</b>
-        <p><?php echo $remarks ?></p>
+        <div class="w-100 d-flex justify-content-end mb-2">
+        <button class="btn btn-flat btn-sm btn-default bg-lightblue" type="button" id="print">Thanh toán</button>
+        <button class="btn btn-flat btn-sm btn-default bg-black" data-dismiss="modal"><i class="fa fa-times"></i> Đóng</button>
+    </div>
     </div>
 </div>
 
