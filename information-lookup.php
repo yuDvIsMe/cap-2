@@ -73,7 +73,6 @@
 <script>
     $(document).ready(function(){
         $ticketNo = $('#ticket_no')
-
 		$('#submitButton').click(async function(e){
             console.log(e)
 

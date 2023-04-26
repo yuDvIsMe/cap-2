@@ -19,16 +19,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             </li>
             <li class="item-breadcrumb">
                 <a href="<?php echo base_url ?>?page=news">Tin tức</a>
-                <a style="padding-left: 10px">></a>
-            </li>
-            <li class="item-breadcrumb">
-                <a href="<?php echo base_url ?>?page=news-detail">Chi tiết tin tức</a>
+                <a style="padding-left: 10px"></a>
             </li>
         </ul>
-            <div class="section-header">
-                <h2><?php echo $title?></h2>
-                <p><?php echo $post_date?></p>
-            </div>
+        <div class="title-component">
+            <h1><?php echo $title?></h1>
+            <p><?php echo $post_date?></p>
+        </div>
             <div class="row">
                 <div class="col-12">
                     <h4>

@@ -13,90 +13,76 @@
         </ul>
         <h1 class="title-component">Giới thiệu về Cổng dịch vụ công thành phố</h1>
         <div class="row align-items-center">
-            <div class="col-md-6">
-                <div class="about-img">
-                    <div class="about-img-1">
-                        <img src="img/about-2.jpg" alt="Image">
-                    </div>
-                    <div class="about-img-2">
-                        <img src="img/about-1.jpg" alt="Image">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="section-header">
-                    <p>Learn About Us</p>
-                    <h2>25 Years Experience</h2>
-                </div>
-                <div class="about-text">
+                    <p>Với quan điểm công khai, minh bạch, lấy người dân, doanh nghiệp làm trung tâm phục vụ, Cổng Dịch vụ công Quốc gia kết nối, cung cấp thông tin về thủ tục hành chính và dịch vụ công trực tuyến; hỗ trợ thực hiện, giám sát, đánh giá việc giải quyết thủ tục hành chính, dịch vụ công trực tuyến và tiếp nhận, xử lý phản ánh, kiến nghị của cá nhân, tổ chức trên toàn quốc.</p>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                    Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất www.congdichvu.vn theo nhu cầu người dùng từ máy tính, máy tính bảng hoặc điện thoại di động được kết nối internet để hưởng nhiều lợi ích từ Cổng Dịch vụ công Quốc gia, như:
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
-                    </p>
-                    <a class="btn" href="">Learn More</a>
                 </div>
+                
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div style="line-height: 24px; text-align: justify">
+                    <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
+                </div>
+                <p>
+                    Đăng ký và được cấp ngay một tài khoản của Cổng dịch vụ công Quốc gia để đăng nhập;
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div style="line-height: 24px; text-align: justify">
+                    <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
+                </div>
+                <p>
+                    Tra cứu thông tin, dịch vụ công các ngành, lĩnh vực, các địa phương tại Cơ sở dữ liệu quốc gia về thủ tục hành chính; Gửi phản ánh kiến nghị liên quan đến việc giải quyết thủ tục hành chính, dịch vụ công;
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div style="line-height: 24px; text-align: justify">
+                    <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
+                </div>
+                <p>
+                    Đề nghị hỗ trợ thực hiện thủ tục hành chính, dịch vụ công qua Tổng đài điện thoại 0345678912 hoặc trực tuyến tại mục Hỗ trợ;
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div style="line-height: 24px; text-align: justify">
+                    <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
+                </div>
+                <p>
+                    Theo dõi toàn bộ quá trình giải quyết thủ tục hành chính và xử lý phản ánh kiến nghị của mình bằng cách cung cấp mã hồ sơ, kể cả mã hồ sơ thủ tục hành chính không thực hiện qua Cổng Dịch vụ công Quốc gia, Cổng Dịch vụ công của Bộ, ngành, địa phương;
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div style="line-height: 24px; text-align: justify">
+                    <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
+                </div>
+                <p>
+                    Đăng nhập bằng tài khoản Cổng dịch vụ công Quốc gia để đăng nhập các Cổng Dịch vụ công của Bộ, ngành, địa phương; không phải cập nhật các trường thông tin, tài liệu đã được lưu trữ trong tài khoản Cổng Dịch vụ công Quốc gia;
+                </p>
+            </div>
+            <div class="col-md-4">
+                <div style="line-height: 24px; text-align: justify">
+                    <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
+                </div>
+                <p>
+                    Được hỗ trợ truy vấn thông tin của cá nhân, tổ chức lưu trữ tại các Cơ sở dữ liệu, Hệ thống thông tin đã tích hợp với Cổng Dịch vụ công Quốc gia như đăng ký kinh doanh, thuế, bảo hiểm,…;
+                </p>
+            </div>
+        </div>
+
+        <div class="box-about-slogan">
+            <p style="margin: 0 160px">
+                Các Bộ, ngành, địa phương nỗ lực cùng với sự tham gia tích cực của người dân và doanh nghiệp trong vận hành Cổng Dịch vụ công Quốc gia là góp phần xây dựng Chính phủ liêm chính, hành động, phát triển, phục vụ Nhân Dân
+                Hãy truy cập www.dichvucong.gov.vn !
+            </p>
         </div>
     </div>
 </div>
 <!-- About End -->
-
-
-<!-- Feature Start -->
-<div class="feature">
-    <div class="container">
-        <div class="row align-items-end">
-            <div class="col-md-6">
-                <div class="feature-img">
-                    <img src="img/business-man.png" alt="Image">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="section-header">
-                    <p>Our Feature</p>
-                    <h2>Why Choose Us?</h2>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus
-                </p>
-                <div class="row counters">
-                    <div class="col-6">
-                        <i class="fa fa-user"></i>
-                        <div class="counters-text">
-                            <h2 data-toggle="counter-up">100</h2>
-                            <p>Our Staffs</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <i class="fa fa-users"></i>
-                        <div class="counters-text">
-                            <h2 data-toggle="counter-up">200</h2>
-                            <p>Our Clients</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <i class="fa fa-check"></i>
-                        <div class="counters-text">
-                            <h2 data-toggle="counter-up">300</h2>
-                            <p>Completed Projects</p>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <i class="fa fa-running"></i>
-                        <div class="counters-text">
-                            <h2 data-toggle="counter-up">400</h2>
-                            <p>Running Projects</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Feature End -->
-
 
 <!-- Team Start -->
 <div class="team">
