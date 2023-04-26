@@ -15,16 +15,16 @@
         <div class="input-infor">
             <div class="enter-infor">
                 <div>
-                    Số quyết định <span style="color: red">*</span>
+                    Số quyết định xử phạt <span style="color: red">*</span>
                 </div>
 
                 <div>
-                    <input class="form-control" style="width: 500px" id="ticket_no" placeholder="Nhập số quyết định">
-                    <p id="" style="color: red; margin: 0;">Vui lòng nhập số quyết định</p>
+                    <input class="form-control" style="width: 450px" id="ticket_no" placeholder="Nhập số quyết định">
+                    <p id="" style="color: red; margin: 0;">Vui lòng nhập số quyết định xử phạt</p>
                 </div>
             </div>
 
-            <div class="center">
+            <!-- <div class="center">
                 <div class="enter-infor">
                     <div >
                         Mã bảo mật <span style="color: red">*</span>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" id="submitButton" >Tra cứu</button>
         </div>
