@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 17, 2023 lúc 08:33 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Apr 26, 2023 at 03:54 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `tvms`
+-- Database: `tvms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `drivers_list`
+-- Table structure for table `drivers_list`
 --
 
 CREATE TABLE `drivers_list` (
@@ -34,10 +34,10 @@ CREATE TABLE `drivers_list` (
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 = active, 2 = suspended, 3 = banned',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `drivers_list`
+-- Dumping data for table `drivers_list`
 --
 
 INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_created`, `date_updated`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_creat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `drivers_meta`
+-- Table structure for table `drivers_meta`
 --
 
 CREATE TABLE `drivers_meta` (
@@ -54,10 +54,10 @@ CREATE TABLE `drivers_meta` (
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL,
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `drivers_meta`
+-- Dumping data for table `drivers_meta`
 --
 
 INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updated`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `news_list`
+-- Table structure for table `news_list`
 --
 
 CREATE TABLE `news_list` (
@@ -85,10 +85,10 @@ CREATE TABLE `news_list` (
   `image` text NOT NULL,
   `content` longtext NOT NULL,
   `updated_on` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `news_list`
+-- Dumping data for table `news_list`
 --
 
 INSERT INTO `news_list` (`id`, `title`, `post_date`, `image`, `content`, `updated_on`) VALUES
@@ -106,17 +106,17 @@ INSERT INTO `news_list` (`id`, `title`, `post_date`, `image`, `content`, `update
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `system_info`
+-- Table structure for table `system_info`
 --
 
 CREATE TABLE `system_info` (
   `id` int(30) NOT NULL,
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `system_info`
+-- Dumping data for table `system_info`
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
@@ -129,7 +129,7 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -143,10 +143,10 @@ CREATE TABLE `users` (
   `type` tinyint(1) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
@@ -157,7 +157,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `ava
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `violations`
+-- Table structure for table `violations`
 --
 
 CREATE TABLE `violations` (
@@ -169,20 +169,21 @@ CREATE TABLE `violations` (
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Inactive, 1=Active',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `violations`
+-- Dumping data for table `violations`
 --
 
 INSERT INTO `violations` (`id`, `code`, `name`, `description`, `fine`, `status`, `date_created`, `date_updated`) VALUES
-(1, 'OT-1001', 'Driving without License', 'This is a traffic violation for driving without License', 650, 1, '2021-08-19 09:14:43', '2021-08-19 09:17:50'),
-(2, 'TO-1002', 'Running Over Speed Limit', '&lt;p&gt;Sample Traffic violation or violation for over speed limit.&lt;/p&gt;', 1000, 1, '2021-08-19 13:54:51', NULL);
+(1, 'XM-HL-02', 'Không chấp hành hiệu lệnh của đèn tín hiệu giao thông', 'Thực hiện h&agrave;nh vi quy định tại điểm b, điểm e, điểm i khoản 3; điểm đ, điểm e, điểm g, điểm h khoản 4; khoản 5 Điều n&agrave;y bị tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 01 th&aacute;ng đến 03 th&aacute;ng;', 800000, 1, '2021-08-19 09:14:43', '2023-04-26 20:27:47'),
+(2, 'XM-HL-01', 'Không chấp hành hiệu lệnh, chỉ dẫn của biển báo, vạch kẻ đường', '&lt;p&gt;Kh&ocirc;ng chấp h&agrave;nh hiệu lệnh, chỉ dẫn của biển b&aacute;o, vạch kẻ đường, trừ c&aacute;c h&agrave;nh vi vi phạm quy định tại điểm c, điểm đ, điểm e, điểm h khoản 2; điểm d, điểm g, điểm i, điểm m khoản 3; điểm a, điểm b, điểm c, điểm d, điểm e khoản 4; khoản 4; điểm b khoản 6; điểm a, điểm b khoản 7; điểm d khoản 8 Điều n&agrave;y;&lt;/p&gt;', 100000, 1, '2021-08-19 13:54:51', '2023-04-26 20:25:45'),
+(9, 'XM-HL-03', 'Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông', '&lt;p&gt;Tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 01 th&aacute;ng đến 03 th&aacute;ng. Nếu g&acirc;y tai nạn giao th&ocirc;ng th&igrave; bị tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 02 th&aacute;ng đến 04 th&aacute;ng&lt;/p&gt;', 800000, 1, '2023-04-26 20:30:19', '2023-04-26 20:31:07');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `violation_items`
+-- Table structure for table `violation_items`
 --
 
 CREATE TABLE `violation_items` (
@@ -191,10 +192,10 @@ CREATE TABLE `violation_items` (
   `fine` float NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=paid',
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `violation_items`
+-- Dumping data for table `violation_items`
 --
 
 INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `status`, `date_created`) VALUES
@@ -204,7 +205,7 @@ INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `s
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `violation_list`
+-- Table structure for table `violation_list`
 --
 
 CREATE TABLE `violation_list` (
@@ -218,10 +219,10 @@ CREATE TABLE `violation_list` (
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=paid',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `violation_list`
+-- Dumping data for table `violation_list`
 --
 
 INSERT INTO `violation_list` (`id`, `driver_id`, `officer_name`, `officer_id`, `ticket_no`, `total_amount`, `remarks`, `status`, `date_created`, `date_updated`) VALUES
@@ -229,118 +230,118 @@ INSERT INTO `violation_list` (`id`, `driver_id`, `officer_name`, `officer_id`, `
 (7, 9, 'Nguyễn B', '3', 'G64657572', 650, 'da', 1, '2023-04-16 19:02:00', '2023-04-16 18:04:27');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `drivers_list`
+-- Indexes for table `drivers_list`
 --
 ALTER TABLE `drivers_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `drivers_meta`
+-- Indexes for table `drivers_meta`
 --
 ALTER TABLE `drivers_meta`
   ADD KEY `driver_id` (`driver_id`);
 
 --
--- Chỉ mục cho bảng `news_list`
+-- Indexes for table `news_list`
 --
 ALTER TABLE `news_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `system_info`
+-- Indexes for table `system_info`
 --
 ALTER TABLE `system_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `violations`
+-- Indexes for table `violations`
 --
 ALTER TABLE `violations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `violation_items`
+-- Indexes for table `violation_items`
 --
 ALTER TABLE `violation_items`
   ADD KEY `driver_violation_id` (`driver_violation_id`),
   ADD KEY `violation_id` (`violation_id`);
 
 --
--- Chỉ mục cho bảng `violation_list`
+-- Indexes for table `violation_list`
 --
 ALTER TABLE `violation_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `driver_id` (`driver_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `drivers_list`
+-- AUTO_INCREMENT for table `drivers_list`
 --
 ALTER TABLE `drivers_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT cho bảng `news_list`
+-- AUTO_INCREMENT for table `news_list`
 --
 ALTER TABLE `news_list`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT cho bảng `system_info`
+-- AUTO_INCREMENT for table `system_info`
 --
 ALTER TABLE `system_info`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `violations`
+-- AUTO_INCREMENT for table `violations`
 --
 ALTER TABLE `violations`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `violation_list`
+-- AUTO_INCREMENT for table `violation_list`
 --
 ALTER TABLE `violation_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `drivers_meta`
+-- Constraints for table `drivers_meta`
 --
 ALTER TABLE `drivers_meta`
   ADD CONSTRAINT `drivers_meta_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Các ràng buộc cho bảng `violation_items`
+-- Constraints for table `violation_items`
 --
 ALTER TABLE `violation_items`
   ADD CONSTRAINT `violation_items_ibfk_1` FOREIGN KEY (`driver_violation_id`) REFERENCES `violation_list` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `violation_items_ibfk_2` FOREIGN KEY (`violation_id`) REFERENCES `violations` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
--- Các ràng buộc cho bảng `violation_list`
+-- Constraints for table `violation_list`
 --
 ALTER TABLE `violation_list`
   ADD CONSTRAINT `violation_list_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
