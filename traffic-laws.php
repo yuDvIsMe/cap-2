@@ -364,7 +364,6 @@
                                             </a>
 											<div class="">
                                                 <div class="fill-form">
-                                                    <h4>Nội dung</h4>
                                                     <div class="">
                                                         <div class="col-lg-12" aria-controls="tours" role="tab" data-toggle="tab">
                                                             <div class="">
