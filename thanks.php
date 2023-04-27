@@ -39,6 +39,5 @@ if(isset($_GET['vnp_Amount'])){
         <h1>Trang cảm ơn</h1>
         
     </div>
-
 </div>
  
