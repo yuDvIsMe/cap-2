@@ -6,7 +6,6 @@
         <h1>Cảm ơn</h1>
         
     </div>
-
 </div>
 <!-- Contact End -->
 <?php require_once('inc/subnav.php') ?>

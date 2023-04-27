@@ -15,12 +15,9 @@
         <div class="input-infor">
             <div class="enter-infor">
                 <div>
-                    Số quyết định xử phạt <span style="color: red">*</span>
-                </div>
-
-                <div>
+                    <p style="margin: 0;">Số quyết định xử phạt <span style="color: red; margin: 0 !important;">*</span></p>
                     <input class="form-control" style="width: 450px" id="ticket_no" placeholder="Nhập số quyết định">
-                    <p id="" style="color: red; margin: 0;">Vui lòng nhập số quyết định xử phạt</p>
+                    <p style="color: red; margin: 0;">Vui lòng nhập số quyết định xử phạt</p>
                 </div>
             </div>
 
