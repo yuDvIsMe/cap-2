@@ -20,10 +20,12 @@ if (isset($_GET['ticket_no'])) {
     }
 }
 
+
 if (empty($ticket_no)) {
     echo "<h5>⚠️Không tìm thấy thông tin về xử phạt do không tồn tại hoặc các thông tin người dùng nhập vào chưa chính xác.</h5>";
     die();
 }
+$_SESSION['ticket_no'] = $ticket_no;
 
 ?>
 <div class="container-fluid">

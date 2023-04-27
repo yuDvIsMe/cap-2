@@ -1,11 +1,30 @@
 <?php
-
 require_once('config_vnpay.php');
+$ticket_no = $_SESSION['ticket_no'];
+if (isset($ticket_no)) {
+    $qry = $conn->query("SELECT r.*,d.license_id_no, d.name as driver from `violation_list` r inner join `drivers_list` d on r.driver_id = d.id where r.ticket_no = '{$ticket_no}' ");
+    if ($conn->error) {
+        echo $conn->error . "\n";
+        echo "SELECT r.*,d.license_id_no, d.name as driver from `violation_list` r inner join `drivers_list` on r.driver_id = d.id where r.ticket_no = '{$ticket_no}' ";
+    }
+    $qry2 = $conn->query("SELECT i.*,o.code,o.name from `violation_items` i inner join `violations` o on i.violation_id = o.id inner join `violation_list` vl on i.driver_violation_id = vl.id where vl.ticket_no = '{$ticket_no}' ");
+    if ($qry->num_rows > 0) {
+        foreach ($qry->fetch_assoc() as $k => $v) {
+            $$k = $v;
+        }
+    }
+    $violation_arr = array();
+    if ($qry2->num_rows > 0) {
+        while ($row = $qry2->fetch_assoc()) {
+            $violation_arr[] = $row;
+        }
+    }
+}
 
 $vnp_TxnRef = $ticket_no; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-$vnp_OrderInfo = 'Thanh toán vi phạm giao thông ';
+$vnp_OrderInfo = "Thanh toán vi phạm giao thông số {$ticket_no}";
 $vnp_OrderType = 'billpayment';
-$vnp_Amount = $total_amount * 100;
+$vnp_Amount = $total_amount *100;
 $vnp_Locale = 'vn';
 $vnp_BankCode = 'NCB';
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
@@ -54,13 +73,15 @@ if (isset($vnp_HashSecret)) {
     $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//  
     $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
 }
-$returnData = array('code' => '00'
-    , 'message' => 'success'
-    , 'data' => $vnp_Url);
-    if (isset($_POST['redirect'])) {
-        header('Location: ' . $vnp_Url);
-        die();
-    } else {
-        echo json_encode($returnData);
-    }
-?>
+header('Location: ' . $vnp_Url);
+die();
+// $returnData = array('code' => '00'
+//     , 'message' => 'success'
+//     , 'data' => $vnp_Url);
+//     if (isset($_POST['redirect'])) {
+//         header('Location: ' . $vnp_Url);
+//         die();
+//     } else {
+//         echo json_encode($returnData);
+//     }
+// ?>
