@@ -188,4 +188,3 @@
     </div>
 </div> -->
 <!-- Team End -->
-<?php require_once('inc/footer.php') ?>
