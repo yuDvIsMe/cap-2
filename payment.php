@@ -49,11 +49,7 @@ $inputData = array(
 if (isset($vnp_BankCode) && $vnp_BankCode != "") {
     $inputData['vnp_BankCode'] = $vnp_BankCode;
 }
-// if (isset($vnp_Bill_State) && $vnp_Bill_State != "") {
-//     $inputData['vnp_Bill_State'] = $vnp_Bill_State;
-// }
 
-//var_dump($inputData);
 ksort($inputData);
 $query = "";
 $i = 0;
@@ -74,6 +70,7 @@ if (isset($vnp_HashSecret)) {
     $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
 }
 header('Location: ' . $vnp_Url);
+
 die();
 // $returnData = array('code' => '00'
 //     , 'message' => 'success'
