@@ -33,11 +33,55 @@ if(isset($_GET['vnp_Amount'])){
 
 ?>
 
-
 <div class="contact mt-125">
     <div class="container">
-        <h1>Trang cảm ơn</h1>
-        
+        <h1 class="title-payment" style="display: flex; justify-content: center;">Đã thanh toán</h1>
+
+        <div class="row" style="margin-top: 50px">
+            <div class="col-6">
+                <div style="display: flex;">
+                    <label class="lb-payment">Số QĐXP:</label>
+                    <p>G64657572</p>
+                </div>
+                <div style="display: flex;">
+                    <label class="lb-payment">Số giấy phép lái xe:</label>
+                    <p>G64657572</p>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div style="display: flex;">
+                    <label class="lb-payment">Người điều khiển:</label>
+                    <p>G64657572</p>
+                </div>
+                <div style="display: flex;">
+                    <label class="lb-payment">Thời gian:</label>
+                    <p>G64657572</p>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div style="display: flex;">
+                    <label class="lb-payment">Mã vi phạm:</label>
+                    <p>G64657572</p>
+                </div>
+                <div style="display: flex;">
+                    <label class="lb-payment">Tên vi phạm:</label>
+                    <p>G64657572</p>
+                </div>
+                <div style="display: flex;">
+                    <label class="lb-payment">Tiền phạt:</label>
+                    <p>G64657572</p>
+                </div>
+            </div>
+
+            <div class="col-6" style="display: flex;">
+                <label class="lb-payment">Nhận xét:</label>
+                <p>G64657572</p>
+            </div>
+            
+        </div>
+        <a class="btn-login" style="display: flex; justify-content: center;">In biên bản</a>
     </div>
 </div>
  

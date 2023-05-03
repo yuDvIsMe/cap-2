@@ -101,7 +101,7 @@
         <div class="box-about-slogan">
             <p style="margin: 0 160px">
                 Các Bộ, ngành, địa phương nỗ lực cùng với sự tham gia tích cực của người dân và doanh nghiệp trong vận hành Cổng Dịch vụ công Quốc gia là góp phần xây dựng Chính phủ liêm chính, hành động, phát triển, phục vụ Nhân Dân
-                Hãy truy cập www.dichvucong.gov.vn !
+                Hãy truy cập www.congdichvu.vn !
             </p>
         </div>
     </div>
