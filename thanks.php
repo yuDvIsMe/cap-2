@@ -5,7 +5,7 @@ require_once('inc/header.php');
 require_once('inc/subnav.php');
 
 if (isset($_GET['vnp_Amount'])) {
-    $vnp_Amount = $_GET['vnp_Amount'];
+    $vnp_Amount = $_GET['vnp_Amount']/100;
     $vnp_BankCode = $_GET['vnp_BankCode'];
     $vnp_BankTranNo = $_GET['vnp_BankTranNo'];
     $vnp_CardType = $_GET['vnp_CardType'];
@@ -54,7 +54,7 @@ if ($_GET['vnp_ResponseCode'] == '00') {
                 </div>
                 <div style="display: flex;">
                     <label class="lb-payment">Số tiền phạt:</label>
-                    <p><?php echo $vnp_Amount ?></p>
+                    <p><?php echo $vnp_Amount.' VND' ?></p>
                 </div>
                 <div style="display: flex;">
                     <label class="lb-payment">Nội dung thanh toán:</label>
@@ -78,6 +78,7 @@ if ($_GET['vnp_ResponseCode'] == '00') {
             </div>
 
         </div>
-        <a class="btn-login">In biên bản</a>
+        <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" id="printButton" >In biên bản</button>
     </div>
 </div>
+

@@ -68,11 +68,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                         </div>
                     </div>
                 </td>
-                <td width="20%" class="border-3 border-dark">
-                    <div class="w-100 d-flex align-items-center justify-content-center">
-                        <img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="<?php $_settings->info('short_name') ?>" class="img-thumnail" id="cimg">
-                    </div>
-                </td>
+                
             </tr>
             <tr>
                 <td colspan='2'>
@@ -145,7 +141,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             '</div>'+
             '</div><hr/>');
             _el.append(_h)
-            _el.append('<style>html, body, .wrapper {min-height: unset !important;}#print_out{width:50% !important;}</style>')
+            _el.append('<style>html, body, .wrapper {min-height: unset !important;}#print_out{width:100% !important;}</style>')
             _el.append(_p)
             var nw = window.open("","_blank","width=1500,height=1500")
                 nw.document.write(_el.html())
