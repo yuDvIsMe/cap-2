@@ -17,7 +17,7 @@
                 <div class="section-header">
                     <p>Với quan điểm công khai, minh bạch, lấy người dân, doanh nghiệp làm trung tâm phục vụ, Cổng Dịch vụ công Quốc gia kết nối, cung cấp thông tin về thủ tục hành chính và dịch vụ công trực tuyến; hỗ trợ thực hiện, giám sát, đánh giá việc giải quyết thủ tục hành chính, dịch vụ công trực tuyến và tiếp nhận, xử lý phản ánh, kiến nghị của cá nhân, tổ chức trên toàn quốc.</p>
                     <p>
-                    Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất www.congdichvu.vn theo nhu cầu người dùng từ máy tính, máy tính bảng hoặc điện thoại di động được kết nối internet để hưởng nhiều lợi ích từ Cổng Dịch vụ công Quốc gia, như:
+                    Cá nhân, tổ chức dễ dàng truy cập Cổng Dịch vụ công Quốc gia tại địa chỉ duy nhất www.tvms.vn theo nhu cầu người dùng từ máy tính, máy tính bảng hoặc điện thoại di động được kết nối internet để hưởng nhiều lợi ích từ Cổng Dịch vụ công Quốc gia, như:
                     </p>
                 </div>
                 
@@ -101,7 +101,9 @@
         <div class="box-about-slogan">
             <p style="margin: 0 160px">
                 Các Bộ, ngành, địa phương nỗ lực cùng với sự tham gia tích cực của người dân và doanh nghiệp trong vận hành Cổng Dịch vụ công Quốc gia là góp phần xây dựng Chính phủ liêm chính, hành động, phát triển, phục vụ Nhân Dân
-                Hãy truy cập www.congdichvu.vn !
+            </p>
+            <p>
+                Hãy truy cập www.tvms.vn !
             </p>
         </div>
     </div>
