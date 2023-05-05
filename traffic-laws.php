@@ -12,7 +12,7 @@
                 <a  href="<?php echo base_url ?>?page=traffic-laws">Luật giao thông</a>
             </li>
         </ul>
-        <h1 class="title-component">Luật giao thông đường bộ</h1>
+        <h1 class="title-component">Một số vi phạm giao thông đường bộ thường gặp</h1>
         <section  class="travel-box">
         	<div class="container">
         		<div class="row">
