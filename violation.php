@@ -132,7 +132,7 @@ $_SESSION['ticket_no'] = $ticket_no;
         <div class="w-100 d-flex justify-content-end mb-2">
            <?php
            if($status==0){
-               echo "<a href='<?php echo base_url ?>?page=payment' class='btn btn-primary btn-lg active mr-2' role='button' aria-pressed='true' style='font-size: 0.9rem;'>Thanh toán trực tuyến với VNPAY</a>";
+               echo "<a href='?page=payment' class='btn btn-primary btn-lg active mr-2' role='button' aria-pressed='true' style='font-size: 0.9rem;'>Thanh toán trực tuyến với VNPAY</a>";
            }
             ?>
             <button class="btn btn-danger" data-dismiss="modal" style="font-size: 0.9rem;"><i class="fa fa-times"></i> Đóng</button>
