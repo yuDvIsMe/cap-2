@@ -2202,4 +2202,9 @@ a:focus {
 .whitespace-nowrap {
     white-space: nowrap
 }
-  
+
+.divider-gray {
+    margin: 20px 0px;
+    height: 1px;
+    background: #E9F0F8;
+}

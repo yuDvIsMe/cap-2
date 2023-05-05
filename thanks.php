@@ -82,3 +82,44 @@ if ($_GET['vnp_ResponseCode'] == '00') {
     </div>
 </div>
 
+<script>
+	$(document).ready(function(){
+        $('#filter').click(function(){
+            location.replace("./?page=reports&date_start="+($('#date_start').val())+"&date_end="+($('#date_end').val()));
+        })
+
+        $('#print').click(function(){
+            start_loader()
+            var _h = $('head').clone()
+            var _p = $('#print_out').clone();
+            var _el = $('<div>')
+            _el.append(_h)
+            _el.append('<style>html, body, .wrapper {min-height: unset !important;}</style>')
+            var rdate = "";
+            if('<?php echo $date_start ?>' == '<?php echo $date_end ?>')
+                rdate = "<?php echo date("M d, Y",strtotime($date_start)) ?>";
+            else
+                rdate = "<?php echo date("M d, Y",strtotime($date_start)) ?> - <?php echo date("M d, Y",strtotime($date_end)) ?>";
+            _p.prepend('<div class="d-flex mb-3 w-100 align-items-center justify-content-center">'+
+            '<img class="mx-4" src="<?php echo validate_image($_settings->info('logo')) ?>" width="50px" height="50px"/>'+
+            '<div class="px-2">'+
+            '<h3 class="text-center"><?php echo $_settings->info('name') ?></h3>'+
+            '<h3 class="text-center">Thống kê vi phạm</h3>'+
+            '<h4 class="text-center">'+rdate+'</h4>'+
+            '</div>'+
+            '</div><hr/>');
+            _el.append(_p)
+            var nw = window.open("","_blank","width=1200,height=1200")
+                nw.document.write(_el.html())
+                nw.document.close()
+                setTimeout(() => {
+                    nw.print()
+                    setTimeout(() => {
+                        nw.close()
+                        end_loader()
+                    }, 300);
+                }, 500);
+        })
+	})
+	
+</script>
