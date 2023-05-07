@@ -1,5 +1,50 @@
 <?php
 require_once('../config.php');
+
+function sendMail($mail_address, $ticket, $with_json = true)
+{
+    require "../PHPMailer/src/PHPMailer.php";
+    require "../PHPMailer/src/SMTP.php";
+    require '../PHPMailer/src/Exception.php';
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true); //true:enables exceptions
+    try {
+        $mail->SMTPDebug = 0; //0,1,2: chế độ debug
+        $mail->isSMTP();
+        $mail->CharSet  = "utf-8";
+        $mail->Host = 'smtp.gmail.com';  //SMTP servers
+        $mail->SMTPAuth = true; // Enable authentication
+        $mail->Username = 'tvms.contact.dn@gmail.com'; // SMTP username
+        $mail->Password = 'rixdltzhkcwdxujf';   // SMTP password
+        $mail->SMTPSecure = 'ssl';  // encryption TLS/SSL 
+        $mail->Port = 465;  // port to connect to                
+        $mail->setFrom('tvms.contact.dn@gmail.com', 'Cổng dịch vụ TVMS');
+        $mail->addAddress($mail_address);
+        $mail->isHTML(true);  // Set email format to HTML
+        $mail->Subject = 'Thông báo quyết định xử phạt hành chính';
+        $noidungthu = " Chào Ông/Bà,
+		<p>Ông/Bà đã có quyết định xử phạt vi phạm hành chính về an toàn giao thông số <b>{$ticket}</b>. </p>
+		<p>Bạn có thể tra cứu và nộp phạt trực tuyến qua Cổng dịch vụ công TVMS tại <a href='localhost/cap-2/?page=information-lookup'>đây</a>. </p>
+		<p>Trân Trọng!</p>
+		<p>Cổng dịch vụ công TVMS from International School, DTU </p>";
+        $mail->Body = $noidungthu;
+        $mail->smtpConnect(array(
+            "ssl" => array(
+                "verify_peer" => false,
+                "verify_peer_name" => false,
+                "allow_self_signed" => true
+            )
+        ));
+        $mail->send();
+        if ($with_json) {
+            echo json_encode(array('status' => 'success', 'message' => 'Email đã được gửi thành công!'));
+        }
+    } catch (Exception $e) {
+        if ($with_json) {
+            echo json_encode(array('status' => 'error', 'message' => $mail->ErrorInfo));
+        }
+    }
+}
+
 class Master extends DBConnection
 {
 	private $settings;
@@ -276,8 +321,10 @@ class Master extends DBConnection
 		$save2 = $this->conn->query("INSERT INTO `violation_items` (`driver_violation_id`,`violation_id`,`fine`,`status`,`date_created`) VALUES {$data}");
 		$this->capture_err();
 		if ($save && $save2) {
-			if (empty($id))
+			if (empty($id)) {
 				$this->settings->set_flashdata('success', " Tạo biển bản thành công");
+				sendMail($_POST['driver_email'], $_POST['ticket_no'], false);
+			}
 			else
 				$this->settings->set_flashdata('success', " Cập nhật biên bản thành công");
 			$resp['status'] = 'success';

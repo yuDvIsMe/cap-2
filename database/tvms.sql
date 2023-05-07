@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 27, 2023 lúc 08:35 AM
+-- Thời gian đã tạo: Th5 07, 2023 lúc 06:28 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -41,7 +41,8 @@ CREATE TABLE `drivers_list` (
 --
 
 INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_created`, `date_updated`) VALUES
-(9, '09877776666333', 'Nguyễn Văn Alpha', 1, '2023-03-27 11:01:52', '2023-03-27 11:14:07');
+(9, '09877776666333', 'Nguyễn Văn Alpha', 1, '2023-03-27 11:01:52', '2023-03-27 11:14:07'),
+(12, '1111233454', 'Nguyễn Văn Long', 1, '2023-05-03 20:16:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,16 @@ INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updat
 (9, 'license_type', 'A1', '2023-03-28 13:30:14'),
 (9, 'image_path', 'uploads/drivers/9.jpg', '2023-03-28 13:30:14'),
 (9, 'driver_id', '9', '2023-03-28 13:30:14'),
-(9, 'image_path', 'uploads/drivers/9.jpg', '2023-03-28 13:30:14');
+(9, 'image_path', 'uploads/drivers/9.jpg', '2023-03-28 13:30:14'),
+(12, 'license_id_no', '1111233454', '2023-05-03 20:16:00'),
+(12, 'name', 'Nguyễn Văn Long', '2023-05-03 20:16:00'),
+(12, 'dob', '2001-03-12', '2023-05-03 20:16:00'),
+(12, 'permanent_address', 'Quảng Ngãi', '2023-05-03 20:16:00'),
+(12, 'nationality', 'VietNam', '2023-05-03 20:16:00'),
+(12, 'contact', '0123999888', '2023-05-03 20:16:00'),
+(12, 'license_type', 'A1', '2023-05-03 20:16:00'),
+(12, 'image_path', '', '2023-05-03 20:16:00'),
+(12, 'driver_id', '12', '2023-05-03 20:16:00');
 
 -- --------------------------------------------------------
 
@@ -129,6 +139,25 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `traffic_law`
+--
+
+CREATE TABLE `traffic_law` (
+  `id` int(30) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1:Bike, 2:Car'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `traffic_law`
+--
+
+INSERT INTO `traffic_law` (`id`, `name`, `type`) VALUES
+(1, 'Hiệu lệnh, chỉ dẫn', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `users`
 --
 
@@ -152,7 +181,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
 (1, 'Adminstrator', 'Duy', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1624240500_avatar.png', NULL, 1, '2021-01-20 14:02:37', '2023-03-28 15:21:10'),
 (9, 'John', 'Duy', 'vinhduy', 'a65db601733aa50c3e7b51c9424b732f', 'uploads/1681449300_avatar.jpg', NULL, 1, '2021-08-19 09:24:25', '2023-04-14 12:20:09'),
-(16, 'Duy', 'taoladuy', 'taoladuy', '4213f655007ce3ef535043ab09f2ee06', 'uploads/1681449480_wallpaper.png', NULL, 1, '2023-03-29 09:20:11', '2023-04-14 12:18:14');
+(16, 'Duy', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1681449480_wallpaper.png', NULL, 1, '2023-03-29 09:20:11', '2023-05-04 21:06:31');
 
 -- --------------------------------------------------------
 
@@ -165,6 +194,7 @@ CREATE TABLE `violations` (
   `code` varchar(50) NOT NULL,
   `name` text NOT NULL,
   `description` text NOT NULL,
+  `law_id` int(30) NOT NULL,
   `fine` float NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Inactive, 1=Active',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
@@ -175,10 +205,10 @@ CREATE TABLE `violations` (
 -- Đang đổ dữ liệu cho bảng `violations`
 --
 
-INSERT INTO `violations` (`id`, `code`, `name`, `description`, `fine`, `status`, `date_created`, `date_updated`) VALUES
-(1, 'XM-HL-02', 'Không chấp hành hiệu lệnh của đèn tín hiệu giao thông', 'Thực hiện h&agrave;nh vi quy định tại điểm b, điểm e, điểm i khoản 3; điểm đ, điểm e, điểm g, điểm h khoản 4; khoản 5 Điều n&agrave;y bị tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 01 th&aacute;ng đến 03 th&aacute;ng;', 800000, 1, '2021-08-19 09:14:43', '2023-04-26 20:27:47'),
-(2, 'XM-HL-01', 'Không chấp hành hiệu lệnh, chỉ dẫn của biển báo, vạch kẻ đường', '&lt;p&gt;Kh&ocirc;ng chấp h&agrave;nh hiệu lệnh, chỉ dẫn của biển b&aacute;o, vạch kẻ đường, trừ c&aacute;c h&agrave;nh vi vi phạm quy định tại điểm c, điểm đ, điểm e, điểm h khoản 2; điểm d, điểm g, điểm i, điểm m khoản 3; điểm a, điểm b, điểm c, điểm d, điểm e khoản 4; khoản 4; điểm b khoản 6; điểm a, điểm b khoản 7; điểm d khoản 8 Điều n&agrave;y;&lt;/p&gt;', 100000, 1, '2021-08-19 13:54:51', '2023-04-26 20:25:45'),
-(9, 'XM-HL-03', 'Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông', '&lt;p&gt;Tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 01 th&aacute;ng đến 03 th&aacute;ng. Nếu g&acirc;y tai nạn giao th&ocirc;ng th&igrave; bị tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 02 th&aacute;ng đến 04 th&aacute;ng&lt;/p&gt;', 800000, 1, '2023-04-26 20:30:19', '2023-04-26 20:31:07');
+INSERT INTO `violations` (`id`, `code`, `name`, `description`, `law_id`, `fine`, `status`, `date_created`, `date_updated`) VALUES
+(1, 'XM-HL-02', 'Không chấp hành hiệu lệnh của đèn tín hiệu giao thông', 'Thực hiện h&agrave;nh vi quy định tại điểm b, điểm e, điểm i khoản 3; điểm đ, điểm e, điểm g, điểm h khoản 4; khoản 5 Điều n&agrave;y bị tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 01 th&aacute;ng đến 03 th&aacute;ng;', 1, 800000, 1, '2021-08-19 09:14:43', '2023-05-07 16:39:22'),
+(2, 'XM-HL-01', 'Không chấp hành hiệu lệnh, chỉ dẫn của biển báo, vạch kẻ đường', '&lt;p&gt;Kh&ocirc;ng chấp h&agrave;nh hiệu lệnh, chỉ dẫn của biển b&aacute;o, vạch kẻ đường, trừ c&aacute;c h&agrave;nh vi vi phạm quy định tại điểm c, điểm đ, điểm e, điểm h khoản 2; điểm d, điểm g, điểm i, điểm m khoản 3; điểm a, điểm b, điểm c, điểm d, điểm e khoản 4; khoản 4; điểm b khoản 6; điểm a, điểm b khoản 7; điểm d khoản 8 Điều n&agrave;y;&lt;/p&gt;', 1, 100000, 1, '2021-08-19 13:54:51', '2023-05-07 16:39:28'),
+(9, 'XM-HL-03', 'Không chấp hành hiệu lệnh, hướng dẫn của người điều khiển giao thông hoặc người kiểm soát giao thông', '&lt;p&gt;Tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 01 th&aacute;ng đến 03 th&aacute;ng. Nếu g&acirc;y tai nạn giao th&ocirc;ng th&igrave; bị tước quyền sử dụng Giấy ph&eacute;p l&aacute;i xe từ 02 th&aacute;ng đến 04 th&aacute;ng&lt;/p&gt;', 1, 800000, 1, '2023-04-26 20:30:19', '2023-05-07 16:39:31');
 
 -- --------------------------------------------------------
 
@@ -199,11 +229,16 @@ CREATE TABLE `violation_items` (
 --
 
 INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `status`, `date_created`) VALUES
-(4, 1, 650, 0, '2023-03-27 12:03:00'),
-(8, 1, 800000, 0, '2023-04-27 10:16:00'),
-(7, 2, 100000, 0, '2023-04-16 19:02:00'),
-(9, 9, 800000, 0, '2023-04-27 13:54:00'),
-(9, 1, 800000, 0, '2023-04-27 13:54:00');
+(9, 1, 800000, 1, '2023-04-27 13:54:00'),
+(9, 9, 800000, 1, '2023-04-27 13:54:00'),
+(8, 1, 800000, 1, '2023-04-27 10:16:00'),
+(7, 2, 100000, 1, '2023-04-16 19:02:00'),
+(43, 1, 800000, 0, '2023-05-08 00:07:00'),
+(44, 1, 800000, 0, '2023-05-08 00:18:00'),
+(45, 1, 800000, 0, '2023-05-08 00:20:00'),
+(46, 1, 800000, 0, '2023-05-08 00:22:00'),
+(47, 1, 800000, 0, '2023-05-08 00:23:00'),
+(48, 1, 800000, 0, '2023-05-08 00:24:00');
 
 -- --------------------------------------------------------
 
@@ -214,6 +249,7 @@ INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `s
 CREATE TABLE `violation_list` (
   `id` int(30) NOT NULL,
   `driver_id` int(30) NOT NULL,
+  `driver_email` varchar(100) NOT NULL,
   `officer_name` text NOT NULL,
   `officer_id` text NOT NULL,
   `ticket_no` text NOT NULL,
@@ -228,11 +264,16 @@ CREATE TABLE `violation_list` (
 -- Đang đổ dữ liệu cho bảng `violation_list`
 --
 
-INSERT INTO `violation_list` (`id`, `driver_id`, `officer_name`, `officer_id`, `ticket_no`, `total_amount`, `remarks`, `status`, `date_created`, `date_updated`) VALUES
-(4, 9, 'Nguyễn Vĩnh Duy', '0101', '11123322', 650000, '', 0, '2023-03-27 12:03:00', '2023-04-27 12:50:44'),
-(7, 9, 'Nguyễn B', '3', 'G64657572', 100000, 'da', 0, '2023-04-16 19:02:00', '2023-04-27 09:17:42'),
-(8, 9, 'Nguyễn Aanh', '1', 'G59955035', 800000, '', 0, '2023-04-27 10:16:00', NULL),
-(9, 9, 'Nguyễn B', '1', 'G34616500', 1600000, '', 0, '2023-04-27 13:54:00', NULL);
+INSERT INTO `violation_list` (`id`, `driver_id`, `driver_email`, `officer_name`, `officer_id`, `ticket_no`, `total_amount`, `remarks`, `status`, `date_created`, `date_updated`) VALUES
+(7, 9, '', 'Nguyễn B', '3', 'G64657572', 100000, 'da', 1, '2023-04-16 19:02:00', '2023-04-28 11:15:07'),
+(8, 9, '', 'Nguyễn Aanh', '1', 'G59955035', 800000, '', 1, '2023-04-27 10:16:00', '2023-04-28 11:14:58'),
+(9, 9, '', 'Nguyễn B', '1', 'G34616500', 1600000, '', 1, '2023-04-27 13:54:00', '2023-04-28 11:14:49'),
+(43, 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 'G12629153', 800000, '', 0, '2023-05-08 00:07:00', NULL),
+(44, 12, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 'G62528189', 800000, '', 0, '2023-05-08 00:18:00', NULL),
+(45, 9, 'vinhduy2201@gmail.com', 'Nguyễn Aanh', '1', 'G64000799', 800000, '', 0, '2023-05-08 00:20:00', NULL),
+(46, 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 'G77821245', 800000, '', 0, '2023-05-08 00:22:00', NULL),
+(47, 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 'G39183777', 800000, '', 0, '2023-05-08 00:23:00', NULL),
+(48, 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 'G91999541', 800000, '', 1, '2023-05-08 00:24:00', '2023-05-07 23:26:41');
 
 -- --------------------------------------------------------
 
@@ -250,15 +291,26 @@ CREATE TABLE `vnpay_payment` (
   `vnp_PayDate` varchar(50) NOT NULL,
   `vnp_TmnCode` varchar(50) NOT NULL,
   `vnp_TransactionNo` varchar(50) NOT NULL,
-  `ticket_no` varchar(50) NOT NULL
+  `ticket_no` varchar(50) NOT NULL,
+  `vnp_ResponseCode` varchar(10) NOT NULL,
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `vnpay_payment`
 --
 
-INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_BankTranNo`, `vnp_CardType`, `vnp_OrderInfo`, `vnp_PayDate`, `vnp_TmnCode`, `vnp_TransactionNo`, `ticket_no`) VALUES
-(1, '160000000', 'NCB', 'VNP14000674', 'ATM', 'Thanh toán vi phạm giao thông số G34616500', '20230427125516', 'U5PWUDF3', '14000674', 'G34616500');
+INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_BankTranNo`, `vnp_CardType`, `vnp_OrderInfo`, `vnp_PayDate`, `vnp_TmnCode`, `vnp_TransactionNo`, `ticket_no`, `vnp_ResponseCode`, `date_created`) VALUES
+(1, '160000000', 'NCB', 'VNP14000674', 'ATM', 'Thanh toán vi phạm giao thông số G34616500', '20230427125516', 'U5PWUDF3', '14000674', 'G34616500', '', '2023-05-04 21:11:04'),
+(2, '80000000', 'NCB', 'VNP14001521', 'ATM', 'Thanh toán vi phạm giao thông số G03024847', '20230428112512', 'U5PWUDF3', '14001521', 'G03024847', '', '2023-05-04 21:11:04'),
+(4, '65000000', 'NCB', 'VNP14001563', 'ATM', 'Thanh toán vi phạm giao thông số 11123322', '20230428120217', 'U5PWUDF3', '14001563', '11123322', '', '2023-05-04 21:11:04'),
+(6, '80000000', 'NCB', 'VNP14001567', 'ATM', 'Thanh toán vi phạm giao thông số G74145825', '20230428121404', 'U5PWUDF3', '14001567', 'G74145825', '00', '2023-05-04 21:11:04'),
+(7, '80000000', 'NCB', 'VNP14001571', 'ATM', 'Thanh toán vi phạm giao thông số G43696490', '20230428121842', 'U5PWUDF3', '14001571', 'G43696490', '00', '2023-05-04 21:11:04'),
+(8, '80000000', 'NCB', 'VNP14001573', 'ATM', 'Thanh toán vi phạm giao thông số G49480876', '20230428122312', 'U5PWUDF3', '14001573', 'G49480876', '00', '2023-05-04 21:11:04'),
+(9, '90000000', 'NCB', 'VNP14003328', 'ATM', 'Thanh toán vi phạm giao thông số G47498476', '20230503201711', 'U5PWUDF3', '14003328', 'G47498476', '00', '2023-05-04 21:11:04'),
+(18, '80000000', 'NCB', 'VNP14004376', 'ATM', 'Thanh toán vi phạm giao thông số G98355292', '20230504215003', 'U5PWUDF3', '14004376', 'G98355292', '00', '2023-05-04 21:50:08'),
+(20, '800000', 'NCB', 'VNP14004381', 'ATM', 'Thanh toán vi phạm giao thông số G02872234', '20230504215340', 'U5PWUDF3', '14004381', 'G02872234', '00', '2023-05-04 21:54:21'),
+(24, '800000', 'NCB', 'VNP14006245', 'ATM', 'Thanh toán vi phạm giao thông số G91999541', '20230507232637', 'U5PWUDF3', '14006245', 'G91999541', '00', '2023-05-07 23:26:41');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -289,6 +341,12 @@ ALTER TABLE `system_info`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `traffic_law`
+--
+ALTER TABLE `traffic_law`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -298,7 +356,8 @@ ALTER TABLE `users`
 -- Chỉ mục cho bảng `violations`
 --
 ALTER TABLE `violations`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `law_id` (`law_id`);
 
 --
 -- Chỉ mục cho bảng `violation_items`
@@ -328,7 +387,7 @@ ALTER TABLE `vnpay_payment`
 -- AUTO_INCREMENT cho bảng `drivers_list`
 --
 ALTER TABLE `drivers_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `news_list`
@@ -341,6 +400,12 @@ ALTER TABLE `news_list`
 --
 ALTER TABLE `system_info`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT cho bảng `traffic_law`
+--
+ALTER TABLE `traffic_law`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -358,13 +423,13 @@ ALTER TABLE `violations`
 -- AUTO_INCREMENT cho bảng `violation_list`
 --
 ALTER TABLE `violation_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT cho bảng `vnpay_payment`
 --
 ALTER TABLE `vnpay_payment`
-  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -375,6 +440,12 @@ ALTER TABLE `vnpay_payment`
 --
 ALTER TABLE `drivers_meta`
   ADD CONSTRAINT `drivers_meta_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Các ràng buộc cho bảng `violations`
+--
+ALTER TABLE `violations`
+  ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`law_id`) REFERENCES `traffic_law` (`id`);
 
 --
 -- Các ràng buộc cho bảng `violation_items`
