@@ -38,7 +38,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
             <h1 class="title-payment">Thanh toán thành công</h1>
 
             <div class="row" style="margin-top: 30px">
-                <div class="col-6">
+                <div class="col-12">
                     <div style="display: flex;">
                         <label class="lb-payment">Mã giao dịch:</label>
                         <p><?php echo $vnp_BankTranNo ?></p>
@@ -76,9 +76,55 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
         </div>
     </div>
 <?php } else { ?>
-    <div class="thanks mt-125">
+    <div class="contact mt-125">
         <div class="container">
-            <h1 class="title-payment">Thanh toán thất bại</h1>
+            <div class="fail-bg">
+                <div class="align-items-center div-fail">
+                    <div>
+                        <img class="payment-fail" src="img/thatbai-1.png" alt="">
+                        <h4 class="title-payment">Thanh toán thất bại</h4>
+                    </div>
+                    <div class="row" style="margin-top: 30px">
+                        <div class="col-12">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="lb-payment">Mã giao dịch:</label>
+                                <p><?php echo $vnp_BankTranNo ?></p>
+                            </div>
+                            <div class="divider-gray"></div>
+
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="lb-payment">Số QĐXP:</label>
+                                <p><?php echo $ticket_no ?></p>
+                            </div>
+                            <div class="divider-gray"></div>
+
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="lb-payment">Số tiền phạt:</label>
+                                <p><?php echo $vnp_Amount . ' VND' ?></p>
+                            </div>
+                            <div class="divider-gray"></div>
+                            
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="lb-payment">Nội dung thanh toán:</label>
+                                <p><?php echo $vnp_OrderInfo ?></p>
+                            </div>
+                            <div class="divider-gray"></div>
+
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="lb-payment">Trạng thái:</label>
+                                <p><?php
+                                    if ($_GET['vnp_ResponseCode'] == '00') {
+                                        echo "<span style='color:blue'>GD Thành công</span>";
+                                    } else {
+                                        echo "<span style='color:red'>GD Không thành công</span>";
+                                    }
+                                    ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn-login" href="<?php echo base_url ?>?page=information-lookup">Thanh toán lại</a>
+                </div>
+            </div>
         </div>
     </div>
 <?php } ?>

@@ -1552,6 +1552,31 @@ a:focus {
 
 /* ---- */
 
+.title-payment{
+    color: red;
+    box-shadow: 0 3px red;
+}
+
+.div-fail{
+    display: flex; 
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.fail-bg {
+    border: transparent;
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-fail{
+    border: transparent;
+    box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.1);
+    width: 145px;
+    border-radius: 50%;
+    height: 145px;
+    margin-bottom: 20px;
+}
+
 .lb-payment {
     margin-right: 10px;
     color: #000;
@@ -2244,7 +2269,7 @@ a:focus {
 }
 
 .divider-gray {
-    margin: 20px 0px;
+    margin: 0px 0px 12px 0;
     height: 1px;
     background: #E9F0F8;
 }
