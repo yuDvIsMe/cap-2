@@ -1552,12 +1552,17 @@ a:focus {
 
 /* ---- */
 
-.title-payment{
+.title-payment-success{
+    color: green;
+    box-shadow: 0 3px green;
+}
+
+.title-payment-fail{
     color: red;
     box-shadow: 0 3px red;
 }
 
-.div-fail{
+.div-payment{
     display: flex; 
     flex-direction: column;
     padding: 20px 0;
@@ -1568,7 +1573,7 @@ a:focus {
     box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.1);
 }
 
-.payment-fail{
+.payment-img{
     border: transparent;
     box-shadow: 0 10px 20px 10px rgba(0, 0, 0, 0.1);
     width: 145px;
