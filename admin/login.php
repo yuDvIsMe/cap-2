@@ -4,7 +4,7 @@
  <?php require_once('inc/header.php') ?>
  <style>
    body{
-     background-image: url('<?php echo validate_image($_settings->info('cover')) ?>');
+    
      background-size:cover;
      background-repeat:no-repeat;
    }
@@ -13,14 +13,14 @@
   <script>
     start_loader()
   </script>
-  <h2 class="text-center pb-4 mb-4 text-light"><?php echo $_settings->info('name') ?> - Admin Login</h2>
+  <h2 class="text-center pb-4 mb-4 text-light"><?php echo $_settings->info('name') ?> - Admin Đăng nhập</h2>
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-primary">
     <div class="card-body">
       <form id="login-frm" action="" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="username" placeholder="Username">
+          <input type="text" class="form-control" name="username" placeholder="Tài khoản">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -37,11 +37,11 @@
         </div>
         <div class="row justify-content-between">
           <div class="col">
-            <a href="<?php echo base_url ?>">Go to Portal</a>
+            <a href="<?php echo base_url ?>">Trang chủ</a>
           </div>
           <!-- /.col -->
           <div class="col text-right">
-            <button type="submit" class="btn btn-primary btn-flat btn-sm">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-flat btn-sm">Đăng nhập</button>
           </div>
           <!-- /.col -->
         </div>

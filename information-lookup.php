@@ -45,10 +45,9 @@
 
             <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" id="submitButton" >Tra cứu</button>
         </div>
-        <div class="divider-gray"></div>
-        <div class="divider-gray"></div>
+        <div style="margin-top: 36px; border-bottom: rgb(160, 160, 160) 2px solid;"></div>
         
-        <div style="margin-top: 84px; color: red;">
+        <div style="margin-top: 60px; color: red;">
             <h6>
                 Tra cứu, nộp phạt quyết định xử phạt vi phạm hành chính trong lĩnh vực giao thông đường bộ:
             </h6>
@@ -59,7 +58,6 @@
                 2. Thuộc thẩm quyền của thanh tra giao thông đường bộ.
             </p>
         </div>
-        <div class="divider-gray"></div>
     </div>
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

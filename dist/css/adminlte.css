@@ -22403,7 +22403,6 @@ a.disabled.mailbox-attachment-close {
 .register-page {
     -ms-flex-align: center;
     align-items: center;
-    background-color: #e9ecef;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -22411,6 +22410,7 @@ a.disabled.mailbox-attachment-close {
     height: 100vh;
     -ms-flex-pack: center;
     justify-content: center;
+    background-color: #ccc;
 }
 
 .login-box,
