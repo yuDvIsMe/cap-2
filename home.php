@@ -15,18 +15,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="top-bar-right">
-                        <div class="social-login">
-                            <a class="btn-login" href="<?php echo base_url . 'admin' ?>">
-                                Đăng nhập
-                            </a>
-                            <a class="btn-login" href="<?php echo base_url ?>?page=sign-up">
-                                Đăng ký
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
