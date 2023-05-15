@@ -85,6 +85,15 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                             </div>
                         </div>
                     </div>
+                    <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" id="print_btn">In biên bản</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" id="modal" style="display: flex; justify-content: space-between;">
                 </div>
             </div>
         </div>
@@ -117,7 +126,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                                 <p><?php echo $vnp_Amount . ' VND' ?></p>
                             </div>
                             <div class="divider-gray"></div>
-                            
+
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Nội dung thanh toán:</label>
                                 <p><?php echo $vnp_OrderInfo ?></p>
@@ -142,3 +151,20 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
         </div>
     </div>
 <?php } ?>
+
+
+
+<script>
+    $(document).ready(function() {
+        $ticket = '<?php echo $ticket_no; ?>';
+        $('#print_btn').click(async function(e) {
+            console.log(e)
+
+            const response1 = await fetch(`view-detail.php?ticket_no= ${$ticket}`)
+
+            const html1 = await response1.text();
+
+            $("#modal").html(html1);
+        })
+    })
+</script>

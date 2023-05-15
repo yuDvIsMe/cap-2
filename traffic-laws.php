@@ -41,102 +41,19 @@
                                             <div class="row">
                                                 <div class="fill-form">
                                                     <div class="row">
+                                                    <?php
+                $qry = $conn->query("SELECT * from `traffic_law` where type = 1");
+                while ($row = $qry->fetch_assoc()) :
+                ?>
                                                         <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
                                                             <div class="info-post">
                                                                 <div class="icon">
-                                                                    <img src="img/luatgiaothong/hieulenh.png" alt="">
-                                                                    <h5 >Hiệu lệnh, chỉ dẫn</h5>
+                                                                    <img src="img/luatgiaothong/<?php echo $row['image']?>" alt="">
+                                                                    <h5 ><?php echo $row['law_name']?></h5>
                                                                 </div>
                                                             </div>
                                                         </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/chuyenduong,nhuongduong.jpg" alt="">
-                                                                    <h5 >Chuyển hướng, nhường đường</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/dung,doxe.png" alt="">
-                                                                    <h5>Dừng xe, đỗ xe máy</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/thietbi,coi.png" alt="">
-                                                                    <h5>Thiết vị ưu tiên, còi</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/tocdo.png" alt="">
-                                                                    <h5>Tốc độ, khoảng cách an toàn</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/vanchuyen.png" alt="">
-                                                                    <h5>Vận chuyển người, hàng hoá bằng xe máy</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/trangthietbi.png" alt="">
-                                                                    <h5>Trang thiết bị phương tiện</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/cam.png" alt="">
-                                                                    <h5>Đường cấm, đường một chiều</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/nongdocon.png" alt="">
-                                                                    <h5>Nồng độ cồn, chất kích thích</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/giayto.png" alt="">
-                                                                    <h5>Giấy tờ xe</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/bienbao.png" alt="">
-                                                                    <h5>Biển báo giao thông</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-motorbike" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/khac.png" alt="">
-                                                                    <h5>Khác</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
+                                                        <?php endwhile; ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,103 +66,19 @@
 											<div class="row">
                                                 <div class="fill-form">
                                                     <div class="row">
+                                                    <?php
+                $qry = $conn->query("SELECT * from `traffic_law` where type = 2");
+                while ($row = $qry->fetch_assoc()) :
+                ?>
                                                         <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
                                                             <div class="info-post">
                                                                 <div class="icon">
-                                                                    <img src="img/luatgiaothong/hieulenh.png" alt="">
-                                                                    <h5 >Hiệu lệnh, chỉ dẫn</h5>
+                                                                    <img src="img/luatgiaothong/<?php echo $row['image']?>" alt="">
+                                                                    <h5 ><?php echo $row['name']?></h5>
                                                                 </div>
                                                             </div>
                                                         </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/chuyenduong,nhuongduong.jpg" alt="">
-                                                                    <h5 >Chuyển hướng, nhường đường</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/dung,doxeoto.png" alt="">
-                                                                    <h5>Dừng xe, đỗ xe ô tô</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/thietbi,coi.png" alt="">
-                                                                    <h5>Thiết vị ưu tiên, còi</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/tocdo.png" alt="">
-                                                                    <h5>Tốc độ, khoảng cách an toàn</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/vanchuyenoto.png" alt="">
-                                                                    <h5>Vận chuyển người, hàng hoá bằng xe ô tô</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/trangthietbi.png" alt="">
-                                                                    <h5>Trang thiết bị phương tiện</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/cam.png" alt="">
-                                                                    <h5>Đường cấm, đường một chiều</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/nongdocon.png" alt="">
-                                                                    <h5>Nồng độ cồn, chất kích thích</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/giayto.png" alt="">
-                                                                    <h5>Giấy tờ xe</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/bienbao.png" alt="">
-                                                                    <h5>Biển báo giao thông</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a class="col-lg-3" href="#detail-car" aria-controls="tours" role="tab" data-toggle="tab">
-                                                            <div class="info-post">
-                                                                <div class="icon">
-                                                                    <img src="img/luatgiaothong/khac.png" alt="">
-                                                                    <h5>Khác</h5>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        
+                                                        <?php endwhile; ?>
                                                     </div>
                                                 </div>
 											</div>
