@@ -1512,45 +1512,25 @@ a:focus {
 
 /* ---------------------------------------------------- */
 
-
-/*======================
-    404 page
-=======================*/
-
-
-.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+.btn-return{
+    display: flex;
+    height: 40px;
+    width: 130px;
+    margin: 0 15px;
+    border-radius: 8px;
+    border: #3c8dbc 2px solid;
+    color: #3c8dbc;
+    background-color: #fff;
+    transition: .3s;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-.page_404  img{ width:100%;}
-
-.four_zero_four_bg{
- 
- background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
-    height: 400px;
-    background-position: center;
- }
- 
- 
- .four_zero_four_bg h1{
- font-size:80px;
- }
- 
-.four_zero_four_bg h3{
-    font-size:80px;
+.btn-return:hover{
+    color:#fff;
+    background-color: #3c8dbc;
 }
-            
-.link_404{			 
-    color: #fff!important;
-    padding: 10px 20px;
-    background: #39ac31;
-    margin: 20px 0;
-    display: inline-block;
-}
-.contant_box_404{ 
-    margin-top:-50px;
-}
-
-/* ---- */
 
 .title-payment-success{
     color: green;

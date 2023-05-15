@@ -29,7 +29,7 @@
                     <img style="margin-bottom: 20px;" src="https://dichvucong.gov.vn/p/home/theme/img/gioithieu/login.svg" alt="">
                 </div>
                 <p>
-                    Đăng ký và được cấp ngay một tài khoản của Cổng dịch vụ công Quốc gia để đăng nhập;
+                    Thực hiện thủ tục hành chính tại nhiều tỉnh, thành phố chỉ cần khai báo 1 lần trên Cổng Dịch vụ công Quốc gia;
                 </p>
             </div>
             <div class="col-md-4">

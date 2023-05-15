@@ -136,7 +136,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                             </div>
                         </div>
                     </div>
-                    <a class="btn-login" href="<?php echo base_url ?>?page=information-lookup">Thanh toán lại</a>
+                    <a class="btn-return" href="<?php echo base_url ?>?page=information-lookup">Thanh toán lại</a>
                 </div>
             </div>
         </div>
