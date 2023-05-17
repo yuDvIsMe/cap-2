@@ -1,4 +1,5 @@
 <?php
+require_once('./inc/header.php');
 require_once('./config.php');
 if (isset($_GET['ticket_no'])) {
     $qry = $conn->query("SELECT r.*,d.license_id_no, d.name as driver from `violation_list` r inner join `drivers_list` d on r.driver_id = d.id where r.ticket_no = '{$_GET['ticket_no']}' ");
@@ -16,6 +17,12 @@ if (isset($_GET['ticket_no'])) {
     if ($qry2->num_rows > 0) {
         while ($row = $qry2->fetch_assoc()) {
             $violation_arr[] = $row;
+        }
+    }
+    $qry3 = $conn->query("SELECT v.*,p.* from `violation_list` v join `vnpay_payment` p on v.ticket_no = p.ticket_no where v.ticket_no = '{$_GET['ticket_no']}' ");
+    if ($qry3->num_rows > 0) {
+        foreach ($qry3->fetch_assoc() as $k => $v) {
+            $$k = $v;
         }
     }
 }
@@ -51,20 +58,20 @@ if (isset($_GET['ticket_no'])) {
                             <div class="row justify-content-between  w-max-100">
                                 <div class="col-6 d-flex w-max-100">
                                     <label class="float-left w-auto whitespace-nowrap">Số QĐXP: </label>
-                                    <p class="col-md-auto border-bottom px-2 border-dark w-100"><b><?php echo $ticket_no ?></b></p>
+                                    <p class="col-md-auto"><b><?php echo $ticket_no ?></b></p>
                                 </div>
                                 <div class="col-6 d-flex w-max-100">
                                     <label class="float-left w-auto whitespace-nowrap">Thời gian: </label>
-                                    <p class="col-md-auto border-bottom px-2 border-dark w-100"><b><?php echo date("M d, Y h:i A", strtotime($date_created)) ?></b></p>
+                                    <p class="col-md-auto"><b><?php echo date("M d, Y h:i A", strtotime($date_created)) ?></b></p>
                                 </div>
                             </div>
                             <div class="d-flex w-max-100">
                                 <label class="float-left w-auto whitespace-nowrap">Số giấy phép lái xe:</label>
-                                <p class="col-md-auto border-bottom border-dark w-100"><b><?php echo $license_id_no ?></b></p>
+                                <p class="col-md-auto"><b><?php echo $license_id_no ?></b></p>
                             </div>
                             <div class="d-flex w-max-100">
                                 <label class="float-left w-auto whitespace-nowrap">Người điều khiển:</label>
-                                <p class="col-md-auto border-bottom border-dark w-100"><b><?php echo $driver ?></b></p>
+                                <p class="col-md-auto"><b><?php echo $driver ?></b></p>
                             </div>
                         </div>
                     </div>
@@ -74,16 +81,24 @@ if (isset($_GET['ticket_no'])) {
                 <td colspan='2'>
                     <div class="d-flex w-max-100">
                         <label class="float-left w-auto whitespace-nowrap">ID người lập:</label>
-                        <p class="col-md-auto border-bottom border-dark w-100"><b><?php echo $officer_id ?></b></p>
+                        <p class="col-md-auto"><b><?php echo $officer_id ?></b></p>
                     </div>
                     <div class="d-flex w-max-100">
                         <label class="float-left w-auto whitespace-nowrap">Tên người lập:</label>
-                        <p class="col-md-auto border-bottom border-dark w-100"><b><?php echo $officer_name ?></b></p>
+                        <p class="col-md-auto"><b><?php echo $officer_name ?></b></p>
                     </div>
                     <hr>
                     <div class="d-flex w-max-100">
                         <label class="float-left w-auto whitespace-nowrap">Trạng thái:</label>
-                        <p class=" border-bottom border-dark px-4"><b><?php echo ($status == 1) ? "Đã thanh toán" : "Chưa thanh toán" ?></b></p>
+                        <p class="col-md-auto"><b><?php echo ($status == 1) ? "Đã thanh toán" : "Chưa thanh toán" ?></b></p>
+                    </div>
+                    <div class="d-flex w-max-100">
+                        <label class="float-left w-auto whitespace-nowrap">Số biên lai:</label>
+                        <p class="col-md-auto"><b><?php echo $vnp_BankTranNo ?></b></p>
+                    </div>
+                    <div class="d-flex w-max-100">
+                        <label class="float-left w-auto whitespace-nowrap">Thời gian thanh toán:</label>
+                        <p class="col-md-auto"><b><?php echo date("M d, Y h:i A", strtotime($date_pay)) ?></b></p>
                     </div>
                 </td>
             </tr>
@@ -122,13 +137,60 @@ if (isset($_GET['ticket_no'])) {
             </tfoot>
         </table>
         <hr class="bg-dark border-dark">
-        <div class="w-100 d-flex justify-content-end mb-2">
-           <?php
-           if($status==0){
-               echo "<a href='?page=payment' class='btn btn-primary btn-lg active mr-2' role='button' aria-pressed='true' style='font-size: 0.9rem;'>Thanh toán trực tuyến với VNPAY</a>";
-           }
-            ?>
-            <button class="btn btn-danger" data-dismiss="modal" style="font-size: 0.9rem;"><i class="fa fa-times"></i> Đóng</button>
+        <div class="card-body">
+            <div class="container-fluid">
+                <table class="table table-hover table-stripped">
+                    <colgroup>
+                        <col width="40%">
+                        <col width="60%">
+                    </colgroup>
+                    <thead>
+                        <tr class="text-center">
+                            <th>NGƯỜI NỘP TIỀN</th>
+                            <th class="text-danger">CÔNG TY CP DV DI ĐỘNG TRỰC TUYẾN VNPAY</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <th class="text-danger"></br><em>&lt;Nộp tiền điện tử&gt;</em></th>
+                            <th class="text-danger">Ký bởi: <small>CÔNG TY CP DV DI ĐỘNG TRỰC TUYẾN VNPAY</small></br><em>&lt;Ký ngày: <?php echo date("M d, Y", strtotime($date_pay)) ?> &gt;</em></p></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+    <div class="w-100 d-flex justify-content-end mb-2 mt-2">
+        <button class="btn btn-info" type="button" id="print" style="margin-right: 8px;"><i class="fa fa-print"></i> In biên bản</button>
+        <button class="btn btn-danger" data-dismiss="modal" style="font-size: 0.9rem;"><i class="fa fa-times"></i> Đóng</button>
+    </div>
 </div>
+
+<script>
+    $(function(){
+        $('#print').click(function(){
+            start_loader()
+            var _h = $('head').clone()
+            var _p = $('#print_out').clone();
+            var _el = $('<div>')
+            _p.prepend('<div class="d-flex mb-3 w-100 align-items-center justify-content-center">'+
+            '<div class="px-2">'+
+            '<h5 class="text-center"><?php echo $_settings->info('name') ?></h5>'+
+            '<h5 class="text-center">Biên bản vi phạm giao thông</h5>'+
+            '</div>');
+            _el.append(_h)
+            _el.append('<style>html, body, .wrapper {min-height: unset !important;}#print_out{width:100% !important;}</style>')
+            _el.append(_p)
+            var nw = window.open("","_blank","width=1500,height=1500")
+                nw.document.write(_el.html())
+                nw.document.close()
+                setTimeout(() => {
+                    nw.print()
+                    setTimeout(() => {
+                        nw.close()
+                        end_loader()
+                    }, 300);
+                }, 500);
+        })
+    })
+</script>

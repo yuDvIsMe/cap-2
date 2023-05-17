@@ -124,7 +124,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
 
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Số tiền phạt:</label>
-                                <p><?php echo $vnp_Amount . ' VND' ?></p>
+                                <p><?php echo $number_format($vnp_Amount) . ' VND' ?></p>
                             </div>
                             <div class="divider-gray"></div>
 
@@ -161,7 +161,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
 		$('#print_btn').click(async function(e){
             console.log($ticketNo)
 
-            const response = await fetch(`violation.php?ticket_no=${$ticketNo.val()}`)
+            const response = await fetch(`view-detail.php?ticket_no=${$ticketNo.val()}`)
 
             const html = await response.text();
 
