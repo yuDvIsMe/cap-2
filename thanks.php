@@ -41,6 +41,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                         <img src="img/thanhcong.png" style="height: 145px;">
                         <h4 class="title-payment-success">Thanh toán thành công</h4>
                     </div>
+                    <input type="hidden" id="ticket_no" value="<?php echo $ticket_no ?>"></input>
                     <div class="row" style="margin-top: 30px">
                         <div class="col-12">
                             <div style="display: flex; justify-content: space-between;">
@@ -155,16 +156,16 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
 
 
 <script>
-    $(document).ready(function() {
-        $ticket = '<?php echo $ticket_no; ?>';
-        $('#print_btn').click(async function(e) {
-            console.log(e)
+    $(document).ready(function(){
+        $ticketNo = $('#ticket_no')
+		$('#print_btn').click(async function(e){
+            console.log($ticketNo)
 
-            const response1 = await fetch(`view-detail.php?ticket_no= ${$ticket}`)
+            const response = await fetch(`violation.php?ticket_no=${$ticketNo.val()}`)
 
-            const html1 = await response1.text();
+            const html = await response.text();
 
-            $("#modal").html(html1);
-        })
-    })
+            $("#modal").html(html);
+		})
+	})
 </script>
