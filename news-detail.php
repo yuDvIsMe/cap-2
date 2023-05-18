@@ -29,7 +29,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             <div class="row">
                 <div class="col-12">
                     <h4>
-                        Trong thời gian gần đây, lực lượng CSGT toàn quốc liên tiếp phát hiện ô tô sử dụng tem kiểm định, Giấy đăng kiểm giả lưu thông trên đường. Đây là hành vi rất nguy hiểm, tiềm ẩn nguy cơ tai nạn giao thông và vi phạm pháp luật.
+                        <?php echo $sub_title?>
                     </h4>
                     <!-- <div style="text-align: center">
                         <img class="img-news" style="width: 75%;" src="img/news-1.png" alt="Image">
