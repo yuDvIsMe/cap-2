@@ -100,6 +100,18 @@
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
+                                    <?php endwhile; ?>
+                                    
+                                    <!-- Noi dung tung luat -->
+                                    <div role="tabpanel" class="tab-pane fade in" id="detail-content-motorbike">
+                                        <div class="tab-para">
+                                            <a href="#detail-motorbike" class="come-back" aria-controls="tours" role="tab" data-toggle="tab">
+                                                Quay lại
+                                            </a>
+                                            <div class="">
+                                                <div class="fill-form">
+=======
 
                                         <?php
                                         $violation_detail = $conn->query("SELECT * FROM `violations` where `law_id` = {$row['id']}");
@@ -111,6 +123,7 @@
                                                     <a href="#moto-detail-<?php echo $row['id'] ?>" class="come-back" aria-controls="tours" role="tab" data-toggle="tab">
                                                         Quay lại
                                                     </a>
+>>>>>>> 9216df68a0e40028836922f9db72cc380331fff6
                                                     <div class="">
                                                         <div class="fill-form">
                                                             <div class="">

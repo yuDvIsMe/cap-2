@@ -24,7 +24,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         </ul>
         <div class="title-component">
             <h1><?php echo $title?></h1>
-            <p><?php echo $post_date?></p>
+            <p>Ngày đăng: <?php echo $post_date?></p>
         </div>
             <div class="row">
                 <div class="col-12">
