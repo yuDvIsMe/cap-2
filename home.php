@@ -71,7 +71,11 @@
     </div>
     <div class="testimonial">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" style="display: flex;
+    justify-content: center;
+    margin-top: 40px;
+">
+                <h2>Tin tức nổi bật</h2>
             </div>
             <div class="owl-carousel testimonials-carousel">
                 <?php
