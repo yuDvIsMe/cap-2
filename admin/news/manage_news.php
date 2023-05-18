@@ -22,6 +22,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     <input type="text" class="form-control form-control-sm" name="title" id="title" value="<?php echo isset($title) ? $title : ''; ?>">
                 </div>
                 <div class="form-group">
+                    <label for="sub_title" class="control-label">Lời mở đầu</label>
+                    <textarea name="sub_title" id="" cols="30" rows="2" class="form-control form no-resize summernote"><?php echo isset($sub_title) ? $sub_title : ''; ?></textarea>
+                </div>
+                <div class="form-group">
                     <label for="" class="control-label">Ảnh bìa</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input rounded-circle" id="customFile" name="image" onchange="displayImg(this,$(this))">
