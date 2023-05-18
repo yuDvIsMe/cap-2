@@ -23,6 +23,19 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 				<label for="name" class="control-label">Tên vi phạm</label>
 				<input name="name" id="name" type="text" class="form-control form" value="<?php echo isset($name) ? $name : ''; ?>" />
 			</div>
+			<div class="form-group col-6">
+				<label for="rate" class="control-label">Mức phạt</label>
+				<input type="text" oninput="calculateFine(),validate()" min=0 id="min_fine" name="min_fine" maxlength="15" size="15" value="<?php echo isset($min_fine) ? $min_fine : ''; ?>">
+				-
+				<input type="text" oninput="calculateFine(),validate()" min=0 id="max_fine" name="max_fine" maxlength="15" size="15" value="<?php echo isset($max_fine) ? $max_fine : ''; ?>">
+			</div>
+			<div class="form-group col-6">
+				<p id="action-text" class="text-danger"></p>
+			</div>
+			<div class="form-group col-6">
+				<label for="fine" class="control-label">Tiền phạt</label>
+				<input name="fine" id="fine" maxlength="20" type="text" class="form-control form" readonly value="<?php echo isset($fine) ? $fine : ''; ?>" />
+			</div>
 			<div class="form-group col-4">
 				<label for="law_id" class="control-label">Nhóm lỗi</label>
 				<select name="law_id" id="law_id" class="custom-select selevt">
@@ -38,10 +51,6 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 			<div class="form-group">
 				<label for="description" class="control-label">Mô tả</label>
 				<textarea name="description" id="" cols="30" rows="2" class="form-control form no-resize summernote"><?php echo isset($description) ? $description : ''; ?></textarea>
-			</div>
-			<div class="form-group col-4">
-				<label for="fine" class="control-label">Tiền phạt</label>
-				<input name="fine" id="fine" type="number" step="any" class="form-control form text-right" value="<?php echo isset($fine) ? $fine : ''; ?>" />
 			</div>
 			<div class="form-group col-4">
 				<label for="status" class="control-label">Trạng thái</label>
@@ -112,4 +121,26 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 			]
 		})
 	})
+
+	function calculateFine() {
+		// Lấy giá trị từ các ô max_fine và min_fine
+		var maxFine = parseFloat(document.getElementById('max_fine').value) || 0;
+		var minFine = parseFloat(document.getElementById('min_fine').value) || 0;
+
+		// Tính toán giá trị trung bình và gán vào ô fine
+		var fine = (maxFine + minFine) / 2;
+		document.getElementById('fine').value = fine;
+	}
+
+	function validate() {
+		var min_fine = document.getElementById('min_fine').value;
+		var max_fine = document.getElementById('max_fine').value;
+
+		if (min_fine !== '' && max_fine !== '') {
+			if (parseInt(min_fine) >= parseInt(max_fine)) {
+				document.getElementById('action-text').innerHTML = 'Số trước không được nhỏ hơn số sau';
+			} else
+				document.getElementById('action-text').innerHTML = '';
+		}
+	}
 </script>

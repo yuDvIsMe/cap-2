@@ -138,7 +138,7 @@ function generateRandomString()
                                             <input type="hidden" name="fine[]" value="<?php echo $row['fine'] ?>">
                                         </td>
                                         <td><?php echo $row['name'] ?></td>
-                                        <td class="fine text-right"><?php echo number_format($row['fine'], 2) ?></td>
+                                        <td class="fine text-right"><?php echo number_format($row['fine']) ?></td>
                                         <td>
                                             <button class="btn  btn-sm btn-default text-danger" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button>
                                         </td>

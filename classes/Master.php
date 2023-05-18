@@ -83,7 +83,7 @@ class Master extends DBConnection
 		}
 		if (isset($_POST['description'])) {
 			if (!empty($data)) $data .= ",";
-			$data .= " `description`='" . addslashes(htmlentities($description)) . "' ";
+			$data .= " `description`='" . addslashes($description) . "' ";
 		}
 		$check = $this->conn->query("SELECT * FROM `violations` where `code` = '{$code}' " . (!empty($id) ? " and id != {$id} " : "") . " ")->num_rows;
 		if ($this->capture_err())
