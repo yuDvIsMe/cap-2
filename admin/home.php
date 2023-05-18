@@ -24,10 +24,10 @@
       <span class="info-box-icon bg-light elevation-1"><i class="fas fa-money-bill"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">Số biên bản được thanh toán hôm nay</span>
+        <span class="info-box-text">Biên bản thanh toán hôm nay</span>
         <span class="info-box-number text-right">
           <?php
-          $violation = $conn->query("SELECT * FROM `vnpay_payment` where date(date_created) = '" . date('Y-m-d') . "' ")->num_rows;
+          $violation = $conn->query("SELECT * FROM `vnpay_payment` where date(date_pay) = '" . date('Y-m-d') . "' ")->num_rows;
           echo number_format($violation);
           ?>
           <?php ?>
@@ -81,7 +81,7 @@
       <span class="info-box-icon bg-green elevation-1"><i class="fas fa-check"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">Số biên bản vi phạm đã thanh toán</span>
+        <span class="info-box-text">Biên bản đã thanh toán</span>
         <span class="info-box-number text-right">
           <?php
           $records = $conn->query("SELECT id FROM `violation_list` where `status`=1")->num_rows;
@@ -99,7 +99,7 @@
       <span class="info-box-icon bg-red elevation-1"><i class="fas fa-window-close"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text">Số biên bản vi phạm chưa thanh toán</span>
+        <span class="info-box-text">Biên bản chưa thanh toán</span>
         <span class="info-box-number text-right">
           <?php
           $records = $conn->query("SELECT id FROM `violation_list` where `status`= 0")->num_rows;
