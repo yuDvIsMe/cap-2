@@ -26,7 +26,73 @@ if ($_GET['vnp_ResponseCode'] == '00') {
     if (!$update_qry) {
         echo $conn->error;
     }
+    $qry = $conn->query("SELECT * from `violation_list` where ticket_no = '{$ticket_no}' ");
+    if ($qry->num_rows > 0) {
+        foreach ($qry->fetch_assoc() as $k => $v) {
+            $$k = $v;
+        }
+    }
+    sendMail($driver_email, $ticket_no, $vnp_BankTranNo, $vnp_Amount, $vnp_OrderInfo, $vnp_PayDate);
 }
+
+function sendMail($mail_address, $ticket, $BankTranNo, $amount, $Order, $date)
+{
+    require "./PHPMailer/src/PHPMailer.php";
+    require "./PHPMailer/src/SMTP.php";
+    require './PHPMailer/src/Exception.php';
+    $mail = new PHPMailer\PHPMailer\PHPMailer(true); //true:enables exceptions
+    try {
+        $mail->SMTPDebug = 0; //0,1,2: chế độ debug
+        $mail->isSMTP();
+        $mail->CharSet  = "utf-8";
+        $mail->Host = 'smtp.gmail.com';  //SMTP servers
+        $mail->SMTPAuth = true; // Enable authentication
+        $mail->Username = 'tvms.contact.dn@gmail.com'; // SMTP username
+        $mail->Password = 'rixdltzhkcwdxujf';   // SMTP password
+        $mail->SMTPSecure = 'ssl';  // encryption TLS/SSL 
+        $mail->Port = 465;  // port to connect to                
+        $mail->setFrom('tvms.contact.dn@gmail.com', 'Cổng dịch vụ TVMS');
+        $mail->addAddress($mail_address);
+        $mail->isHTML(true);  // Set email format to HTML
+        $mail->Subject = 'Hoàn tất thanh toán vi phạm hành chính về giao thông';
+        $noidungthu = " Chào bạn,
+		<p>Bạn đã hoàn tất việc thanh toán vi phạm hành chính về an toàn giao thông số <b>{$ticket}</b>. </p>
+		<p>Dưới đây là nội dung chi tiết thanh toán vi phạm của bạn</p>
+		<div class='table-responsive'>
+                <div class='form-group'>
+                    <label >Mã giao dịch: $BankTranNo</label>
+                </div>    
+                <div class='form-group'>
+
+                    <label >Số tiền: $amount VNĐ</label>
+                </div>  
+                <div class='form-group'>
+                    <label >Nội dung thanh toán: $Order</label>
+                </div> 
+                <div class='form-group'>
+                    <label >Số quyết định xử phạt: $ticket</label>
+                </div> 
+                <div class='form-group'>
+                    <label >Thời gian thanh toán: $date</label>
+                </div> 
+            </div>
+            
+        <p>Vui lòng in biên lai của biên bản xử phạt tại trang xử lý thanh toán hoặc cung cấp email này tại cơ quan để có thể hoàn tất thủ tục.</p>
+        <p>Trân trọng!</p>";
+        $mail->Body = $noidungthu;
+        $mail->smtpConnect(array(
+            "ssl" => array(
+                "verify_peer" => false,
+                "verify_peer_name" => false,
+                "allow_self_signed" => true
+            )
+        ));
+        $mail->send();
+    } catch (Exception $e) {
+        echo 'Error: ', $mail->ErrorInfo;
+    }
+}
+
 
 
 
@@ -156,9 +222,9 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
 
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $ticketNo = $('#ticket_no')
-		$('#print_btn').click(async function(e){
+        $('#print_btn').click(async function(e) {
             console.log($ticketNo)
 
             const response = await fetch(`view-detail.php?ticket_no=${$ticketNo.val()}`)
@@ -166,6 +232,6 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
             const html = await response.text();
 
             $("#modal").html(html);
-		})
-	})
+        })
+    })
 </script>
