@@ -77,7 +77,7 @@ function sendMail($mail_address, $ticket, $BankTranNo, $amount, $Order, $date)
                 </div> 
             </div>
             
-        <p>Vui lòng in biên lai của biên bản xử phạt tại trang xử lý thanh toán hoặc cung cấp email này tại cơ quan để có thể hoàn tất thủ tục.</p>
+        <p>Vui lòng cung cấp biên lai của biên bản xử phạt tại trang xử lý thanh toán hoặc email này tại cơ quan để có thể hoàn tất thủ tục.</p>
         <p>Trân trọng!</p>";
         $mail->Body = $noidungthu;
         $mail->smtpConnect(array(

@@ -20,29 +20,6 @@
                     <p style="color: red; margin: 0;">Vui lòng nhập số quyết định xử phạt</p>
                 </div>
             </div>
-
-            <!-- <div class="center">
-                <div class="enter-infor">
-                    <div >
-                        Mã bảo mật <span style="color: red">*</span>
-                    </div>
-
-                    <div style="display: flex">
-                        <div>
-                            <input class="form-control" type="text" id="submit" style="width: 260px" placeholder="Mã bảo mật"/>
-                            <p id="key" style="color: red; margin: 0;">Vui lòng nhập mã bảo mật</p>
-                        </div>
-
-                        <div class="code">
-                            <div class="imagess" id="image" selectable="False"></div>
-                            <div class="inline"  onclick="generate()" >
-                                <i class="fas fa-sync"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
             <button class="btn-submit" data-toggle="modal" data-target=".bd-example-modal-lg" id="submitButton" >Tra cứu</button>
         </div>
         <div style="margin-top: 36px; border-bottom: rgb(160, 160, 160) 2px solid;"></div>
