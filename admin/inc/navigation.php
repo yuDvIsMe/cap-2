@@ -74,6 +74,7 @@
                         </p>
                       </a>
                     </li>
+                    <?php endif ?>
                    
                     <li class="nav-header">News</li>
                     <li class="nav-item dropdown">
@@ -86,14 +87,13 @@
                     </li>
                     <li class="nav-header">Quiz</li>
                     <li class="nav-item dropdown">
-                      <a href="#" class="nav-link nav-system_info">
+                      <a href="<?php echo base_url ?>admin/?page=quiz" class="nav-link nav-system_info">
                         <i class="nav-icon fas fa-question"></i>
                         <p>
                           Quản lý câu hỏi
                         </p>
                       </a>
                     </li>
-                    <?php endif ?>
                   </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

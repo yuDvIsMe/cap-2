@@ -1,103 +1,63 @@
 <?php require_once('inc/header.php') ?>
 <?php require_once('inc/subnav.php') ?>
 <!-- Contact Start -->
-<div class="contact mt-125">
+<div class="single mt-125">
     <div class="container">
-        <ul class="breadcrumb">
-            <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>">Trang chủ</a>
-                <a style="padding-left: 10px">></a>
-            </li>
-            <li class="item-breadcrumb">
-                <a  href="<?php echo base_url ?>?page=practice-try">Thi thử</a>
-            </li>
-        </ul>
-        <h1 class="title-component">Thi thử về giao thông đường bộ</h1>
-        <div class="row">
-            <div class="col-md-6" style="border-right: rgb(160, 160, 160) 2px solid;">
-                <div class="section-header">
-                    <h4>Bạn cần hỗ trợ gì ?</h4>
-                    <p>Yêu cầu của bạn sẽ được xử lý và phản hồi trong thời gian sớm nhất.</p>
-                </div>
-                <div class="contact-form">
-                    <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                        <div class="control-group">
-                            <div>
-                                Họ tên <span style="color: red">*</span>
-                            </div>
-                            <input type="text" class="form-control" id="name" required="required" data-validation-required-message="Vui lòng nhập họ tên" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <div>
-                                Email <span style="color: red">*</span>
-                            </div>
-                            <input type="email" class="form-control" id="email" required="required" data-validation-required-message="Vui lòng nhập email" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <div>
-                                Nội dung <span style="color: red">*</span>
-                            </div>
-                            <textarea class="form-control" id="message" required="required" data-validation-required-message="Vui lòng nhập nội dung"></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div>
-                            <button class="btn-send-contact" type="submit" id="sendMessageButton">Gửi</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="content">
+            <h1 class="text-center mb-5">Luyện tập câu hỏi trắc nghiệm</h1>
+            <?php $questionNumber = 1;
+            $sql = $conn->query("SELECT DISTINCT * FROM question ORDER BY RAND() LIMIT 20");
+            $result = $sql->num_rows;
 
-
-            <div class="col-md-6">
-                <div class="section-header">
-                    <h4>Liên hệ với chúng tôi</h4>
-                    <p>
-                        Đường dây nóng và thời gian làm việc của chúng tôi
-                    </p>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-envelope"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Email: </h3>
-                        <p>support@csgt.vn</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Hotline: </h3>
-                        <p>069 2342593</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Fax:</h3>
-                        <p>84 24 38220885</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Thời gian làm việc:</h3>
-                        <p>8h - 21h (Thứ 2 - Thứ 7)</p>
-                    </div>
-                </div>
-
-            </div>
-
+            // Kiểm tra số lượng câu hỏi
+            if ($result > 0) {
+                // Hiển thị câu hỏi và đáp án
+                while ($row = $sql->fetch_assoc()) {
+                    echo "<div class='card mb-4'>";
+                    echo "<div class='card-body'>";
+                    echo "<h5 class='card-title'>" . $questionNumber . ". " . $row["content"] . "</h5>";
+                    echo "<div class='form-check'>";
+                    echo "<input class='form-check-input' type='radio' name='answer[" . $row["id"] . "]' id='answer-" . $row["id"] . "-a' value='a' onclick='checkAnswer(" . $row["id"] . ", \"a\", " . $row["correct_option"] . ")'>";
+                    echo "<label class='form-check-label' for='answer-" . $row["id"] . "-a'>" . $row["option_A"] . "</label>";
+                    echo "</div>";
+                    echo "<div class='form-check'>";
+                    echo "<input class='form-check-input' type='radio' name='answer[" . $row["id"] . "]' id='answer-" . $row["id"] . "-b' value='b' onclick='checkAnswer(" . $row["id"] . ", \"b\", " . $row["correct_option"] . ")'>";
+                    echo "<label class='form-check-label' for='answer-" . $row["id"] . "-b'>" . $row["option_B"] . "</label>";
+                    echo "</div>";
+                    echo "<div class='form-check'>";
+                    echo "<input class='form-check-input' type='radio' name='answer[" . $row["id"] . "]' id='answer-" . $row["id"] . "-c' value='c' onclick='checkAnswer(" . $row["id"] . ", \"c\", " . $row["correct_option"] . ")'>";
+                    echo "<label class='form-check-label' for='answer-" . $row["id"] . "-c'>" . $row["option_C"] . "</label>";
+                    echo "</div>";
+                    echo "<div class='form-check'>";
+                    echo "<input class='form-check-input' type='radio' name='answer[" . $row["id"] . "]' id='answer-" . $row["id"] . "-d' value='d' onclick='checkAnswer(" . $row["id"] . ", \"d\", " . $row["correct_option"] . ")'>";
+                    echo "<label class='form-check-label' for='answer-" . $row["id"] . "-d'>" . $row["option_D"] . "</label>";
+                    echo "</div>";
+                    echo "</div>";
+                    echo "</div>";
+                    $questionNumber++;
+                }
+            }
+            ?>
         </div>
     </div>
-
 </div>
+<script>
+    var a = "a";
+    var b = "b";
+    var c = "c";
+    var d = "d";
+    function checkAnswer(questionId, selectedOption, correctOption) {
+        // Xóa lớp màu nền của đáp án đã chọn trước đó 
+        $('input[name="answer[' + questionId + ']"]').parent().removeClass('text-success text-danger');
+        // Kiểm tra đáp án đã chọn có đúngkhông 
+        if (selectedOption === correctOption) {
+            // Nếu đáp án đúng, áp dụng lớp màu nền xanh 
+            $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').parent().addClass('text-success');
+        } else {
+            // Nếu đáp án sai, áp dụng lớp màu nền đỏ 
+            $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').parent().addClass('text-danger');
+            // Đánh dấu đáp án đúng bằng lớp màu nền xanh 
+            $('input[name="answer[' + questionId + ']"][value="' + correctOption + '"]').parent().addClass('text-success');
+        }
+    }
+</script>

@@ -4,9 +4,11 @@
 <?php require_once('inc/header.php') ?>
 
 <body>
-    <?php $page = isset($_GET['page']) ? $_GET['page'] : 'home';  ?>
-    <?php
+    <?php 
+    $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+    $is404 = false;
     if (!file_exists($page . ".php") && !is_dir($page)) {
+        $is404 = true;
         include '404.html';
     } else {
         if (is_dir($page))
@@ -16,8 +18,11 @@
     }
     ?>
 </body>
-<footer>
-    <?php require_once('inc/footer.php') ?>
-</footer>
+
+<?php 
+if (!$is404) {
+    require_once('inc/footer.php');
+}
+?>
 
 </html>

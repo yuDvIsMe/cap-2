@@ -1,4 +1,3 @@
-<?php require_once('inc/header.php') ?>
 <?php require_once('inc/subnav.php') ?>
 <!-- Contact Start -->
 <div class="contact mt-125">
