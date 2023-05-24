@@ -64,7 +64,7 @@ function generateRandomString()
                     </div>
                     <div class="form-group">
                         <lable class="control-label" for="driver_email">Email người vi phạm</lable>
-                        <input type="text" class="form-control" name="driver_email" id="driver_email" value="<?php echo isset($driver_email) ? $driver_email : '' ?>" required>
+                        <input type="email" class="form-control" name="driver_email" id="driver_email" value="<?php echo isset($driver_email) ? $driver_email : '' ?>" required>
                     </div>
                 </div>
 

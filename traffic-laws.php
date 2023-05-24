@@ -72,6 +72,9 @@
                                                 <a href="#motorbike" class="come-back" aria-controls="tours" role="tab" data-toggle="tab">
                                                     Quay lại
                                                 </a>
+                                                <div style="display: flex; justify-content: center">
+                                                    <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                </div>
                                                 <div class="">
                                                     <div class="fill-form">
                                                         <?php
@@ -111,6 +114,9 @@
                                                     <a href="#moto-detail-<?php echo $row['id'] ?>" class="come-back" aria-controls="tours" role="tab" data-toggle="tab">
                                                         Quay lại
                                                     </a>
+                                                    <div style="display: flex; justify-content: center">
+                                                        <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                    </div>
                                                     <div class="">
                                                         <div class="fill-form">
                                                             <div class="">
@@ -172,6 +178,9 @@
                                                 <a href="#car" class="come-back" aria-controls="tours" role="tab" data-toggle="tab">
                                                     Quay lại
                                                 </a>
+                                                <div style="display: flex; justify-content: center">
+                                                    <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                </div>
                                                 <div class="">
                                                     <div class="fill-form">
                                                         <?php
@@ -210,6 +219,9 @@
                                                     <a href="#car-detail-<?php echo $rows['id'] ?>" class="come-back" aria-controls="tours" role="tab" data-toggle="tab">
                                                         Quay lại
                                                     </a>
+                                                    <div style="display: flex; justify-content: center">
+                                                        <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                    </div>
                                                     <div class="">
                                                         <div class="fill-form">
                                                             <div class="">
