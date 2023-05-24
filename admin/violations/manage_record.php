@@ -38,7 +38,7 @@ function generateRandomString()
         <h3 class="card-title"><?php echo isset($id) ? "Cập nhật " : "Tạo " ?> biên bản vi phạm</h3>
     </div>
     <div class="card-body">
-        <form action="" id="violation-form">
+        <form name="violation-form-name" action="" id="violation-form">
             <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
             <div class="row">
                 <div class="col-6">
@@ -63,7 +63,8 @@ function generateRandomString()
                     </div>
                     <div class="form-group">
                         <lable class="control-label" for="driver_email">Email người vi phạm</lable>
-                        <input type="email" class="form-control" name="driver_email" id="driver_email" value="<?php echo isset($driver_email) ? $driver_email : '' ?>" required>
+                        <input oninput="ValidateEmail()" type="email" class="form-control" name="driver_email" id="driver_email" value="<?php echo isset($driver_email) ? $driver_email : '' ?>" required>
+                        <p id="alert-email"></p>
                     </div>
                 </div>
 
@@ -174,6 +175,19 @@ function generateRandomString()
     </div>
 </div>
 <script>
+
+    // Email
+    function ValidateEmail() {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (value.match(mailformat)) {
+            document.getElementById("alert-email") = 'Địa chỉ email hợp lệ';
+        } else {
+            document.getElementById("alert-email") = 'Địa chỉ email không hợp lệ';
+        }
+    }
+
+    // ----------------
+
     function rem_item(_this) {
         _this.closest('tr').remove()
         calculate_total();

@@ -138,7 +138,7 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 
 		if (min_fine !== '' && max_fine !== '') {
 			if (parseInt(min_fine) >= parseInt(max_fine)) {
-				document.getElementById('action-text').innerHTML = 'Số trước không được nhỏ hơn số sau';
+				document.getElementById('action-text').innerHTML = 'Số trước không được lớn hơn số sau';
 			} else
 				document.getElementById('action-text').innerHTML = '';
 		}
