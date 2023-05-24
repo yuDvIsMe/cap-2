@@ -52,7 +52,7 @@
                             <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=practice-try">
                                 <div class="fact-item">
                                     <i class="fas fa-edit icon-home"></i>
-                                    <h2>Thi thử</h2>
+                                    <h2>Trắc nghiệm GPLX</h2>
                                 </div>
                             </a>
                             <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=contact">

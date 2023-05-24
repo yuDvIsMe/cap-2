@@ -7,7 +7,9 @@ require_once('inc/subnav.php');
 if (isset($_GET['vnp_Amount'])) {
     $vnp_Amount = $_GET['vnp_Amount'] / 100;
     $vnp_BankCode = $_GET['vnp_BankCode'];
-    $vnp_BankTranNo = $_GET['vnp_BankTranNo'];
+    if (isset($_GET['vnp_BankTranNo'])) {
+        $vnp_BankTranNo = $_GET['vnp_BankTranNo'];
+    }
     $vnp_CardType = $_GET['vnp_CardType'];
     $vnp_OrderInfo = $_GET['vnp_OrderInfo'];
     $vnp_PayDate = $_GET['vnp_PayDate'];
@@ -112,7 +114,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                         <div class="col-12">
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Mã giao dịch:</label>
-                                <p><?php echo $vnp_BankTranNo ?></p>
+                                <p><?php echo 'a' ?></p>
                             </div>
                             <div class="divider-gray"></div>
 
@@ -124,7 +126,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
 
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Số tiền phạt:</label>
-                                <p><?php echo $vnp_Amount . ' VND' ?></p>
+                                <p><?php echo number_format($vnp_Amount) . ' VND' ?></p>
                             </div>
                             <div class="divider-gray"></div>
 
@@ -178,7 +180,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                         <div class="col-12">
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Mã giao dịch:</label>
-                                <p><?php echo $vnp_BankTranNo ?></p>
+                                <p><?php echo 'VNPAYFAIL'.$vnp_ResponseCode ?></p>
                             </div>
                             <div class="divider-gray"></div>
 
@@ -190,7 +192,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
 
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Số tiền phạt:</label>
-                                <p><?php echo $number_format($vnp_Amount) . ' VND' ?></p>
+                                <p><?php echo number_format($vnp_Amount) . ' VND' ?></p>
                             </div>
                             <div class="divider-gray"></div>
 

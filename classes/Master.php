@@ -3,46 +3,46 @@ require_once('../config.php');
 
 function sendMail($mail_address, $ticket, $with_json = true)
 {
-    require "../PHPMailer/src/PHPMailer.php";
-    require "../PHPMailer/src/SMTP.php";
-    require '../PHPMailer/src/Exception.php';
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true); //true:enables exceptions
-    try {
-        $mail->SMTPDebug = 0; //0,1,2: chế độ debug
-        $mail->isSMTP();
-        $mail->CharSet  = "utf-8";
-        $mail->Host = 'smtp.gmail.com';  //SMTP servers
-        $mail->SMTPAuth = true; // Enable authentication
-        $mail->Username = 'tvms.contact.dn@gmail.com'; // SMTP username
-        $mail->Password = 'rixdltzhkcwdxujf';   // SMTP password
-        $mail->SMTPSecure = 'ssl';  // encryption TLS/SSL 
-        $mail->Port = 465;  // port to connect to                
-        $mail->setFrom('tvms.contact.dn@gmail.com', 'Cổng dịch vụ TVMS');
-        $mail->addAddress($mail_address);
-        $mail->isHTML(true);  // Set email format to HTML
-        $mail->Subject = 'Thông báo quyết định xử phạt hành chính';
-        $noidungthu = " Chào Ông/Bà,
+	require "../PHPMailer/src/PHPMailer.php";
+	require "../PHPMailer/src/SMTP.php";
+	require '../PHPMailer/src/Exception.php';
+	$mail = new PHPMailer\PHPMailer\PHPMailer(true); //true:enables exceptions
+	try {
+		$mail->SMTPDebug = 0; //0,1,2: chế độ debug
+		$mail->isSMTP();
+		$mail->CharSet  = "utf-8";
+		$mail->Host = 'smtp.gmail.com';  //SMTP servers
+		$mail->SMTPAuth = true; // Enable authentication
+		$mail->Username = 'tvms.contact.dn@gmail.com'; // SMTP username
+		$mail->Password = 'rixdltzhkcwdxujf';   // SMTP password
+		$mail->SMTPSecure = 'ssl';  // encryption TLS/SSL 
+		$mail->Port = 465;  // port to connect to                
+		$mail->setFrom('tvms.contact.dn@gmail.com', 'Cổng dịch vụ TVMS');
+		$mail->addAddress($mail_address);
+		$mail->isHTML(true);  // Set email format to HTML
+		$mail->Subject = 'Thông báo quyết định xử phạt hành chính';
+		$noidungthu = " Chào Ông/Bà,
 		<p>Ông/Bà đã có quyết định xử phạt vi phạm hành chính về an toàn giao thông số <b>{$ticket}</b>. </p>
 		<p>Bạn có thể tra cứu và nộp phạt trực tuyến qua Cổng dịch vụ công TVMS tại <a href='localhost/cap-2/?page=information-lookup'>đây</a>. </p>
 		<p>Trân Trọng!</p>
 		<p>Cổng dịch vụ công TVMS from International School, DTU </p>";
-        $mail->Body = $noidungthu;
-        $mail->smtpConnect(array(
-            "ssl" => array(
-                "verify_peer" => false,
-                "verify_peer_name" => false,
-                "allow_self_signed" => true
-            )
-        ));
-        $mail->send();
-        if ($with_json) {
-            echo json_encode(array('status' => 'success', 'message' => 'Email đã được gửi thành công!'));
-        }
-    } catch (Exception $e) {
-        if ($with_json) {
-            echo json_encode(array('status' => 'error', 'message' => $mail->ErrorInfo));
-        }
-    }
+		$mail->Body = $noidungthu;
+		$mail->smtpConnect(array(
+			"ssl" => array(
+				"verify_peer" => false,
+				"verify_peer_name" => false,
+				"allow_self_signed" => true
+			)
+		));
+		$mail->send();
+		if ($with_json) {
+			echo json_encode(array('status' => 'success', 'message' => 'Email đã được gửi thành công!'));
+		}
+	} catch (Exception $e) {
+		if ($with_json) {
+			echo json_encode(array('status' => 'error', 'message' => $mail->ErrorInfo));
+		}
+	}
 }
 
 class Master extends DBConnection
@@ -324,8 +324,7 @@ class Master extends DBConnection
 			if (empty($id)) {
 				$this->settings->set_flashdata('success', " Tạo biển bản thành công");
 				sendMail($_POST['driver_email'], $_POST['ticket_no'], false);
-			}
-			else
+			} else
 				$this->settings->set_flashdata('success', " Cập nhật biên bản thành công");
 			$resp['status'] = 'success';
 			$resp['id'] = $driver_violation_id;
@@ -396,6 +395,54 @@ class Master extends DBConnection
 		}
 		return json_encode($resp);
 	}
+	function save_quiz()
+	{
+		extract($_POST);
+		$data = "";
+		foreach ($_POST as $k => $v) {
+			if ($k !== 'id') {
+				if (!empty($data)) $data .= ",";
+				$data .= " `{$k}`='{$v}' ";
+			}
+		}
+		if (isset($_FILES['content_img']) && $_FILES['content_img']['tmp_name'] != '') {
+			$fname = 'uploads/quiz_img/' . strtotime(date('y-m-d H:i')) . '_' . $_FILES['content_img']['name'];
+			$move = move_uploaded_file($_FILES['content_img']['tmp_name'], '../' . $fname);
+			if ($move) {
+				$data .= " , content_img = '{$fname}' ";
+			}
+		}
+
+		if (!empty($id)) {
+			$sql = "UPDATE `question` SET {$data} WHERE `id`='{$id}'";
+		} else {
+			$sql = "INSERT INTO `question` SET {$data}";
+		}
+		if ($this->conn->query($sql)) {
+			$resp['status'] = 'success';
+			if (empty($id))
+				$this->settings->set_flashdata('success', "Tạo mới thành công");
+			else
+				$this->settings->set_flashdata('success', "Cập nhật thành công");
+		} else {
+			$resp['status'] = 'failed';
+			$resp['err'] = 'Lỗi khi lưu câu hỏi: ' . $this->conn->error;
+		}
+		return json_encode($resp);
+	}
+	function delete_quiz()
+	{
+		extract($_POST);
+		$del = $this->conn->query("DELETE FROM `question` where id = '{$id}'");
+		if ($del) {
+			$resp['status'] = 'success';
+			$this->settings->set_flashdata('success', "Xóa thành công");
+		} else {
+			$resp['status'] = 'failed';
+			$resp['error'] = $this->conn->error;
+		}
+		return json_encode($resp);
+	}
 }
 
 $Master = new Master();
@@ -432,6 +479,12 @@ switch ($action) {
 		break;
 	case 'delete_news':
 		echo $Master->delete_news();
+		break;
+	case 'save_quiz':
+		echo $Master->save_quiz();
+		break;
+	case 'delete_quiz':
+		echo $Master->delete_quiz();
 		break;
 	default:
 		// echo $sysset->index();
