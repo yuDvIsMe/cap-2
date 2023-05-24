@@ -63,7 +63,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Email: </h3>
-                        <p>support@csgt.vn</p>
+                        <p>tvms.contact.dn@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-info" style="padding: 12px">
@@ -72,16 +72,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Hotline: </h3>
-                        <p>069 2342593</p>
-                    </div>
-                </div>
-                <div class="contact-info" style="padding: 12px">
-                    <div class="contact-icon">
-                        <i class="fa fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Fax:</h3>
-                        <p>84 24 38220885</p>
+                        <p>(+84) 98 68 68 68</p>
                     </div>
                 </div>
                 <div class="contact-info" style="padding: 12px">
@@ -90,7 +81,7 @@
                     </div>
                     <div class="contact-text">
                         <h3>Thời gian làm việc:</h3>
-                        <p>8h - 21h (Thứ 2 - Thứ 7)</p>
+                        <p>8h - 17h(Thứ 2 - Thứ 6)</p>
                     </div>
                 </div>
 

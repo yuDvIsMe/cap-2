@@ -1,5 +1,5 @@
-<?php require_once('inc/header.php') ?>
 <?php require_once('inc/subnav.php') ?>
+
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
     $qry = $conn->query("SELECT * from `news_list` where id = '{$_GET['id']}' ");

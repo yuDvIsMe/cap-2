@@ -47,7 +47,6 @@ function generateRandomString()
                         <input type="datetime-local" class="form-control" name="date_created" id="date_created" value="<?php echo isset($date_created) ? date("Y-m-d\\TH:i", strtotime($date_created)) : date("Y-m-d\\TH:i") ?>" required>
                     </div>
                     <div class="form-group">
-                        <lable class="control-label" for="ticket_no">Số QĐXP</lable>
                         <input type="hidden" class="form-control" name="ticket_no" id="ticket_no" value="<?php echo isset($ticket_no) ? $ticket_no : generateRandomString() ?>" required>
                     </div>
                     <div class="form-group">
@@ -79,7 +78,7 @@ function generateRandomString()
                     </div>
                     <div class="form-group">
                         <lable class="control-label" for="status">Trạng thái</lable>
-                        <select name="status" id="status" class="custom-select" required>
+                        <select disabled name="status" id="status" class="custom-select" required>
                             <option value="0" <?php echo (isset($status) && $status == '0') ? 'selected' : '' ?>>Chưa thanh toán</option>
                             <option value="1" <?php echo (isset($status) && $status == '1') ? 'selected' : '' ?>>Đã thanh toán</option>
                         </select>
@@ -163,7 +162,7 @@ function generateRandomString()
                 <div class="col-6">
                     <div class="form-group">
                         <label for="remarks" class="control-label">Nhận xét</label>
-                        <textarea name="remarks" id="remarks" class="form-control" cols="30" rows="3" style="resize:none !important"><?php echo isset($remarks) ? $remarks : '' ?></textarea>
+                        <textarea name="remarks" id="remarks" class="form-control" cols="30" rows="3" ><?php echo isset($remarks) ? $remarks : '' ?></textarea>
                     </div>
                 </div>
             </div>
@@ -193,25 +192,29 @@ function generateRandomString()
 
 
         $('.select2').select2({
-            placeholder: "Please Select here",
+            placeholder: "Vui lòng chọn ở đây",
             width: "relative"
         })
         $('#add_to_list').click(function() {
-            var violation_id = $('#violation_id').val()
-            var fine = $('#violation_id option[value="' + violation_id + '"]').attr('data-fine')
-            var violation = $('#violation_id option[value="' + violation_id + '"]').attr('data-name')
-            var code = $('#violation_id option[value="' + violation_id + '"]').attr('data-code')
-            var tr = $("<tr>")
+            var violation_id = $('#violation_id').val();
+            if (violation_id === '') {
+                return; // Không thực hiện thêm hàng mới vào bảng
+            }
+            var fine = $('#violation_id option[value="' + violation_id + '"]').attr('data-fine');
+            var violation = $('#violation_id option[value="' + violation_id + '"]').attr('data-name');
+            var code = $('#violation_id option[value="' + violation_id + '"]').attr('data-code');
+            var tr = $("<tr>");
             tr.append('<td>' + code + '<input type="hidden" name="violation_id[]" value="' + violation_id + '"><input type="hidden" name="fine[]" value="' + fine + '"></td>');
             tr.append('<td>' + violation + '</td>');
             tr.append('<td class="text-right">' + (parseFloat(fine).toLocaleString('en-US')) + '</td>');
-            tr.append('<td><button class="btn  btn-sm btn-default text-danger" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button></td>');
-            $('#fine-list tbody').append(tr)
-            if ($('#td-none').length > 0)
+            tr.append('<td><button class="btn btn-sm btn-default text-danger" type="button" onclick="rem_item($(this))"><i class="fa fa-times"></i></button></td>');
+            $('#fine-list tbody').append(tr);
+            if ($('#td-none').length > 0) {
                 $('#td-none').remove();
+            }
             calculate_total();
-            $('#violation_id').val('').trigger('change')
-        })
+            $('#violation_id').val('').trigger('change');
+        });
 
         $('#violation-form').submit(function(e) {
             e.preventDefault();

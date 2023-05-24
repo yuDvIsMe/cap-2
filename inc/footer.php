@@ -8,8 +8,8 @@
                                 <div class="footer-contact">
                                     <h2>Trụ sở chính của chúng tôi</h2>
                                     <p><i class="fa fa-map-marker-alt"></i>123 đường ABC , Đà Nẵng</p>
-                                    <p><i class="fa fa-phone-alt"></i>0345678912</p>
-                                    <p><i class="fa fa-envelope"></i>congdichvu@gmail.com</p>
+                                    <p><i class="fa fa-phone-alt"></i>(+84) 98 68 68 68</p>
+                                    <p><i class="fa fa-envelope"></i>tvms.contact.dn@gmail.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
                                         <a href=""><i class="fab fa-facebook-f"></i></a>
