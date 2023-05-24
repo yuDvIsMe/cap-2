@@ -17,6 +17,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <div class="card-body">
             <form action="" id="manage-news">
                 <input type="hidden" name="id" value="<?php echo isset($id) ? $id : '' ?>">
+                <input type="hidden" name="user_id" value="<?php echo isset($user_id) ? $user_id : $_settings->userdata('id') ?>">
                 <div class="form-group">
                     <label for="title" class="control-label">Tiêu đề</label>
                     <input type="text" class="form-control form-control-sm" name="title" id="title" value="<?php echo isset($title) ? $title : ''; ?>">

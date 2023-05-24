@@ -72,7 +72,7 @@
                                                     Quay lại
                                                 </a>
                                                 <div style="display: flex; justify-content: center">
-                                                    <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                    <h2><?php echo $row['law_name'] ?></h2>
                                                 </div>
                                                 <div class="">
                                                     <div class="fill-form">
@@ -114,7 +114,7 @@
                                                         Quay lại
                                                     </a>
                                                     <div style="display: flex; justify-content: center">
-                                                        <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                        <h2><?php echo $row['law_name'] ?></h2>
                                                     </div>
                                                     <div class="">
                                                         <div class="fill-form">
@@ -178,7 +178,7 @@
                                                     Quay lại
                                                 </a>
                                                 <div style="display: flex; justify-content: center">
-                                                    <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                    <h2><?php echo $rows['law_name'] ?></h2>
                                                 </div>
                                                 <div class="">
                                                     <div class="fill-form">
@@ -219,7 +219,7 @@
                                                         Quay lại
                                                     </a>
                                                     <div style="display: flex; justify-content: center">
-                                                        <h2>Hiệu lệnh, chỉ dẫn</h2>
+                                                        <h2><?php echo $rows['law_name'] ?></h2>
                                                     </div>
                                                     <div class="">
                                                         <div class="fill-form">

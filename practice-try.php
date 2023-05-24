@@ -56,7 +56,7 @@
                 }
             }
             ?>
-            <button class="btn btn-primary" onclick="reloadPage()">Làm lại</button>
+            <button class="btn btn-primary" onclick="reloadPage()">Thử lại</button>
         </div>
         
     </div>
@@ -77,14 +77,14 @@
             // Nếu đáp án đúng, áp dụng lớp màu nền xanh 
             $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').parent().addClass('text-success');
             // Thêm icon tick xanh sau câu đúng
-            $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').after('<i class="fas fa-check"></i>');
+            $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').parent().append('  <i class="fas fa-check"></i>');
         } else {
             // Nếu đáp án sai, áp dụng lớp màu nền đỏ 
             $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').parent().addClass('text-danger');
             // Đánh dấu đáp án đúng bằng lớp màu nền xanh 
-            $('input[name="answer[' + questionId + ']"][value="' + correctOption + '"]').parent().addClass('text-success');
+            $('input[name="answer[' + questionId + ']"][value="' + correctOption + '"]').parent().addClass('text-success').append('  <i class="fas fa-check"></i>');
             // Thêm icon x màu đỏ sau câu sai
-            $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').after('<i class="fas fa-times"></i>');
+            $('input[name="answer[' + questionId + ']"][value="' + selectedOption + '"]').parent().append('  <i class="fas fa-times"></i>');
         }
     }
 

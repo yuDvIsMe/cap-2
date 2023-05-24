@@ -20,7 +20,7 @@
                 while ($row = $qry->fetch_assoc()) :
                 ?>
                     <img src="<?php echo $row['image'] ?>" alt="" style="width: 100%; height: 100%;">
-                    <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" style="font-size: 24px; color: #000;">
+                    <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" style="font-size: 24px;">
                         <?php echo $row['title'] ?>
                     </a>
                 <?php endwhile; ?>
@@ -30,7 +30,7 @@
                 $qry = $conn->query("SELECT * from `news_list` order by unix_timestamp(post_date) desc ");
                 while ($row = $qry->fetch_assoc()) :
                 ?>
-                    <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" style="padding-bottom: 15px"><i class="fab fa-telegram-plane"></i> <?php echo $row['title'] ?>
+                    <a href="<?php echo base_url ?>?page=news-detail&id=<?php echo $row['id'] ?>" style="padding-bottom: 15px"><i class="fas fa-newspaper"></i> <?php echo $row['title'] ?>
                     </a>
                 <?php endwhile; ?>
             </div>
