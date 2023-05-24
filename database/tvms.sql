@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 24, 2023 at 01:27 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 24, 2023 lúc 04:08 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tvms`
+-- Cơ sở dữ liệu: `tvms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drivers_list`
+-- Cấu trúc bảng cho bảng `drivers_list`
 --
 
 CREATE TABLE `drivers_list` (
@@ -37,7 +37,7 @@ CREATE TABLE `drivers_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `drivers_list`
+-- Đang đổ dữ liệu cho bảng `drivers_list`
 --
 
 INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_created`, `date_updated`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drivers_meta`
+-- Cấu trúc bảng cho bảng `drivers_meta`
 --
 
 CREATE TABLE `drivers_meta` (
@@ -58,7 +58,7 @@ CREATE TABLE `drivers_meta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `drivers_meta`
+-- Đang đổ dữ liệu cho bảng `drivers_meta`
 --
 
 INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updated`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news_list`
+-- Cấu trúc bảng cho bảng `news_list`
 --
 
 CREATE TABLE `news_list` (
@@ -100,7 +100,7 @@ CREATE TABLE `news_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `news_list`
+-- Đang đổ dữ liệu cho bảng `news_list`
 --
 
 INSERT INTO `news_list` (`id`, `user_id`, `title`, `sub_title`, `post_date`, `image`, `content`, `updated_on`) VALUES
@@ -113,12 +113,14 @@ INSERT INTO `news_list` (`id`, `user_id`, `title`, `sub_title`, `post_date`, `im
 (23, 1, 'Vi phạm quá tải vì nghĩ “trời mưa CSGT không làm việc”', '', '2023-04-17 11:39:55', 'uploads/new_img/1681706340_viphamquatai.jpg', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Ngày 13/02, ghi nhận tại tuyến quốc lộ 2, thuộc xã Lưỡng Vượng, TP. Tuyên Quang lực lượng CSGT thuộc Phòng CSGT Công an tỉnh Tuyên Quang đang thực hiện nhiệm vụ kiểm soát các phương tiện vận tải hàng hóa nhằm phát hiện xử lý các trường hợp vi phạm chở quá tải trọng, cơi nới thành thùng xe, lúc này thời tiết khá xấu, trời mưa nặng hạt và có sương mù…</p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"440\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%204/14/TQ/DSC_4024.JPG\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">CSGT kiểm tra tải trọng các phương tiện khi lưu thông qua QL 2.</em></figcaption></figure></div>', '2023-05-22 11:34:19'),
 (24, 1, 'Những chuyển biến tích cực sau thời gian tăng cường kiểm tra xử lý vi phạm nồng độ cồn ở Đắk Nông', '', '2023-04-17 11:40:22', 'uploads/new_img/1681706460_nhungchuyenbien.jpg', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Ngay sau khi được triệt triển khai thực hiện nghiêm túc Điện chỉ đạo của đồng chí Bộ trưởng Bộ Công an về các giải pháp bảo đảm trật tự an toàn giao thông, lực lượng CSGT toàn tỉnh đã phối hợp với lực lượng cảnh sát cơ động, công an xã lập 22 tổ công tác với 4.132 lượt cán bộ chiến sĩ tổ chức kiểm tra nồng độ cồn và ma túy đối với người điều khiển phương tiện giao thông kể cả ngày lẫn đêm vào các khung giờ cao điểm buổi trưa và buổi tối, nguời tham gia giao thông bằng xe ô tô, xe máy cũng đã ý thức hơn trong việc sử dụng rượu bia khi lái xe.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><img alt=\"\" height=\"390\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%204/15/%C4%90ak%20Nong/IMG_20230321_193610.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"></p>', '2023-05-22 11:34:21'),
 (25, 1, 'Cảnh sát đường thủy Bắc Ninh xử lý thuyền viên trên phương tiện thủy vi phạm nồng độ cồn', '', '2023-04-17 11:40:54', 'uploads/new_img/1681706400_csduongthuy.jpg', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Theo đó, lúc 14h50, ngày 12/4, tổ công tác thực hiện chuyên đề nồng độ cồn thuộc Đội cảnh sát đường thủy, Phòng Cảnh sát giao thông Công an tỉnh Bắc Ninh tuần tra kiểm soát trên tuyến sông Cầu, tiến hành kiểm tra đo nồng độ cồn đối với người điều khiển, người làm việc trên tàu thủy mang biển số NĐ-382x, trọng tải 864 tấn, đi từ Nam Định đến Bắc Giang, qua kiểm tra phát hiện máy trưởng Ninh Văn xxx, sinh năm 1970, ở Cát Thành, Trực Ninh, Nam Định vi phạm nồng độ cồn ở mức 0,246 miligam/1 lít khí thở.</p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"560\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%204/14/BN/z4264570503316_c4b9d92f75ce635b30c18065103ef8aa.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption>Cảnh sát đường thủy đo nồng độ cồn người điều khiển phương tiện đường thủy.</figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Trên tuyến sông Đuống, ngày 13/4, Đội Cảnh sát đường thủy tiếp tục phát hiện thủy thủ Vũ Văn xxx, sinh năm 1966, ở Đạo Lý, Lý Nhân, Hà Nam là thuyền viên tàu Hna – 029x, trọng tải 1.117 tấn, vi phạm mức độ cồn 0,102 miligam/1 lít khí thở.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Tất cả hai trường hợp vi phạm trên đều đã bị lực lượng Cảnh sát đường thủy tiến hành lập biên bản xử lý nghiêm.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Đồng thời, từ đầu năm đến nay thực hiện cao điểm tuần tra kiểm soát xử lý vi phạm trên lĩnh vực giao thông đường thủy, lực lượng Cảnh sát đường thủy Bắc Ninh tăng cường công tác tuyên truyền thực hiện cuộc vận động “Vì bình yên sông nước”, tổ chức ký cam kết chấp hành Luật Giao thông đường thủy nội địa, kiểm tra phát hiện xử lý hơn 200 lượt phương tiện vi phạm chở quá vạch dấu mớn nước an toàn, vi phạm nồng độ cồn….và bàn giao Cơ quan Cảnh sát điều tra một vụ sử dụng giấy tờ, bằng cấp chuyên môn giả.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Để góp phần xây dựng Bắc Ninh trở thành “Tỉnh an toàn giao thông” và nhằm răn đe, giáo dục, tạo chuyển biến tích cực về nhận thức, ý thức chấp hành pháp luật của người dân khi tham gia giao thông trên lĩnh vực đường thủy nội địa, Trong thời gian tới lực lượng Cảnh sát đường thủy Bắc Ninh sẽ tiếp tục tăng cường tuần tra, kiểm soát, xử lý vi phạm theo chuyên đề “Người điều kiển phương tiện giao thông đường bộ, đường thủy nội địa mà trong cơ thể có chất ma túy, vi phạm nồng độ cồn”.</p>', '2023-05-22 11:34:23'),
-(26, 1, 'Tuyên Quang: Hàng loạt “ma men” bị tuýt còi trong đêm', '', '2023-04-17 11:43:51', 'uploads/new_img/1681706580_hangloat.jpg', '<div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"439\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%204/13/TQ/z4260436254771_c1a1ef9e81684f733d9b78b6e80e40ca.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">Lực lượng CSGT thuộc Phòng CSGT Công an tỉnh Tuyên Quang kiểm soát vi phạm nồng độ cồn trên QL37.</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Đúng 19h, tổ công tác của Phòng CSGT, Công an tỉnh Tuyên Quang đã có mặt đầy đủ để triển khai các phương án tuần tra, kiểm soát, xử lý các trường hợp người tham gia giao thông vi phạm nồng độ cồn.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Ngoài các chốt kiểm soát đã được phân công từ trước, CSGT còn triển khai phương án hóa trang kết hợp tuần tra lưu động để xử lý tài xế vi phạm. Cán bộ được giao nhiệm vụ hóa trang mặc thường phục sẽ được trang bị bộ đàm, camera để ghi lại toàn bộ quá trình vi phạm của tài xế đồng thời liên lạc với các tổ tuần tra.</p>', '2023-05-22 11:34:25');
+(26, 1, 'Tuyên Quang: Hàng loạt “ma men” bị tuýt còi trong đêm', '', '2023-04-17 11:43:51', 'uploads/new_img/1681706580_hangloat.jpg', '<div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"439\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%204/13/TQ/z4260436254771_c1a1ef9e81684f733d9b78b6e80e40ca.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">Lực lượng CSGT thuộc Phòng CSGT Công an tỉnh Tuyên Quang kiểm soát vi phạm nồng độ cồn trên QL37.</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Đúng 19h, tổ công tác của Phòng CSGT, Công an tỉnh Tuyên Quang đã có mặt đầy đủ để triển khai các phương án tuần tra, kiểm soát, xử lý các trường hợp người tham gia giao thông vi phạm nồng độ cồn.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Ngoài các chốt kiểm soát đã được phân công từ trước, CSGT còn triển khai phương án hóa trang kết hợp tuần tra lưu động để xử lý tài xế vi phạm. Cán bộ được giao nhiệm vụ hóa trang mặc thường phục sẽ được trang bị bộ đàm, camera để ghi lại toàn bộ quá trình vi phạm của tài xế đồng thời liên lạc với các tổ tuần tra.</p>', '2023-05-22 11:34:25'),
+(37, 1, 'CSGT kịp thời chặn bắt tên cướp manh động đang cố tẩu thoát', '<p><span style=\"color: rgb(63, 63, 63); font-family: tahoma; font-size: 13px; font-weight: 700; text-align: justify;\">Khoảng 16h ngày 19/5, trên Quốc lộ 56, thuộc huyện Châu Đức, tỉnh Bà Rịa – Vũng Tàu xảy ra vụ dùng dao khống chế, cướp tài sản hết sức manh động. Sau khi gây án đối tượng đã cố tẩu thoát nhưng rất nhanh đã bị CSGT khống chế, bắt giữ. Đồng thời lực lượng CSGT cũng kịp thời sơ cấp cứu cho nạn nhân và đưa đi cấp cứu kịp thời.</span><br></p>', '2023-05-24 20:49:32', 'uploads/new_img/1684936140_cuop.jpg', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Ghi nhận tại hiện trường, vào thời điểm trên đối tượng Huỳnh Trung Thoại (23 tuổi, trú tại thành phố Vũng Tàu) vào tiệm bán quần áo của bà N.T.B.Th (45 tuổi) dùng dao khống chế, lôi nạn nhân vào phòng vệ sinh đồng thời yêu cầu đưa tài sản.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\"><br></p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"494\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/19/Vung%20t%C3%A0u/z4359240662981_236fee52dcd5d85d7f02284e708227a5.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">Hiện trường nơi xảy ra vụ việc</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Do bà Th. chống cự quyết liệt và hô hoán nên đối tượng cắt cổ bà Th. gây thương tích đồng thời chạy ra lấy xe máy bỏ chạy. Ngay lúc này tổ tuần tra cảnh sát giao thông thuộc Phòng CSGT Công an tỉnh Bà Rịa – Vũng Tàu do Đại úy Bùi Anh Tuấn làm tổ trưởng đang tuần tra xử lý vi phạm gần đó nghe tiếng tri hô liền ra hiệu lệnh yêu cầu dừng xe. Tuy nhiên đối tượng tiếp tục rồ ga phóng chạy nên tổ cảnh sát giao thông bắn chỉ thiên đồng thời lao vào quật ngã khống chế đối tượng.</p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"480\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/19/Vung%20t%C3%A0u/z4359240654037_16514ad860c539338f18c9cd9b09537e.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">Rất nhanh lực lượng CSGT đã tóm gọn đối tượng</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Ngay khi biết được nạn nhân bị dao cắt vào cổ gây thương tích nặng, Đại úy Bùi Tuấn Anh chỉ đạo các chiến sĩ cấp tốc sơ cứu, dừng phương tiện trên đường hỗ trợ, đồng thời cử CSGT lái xe mô tô dẫn đường đưa đi bệnh viện Bà Rịa cấp cứu.</p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"467\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/19/Vung%20t%C3%A0u/z4359240209234_60a8ce2c8fd3933175a844f9f437a76f.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">&nbsp;Chân dung đối tượng Huỳnh Trung Thoại, người có tiền án về tội giết người mới ra tù đã lại tiếp tục gây án</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Tại cơ quan điều tra, nam thanh niên khai nhận từng có một tiền án về tội giết người vừa mới ra tù.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Hiện đối tượng đang được công an huyện Châu Đức tạm giữ để điều tra làm rõ động cơ gây ra vụ cướp.</p>', '2023-05-24 13:52:05'),
+(38, 1, 'Triển khai mô hình “Ngày không viết - Ngày không hẹn” và hỗ trợ người dân sử dụng dịch vụ công trực tuyến', '<p><span style=\"color: rgb(63, 63, 63); font-family: tahoma; font-size: 13px; font-weight: 700; text-align: justify;\">Nhằm tiếp tục đẩy mạnh cải cách hành chính, nâng cao chất lượng phục vụ Nhân dân và hỗ trợ người dân trong chương trình “chuyển đổi số”, Công an tỉnh Đắk Nông triển khai thực hiện sáng kiến cải cách hành chính “Tăng cường hỗ trợ tổ chức, cá nhân sử dụng dịch vụ công trực tuyến”, “Ngày không viết” và “Ngày không hẹn” trong giải quyết thủ tục hành chính thuộc thẩm quyền của lực lượng Công an Đắk Nông. Qua đó bước đầu đã phát huy được hiệu quả thiết thực, nhận được sự hài lòng, ủng hộ và đánh giá cao của các cấp, các ngành và Nhân dân trên địa bàn.</span><br></p>', '2023-05-24 20:54:47', 'uploads/new_img/1684936440_ada.jpg', '<p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Có mặt tại các Bộ phận tiếp nhận và trả kết quả giải quyết thủ tục hành chính của Công an tỉnh Đắk Nông và Công an các huyện, thành phố trên địa tỉnh trong những ngày này, chúng tôi mới thấy hết được tinh thần trách nhiệm vì Nhân dân phục vụ và hiệu quả từ sáng kiến cải cách hành chính “Tăng cường hỗ trợ tổ chức, cá nhân sử dụng dịch vụ công trực tuyến”, “Ngày không viết” và “Ngày không hẹn” trong giải quyết thủ tục hành chính mang lại nhằm tạo điều kiện thuận lợi nhất cho Nhân dân.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Anh Tưởng Quốc Mạnh ở huyện biên giới Tuy Đức vui mừng cho biết “Bản thân không biết sử dụng điện thoại di động để giải quyết dịch vụ công trực tuyến. Hôm nay khi đến Công an huyện Tuy Đức để giải quyết thủ hành chính, được cán bộ Công an huyện hướng dẫn đăng kí tài khoản trên Cổng dịch vụ công quốc gia và thực hiện thủ tục hành chính trực tuyến, tôi thấy rất tiện lợi, đỡ tốn thời gian và không phải bổ sung giấy tờ, không cần đi lại nhiều lần”.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\"><br></p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"517\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/23/Dak%20Nong/H%C3%ACnh%201a.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">Người dân được cán bộ Công an hướng dẫn sử dụng dịch vụ công trực tuyến và ghi thay thông tin trên giấy tờ thủ tục hành chính</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">&nbsp;“Chúng tôi rất hài lòng khi được cán bộ Công an tận tình hướng dẫn thực hiện thủ tục hành chính và còn được cán bộ viết thay các thông tin trên mẫu phiếu thủ tục hành chính, bản thân chỉ việc ký tên; kết quả được nhận luôn trong ngày. Đây là hình ảnh của người cán bộ Công an vì nhân dân phục vụ”. Chị Quách Thị Nhân ở huyện Cư Jút và ông Phạm Đình Quế ở huyện Đắk Mil đến giải quyết thủ tục hành chính chia sẻ.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\"><br></p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"444\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/23/Dak%20Nong/hinh%202a.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">CBCS nêu cao tại Bộ phận tiếp nhận và trả kết quả giải quyết thủ tục hành chính của Công an các cấp trong tỉnh nêu cao tinh thần trách nhiệm vì Nhân dân phục vụ</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Tương tự chị Vũ Thị Khởi ở huyện Đắk R’lấp và nhiều người dân đến Bộ phận tiếp nhận và trả kết quả giải quyết thủ tục hành chính Công an tỉnh Đắk Nông làm hộ chiếu cho biết: “Cán bộ Công an rất nhiệt tình hướng dẫn chúng tôi sử dụng dịch vụ công trực tuyến. Tôi thấy thao tác trực tuyến dễ thực hiện, tiện lợi nên từ sau nếu cần giải quyết thủ tục hành chính gì sẽ thực hiện tại nhà”.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\"><br></p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"507\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/23/Dak%20Nong/hinh%203%20(2).jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">CBCS tận tình hướng dẫn người dân đến làm thủ tục đăng ký xe</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Sáng kiến cải cách hành chính “Tăng cường hỗ trợ tổ chức, cá nhân sử dụng dịch vụ công trực tuyến”, “Ngày không viết” và “Ngày không hẹn” được Công an tỉnh Đắk Nông triển khai từ ngày 20/4/2023 và áp dụng tại Bộ phận một của Công an các cấp từ ngày 04/5/2023. Việc triển khai sáng kiến nhằm hướng dẫn tổ chức, cá nhân sử dụng thành thạo dịch vụ công trực tuyến cũng như thực hiện thủ tục hành chính một cách nhanh gọn, thuận tiện; đồng thời giải quyết và trả kết quả giải quyết thủ tục hành chính ngay trong ngày làm việc cho tổ chức, cá nhân (đối với các trường hợp đủ điều kiện), làm giảm thiểu thời gian chờ đợi, qua đó nâng cao tỉ lệ hồ sơ được giải quyết đúng và trước hẹn.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\"><br></p><div style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma; text-align: center;\"><figure class=\"image\" style=\"display: inline-block;\"><img alt=\"\" height=\"495\" src=\"https://www.csgt.vn/lib/ckfinder/images/Nam%202023/Thang%205/23/Dak%20Nong/hinh%204.jpg\" width=\"660\" style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; max-width: 760px;\"><figcaption><em style=\"margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;\">Người dân đăng ký thủ tục hành chính và nhận kết quả từ mô hình hình “Ngày không viết” và “Ngày không hẹn”</em></figcaption></figure></div><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Đối với mô hình “Hỗ trợ tổ chức, cá nhân sử dụng dịch vụ công trực tuyến” được thực hiện tất cả các ngày làm việc trong tuần; tổ chức, cá nhân khi đến giải quyết thủ tục hành chính dẽ được tuyên truyền, hướng dẫn kích hoạt tài khoản định danh điện tử (VNIED), đăng ký tài khoản trên Cổng dịch vụ công Quốc gia, Cổng dịch vụ công Bộ Công an; hướng dẫn để thực hiện dịch vụ công trực tuyến đã được cung cấp đối với tất cả các trường hợp đủ điều kiện. Mô hình “Ngày không viết” và “Ngày không hẹn” được triển khai vào ngày thứ Ba hàng tuần (trừ các ngày nghỉ lễ, Tết); người dân đến giải quyết thủ tục hành chính sẽ được cán bộ, chiến sĩ ghi thay các loại giấy tờ, hồ sơ của các loại thủ tục hành chính (trừ một số trường hợp thủ tục hành chính đặc thù theo quy định của pháp luật không được viết hộ); hướng dẫn, giải quyết ngay thủ tục hành chính cho tổ chức, cá nhân và trả kết quả nhanh nhất có thể, không viết giấy hẹn sang ngày hôm sau, áp dụng thí điểm đối với 08 loại thủ tục hành chính tại 03 cấp Công an tỉnh, Công an cấp huyện và Công an cấp xã.</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(0, 0, 0); font-family: tahoma;\">Theo lãnh đạo Phòng Tham mưu Công an tỉnh, mặc dù mới được triển khai trong thời gian rất ngắn nhưng với sự quan tâm lãnh đạo, chỉ đạo sát sao, quyết liệt của lãnh đạo Công an tỉnh và thủ trưởng Công an các đơn vị, địa phương, mô hình “Ngày không viết” và “Ngày không hẹn” và “Tăng cường hỗ trợ tổ chức, cá nhân sử dụng dịch vụ công trực tuyến” bước đầu mang lại hiệu quả thiết thực, tạo ra những chuyển biến tích cực trong việc nâng cao chất lượng, hiệu quả giải quyết các thủ tục hành chính, tạo điều kiện thuận lợi nhất cho các tổ chức, cá nhân trong việc thực hiện các thủ tục hành chính liên quan đến lĩnh vực Công an. Mô hình đã và đang nhận được sự đồng thuận, ủng hộ, giúp đỡ của các cấp, ngành và Nhân dân trên địa bàn. Trên cơ sở đánh giá, rút kinh nghiệm quá trình thực hiện mô hình, Công an tỉnh tiếp tục chỉ đạo Công an các đơn vị, địa phương có giải pháp tổng thể đẩy mạnh công tác cải cách hành chính, hướng đến sự hài lòng của người dân, góp phần tạo động lực thúc đẩy phát triển kinh tế, xã hội tại địa phương.</p>', '2023-05-24 13:55:07');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `question`
+-- Cấu trúc bảng cho bảng `question`
 --
 
 CREATE TABLE `question` (
@@ -136,11 +138,11 @@ CREATE TABLE `question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `question`
+-- Đang đổ dữ liệu cho bảng `question`
 --
 
 INSERT INTO `question` (`id`, `content`, `content_img`, `option_A`, `option_B`, `option_C`, `option_D`, `correct_option`, `user_id`, `date_created`, `date_updated`) VALUES
-(1, 'Phương tiện giao thông cơ giới đường bộ.', 'uploads/quiz_img/1684913520_avatar.jpg', 'aa', 'Phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng.', 'Cả ý 1 và ý 2.', 'Không câu nào đúng.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:45:17'),
+(1, 'Phương tiện giao thông cơ giới đường bộ.', '', 'aa', 'Phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng.', 'Cả ý 1 và ý 2.', 'Không câu nào đúng.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 18:43:26'),
 (2, 'Sử dụng rượu bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào ?', 'uploads/quiz_img/1684925220_cauliet3.jpg', 'Chỉ bị nhắc nhở.', 'Bị xử phạt hành chính hoặc có thể bị xử lý hình sự tùy theo mức độ vi phạm.', 'Không bị xử lý hình sự.', 'Cả ý 1 và ý 2.', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 17:47:09'),
 (3, 'Bạn đang lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên bạn có được phép vượt hay không ?', '', 'Không được vượt.', 'Được vượt khi đang đi trên cầu.', 'Được phép vượt khi đi qua nơi giao nhau có ít phương tiện cùng tham gia giao thông.', 'Được vượt khi đảm bảo an toàn.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 17:48:17'),
 (4, 'Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không ?', 'uploads/quiz_img/1684925520_cauliet5.jpg', 'Chỉ được kéo nếu đã nhìn thấy trạm xăng.', 'Chỉ được thực hiện trên đường vắng phương tiện cùng tham gia giao thông.', 'Không được phép.', 'Cả ý 1 và ý 2.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:52:08'),
@@ -174,7 +176,7 @@ INSERT INTO `question` (`id`, `content`, `content_img`, `option_A`, `option_B`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `system_info`
+-- Cấu trúc bảng cho bảng `system_info`
 --
 
 CREATE TABLE `system_info` (
@@ -184,7 +186,7 @@ CREATE TABLE `system_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `system_info`
+-- Đang đổ dữ liệu cho bảng `system_info`
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
@@ -197,7 +199,7 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `traffic_law`
+-- Cấu trúc bảng cho bảng `traffic_law`
 --
 
 CREATE TABLE `traffic_law` (
@@ -208,7 +210,7 @@ CREATE TABLE `traffic_law` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `traffic_law`
+-- Đang đổ dữ liệu cho bảng `traffic_law`
 --
 
 INSERT INTO `traffic_law` (`id`, `law_name`, `image`, `type`) VALUES
@@ -240,7 +242,7 @@ INSERT INTO `traffic_law` (`id`, `law_name`, `image`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -257,11 +259,11 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
-(1, 'Adminstrator', 'Duy', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1624240500_avatar.png', NULL, 1, '2021-01-20 14:02:37', '2023-03-28 15:21:10'),
+(1, 'Adminstrator', 'Vĩnh Duy', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1624240500_avatar.png', NULL, 1, '2021-01-20 14:02:37', '2023-05-24 21:00:59'),
 (9, 'John', 'Duy', 'vinhduy', 'a65db601733aa50c3e7b51c9424b732f', 'uploads/1681449300_avatar.jpg', NULL, 1, '2021-08-19 09:24:25', '2023-04-14 12:20:09'),
 (16, 'Duy', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1681449480_wallpaper.png', NULL, 1, '2023-03-29 09:20:11', '2023-05-04 21:06:31'),
 (18, '', 'vinhduy', 'vinhduy', '202cb962ac59075b964b07152d234b70', 'uploads/1684915380_avatar.jpg', NULL, 2, '2023-05-24 15:03:04', '2023-05-24 15:04:14');
@@ -269,7 +271,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `ava
 -- --------------------------------------------------------
 
 --
--- Table structure for table `violations`
+-- Cấu trúc bảng cho bảng `violations`
 --
 
 CREATE TABLE `violations` (
@@ -287,7 +289,7 @@ CREATE TABLE `violations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `violations`
+-- Đang đổ dữ liệu cho bảng `violations`
 --
 
 INSERT INTO `violations` (`id`, `code`, `name`, `description`, `min_fine`, `max_fine`, `law_id`, `fine`, `status`, `date_created`, `date_updated`) VALUES
@@ -367,7 +369,7 @@ INSERT INTO `violations` (`id`, `code`, `name`, `description`, `min_fine`, `max_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `violation_items`
+-- Cấu trúc bảng cho bảng `violation_items`
 --
 
 CREATE TABLE `violation_items` (
@@ -379,7 +381,7 @@ CREATE TABLE `violation_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `violation_items`
+-- Đang đổ dữ liệu cho bảng `violation_items`
 --
 
 INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `status`, `date_created`) VALUES
@@ -401,7 +403,7 @@ INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `violation_list`
+-- Cấu trúc bảng cho bảng `violation_list`
 --
 
 CREATE TABLE `violation_list` (
@@ -419,7 +421,7 @@ CREATE TABLE `violation_list` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `violation_list`
+-- Đang đổ dữ liệu cho bảng `violation_list`
 --
 
 INSERT INTO `violation_list` (`id`, `ticket_no`, `driver_id`, `driver_email`, `officer_name`, `officer_id`, `total_amount`, `remarks`, `status`, `date_created`, `date_updated`) VALUES
@@ -440,7 +442,7 @@ INSERT INTO `violation_list` (`id`, `ticket_no`, `driver_id`, `driver_email`, `o
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vnpay_payment`
+-- Cấu trúc bảng cho bảng `vnpay_payment`
 --
 
 CREATE TABLE `vnpay_payment` (
@@ -459,7 +461,7 @@ CREATE TABLE `vnpay_payment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `vnpay_payment`
+-- Đang đổ dữ liệu cho bảng `vnpay_payment`
 --
 
 INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_BankTranNo`, `vnp_CardType`, `vnp_OrderInfo`, `vnp_PayDate`, `vnp_TmnCode`, `vnp_TransactionNo`, `ticket_no`, `vnp_ResponseCode`, `date_pay`) VALUES
@@ -494,175 +496,175 @@ INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_Bank
 (65, '900000', 'NCB', 'VNP14020588', 'ATM', 'Thanh toán vi phạm giao thông số G69548204', '20230524163647', 'U5PWUDF3', '14020588', 'G69548204', '00', '2023-05-24 16:36:52');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `drivers_list`
+-- Chỉ mục cho bảng `drivers_list`
 --
 ALTER TABLE `drivers_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `drivers_meta`
+-- Chỉ mục cho bảng `drivers_meta`
 --
 ALTER TABLE `drivers_meta`
   ADD KEY `driver_id` (`driver_id`);
 
 --
--- Indexes for table `news_list`
+-- Chỉ mục cho bảng `news_list`
 --
 ALTER TABLE `news_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `question`
+-- Chỉ mục cho bảng `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `system_info`
+-- Chỉ mục cho bảng `system_info`
 --
 ALTER TABLE `system_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `traffic_law`
+-- Chỉ mục cho bảng `traffic_law`
 --
 ALTER TABLE `traffic_law`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `violations`
+-- Chỉ mục cho bảng `violations`
 --
 ALTER TABLE `violations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `law_id` (`law_id`);
 
 --
--- Indexes for table `violation_items`
+-- Chỉ mục cho bảng `violation_items`
 --
 ALTER TABLE `violation_items`
   ADD KEY `driver_violation_id` (`driver_violation_id`),
   ADD KEY `violation_id` (`violation_id`);
 
 --
--- Indexes for table `violation_list`
+-- Chỉ mục cho bảng `violation_list`
 --
 ALTER TABLE `violation_list`
   ADD PRIMARY KEY (`id`,`ticket_no`) USING BTREE,
   ADD KEY `driver_id` (`driver_id`);
 
 --
--- Indexes for table `vnpay_payment`
+-- Chỉ mục cho bảng `vnpay_payment`
 --
 ALTER TABLE `vnpay_payment`
   ADD PRIMARY KEY (`id_vnpay`) USING BTREE;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `drivers_list`
+-- AUTO_INCREMENT cho bảng `drivers_list`
 --
 ALTER TABLE `drivers_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `news_list`
+-- AUTO_INCREMENT cho bảng `news_list`
 --
 ALTER TABLE `news_list`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `question`
+-- AUTO_INCREMENT cho bảng `question`
 --
 ALTER TABLE `question`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT for table `system_info`
+-- AUTO_INCREMENT cho bảng `system_info`
 --
 ALTER TABLE `system_info`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `traffic_law`
+-- AUTO_INCREMENT cho bảng `traffic_law`
 --
 ALTER TABLE `traffic_law`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `violations`
+-- AUTO_INCREMENT cho bảng `violations`
 --
 ALTER TABLE `violations`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT for table `violation_list`
+-- AUTO_INCREMENT cho bảng `violation_list`
 --
 ALTER TABLE `violation_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `vnpay_payment`
+-- AUTO_INCREMENT cho bảng `vnpay_payment`
 --
 ALTER TABLE `vnpay_payment`
   MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `drivers_meta`
+-- Các ràng buộc cho bảng `drivers_meta`
 --
 ALTER TABLE `drivers_meta`
   ADD CONSTRAINT `drivers_meta_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `news_list`
+-- Các ràng buộc cho bảng `news_list`
 --
 ALTER TABLE `news_list`
   ADD CONSTRAINT `news_list_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `question`
+-- Các ràng buộc cho bảng `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `violations`
+-- Các ràng buộc cho bảng `violations`
 --
 ALTER TABLE `violations`
   ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`law_id`) REFERENCES `traffic_law` (`id`);
 
 --
--- Constraints for table `violation_items`
+-- Các ràng buộc cho bảng `violation_items`
 --
 ALTER TABLE `violation_items`
   ADD CONSTRAINT `violation_items_ibfk_1` FOREIGN KEY (`driver_violation_id`) REFERENCES `violation_list` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `violation_items_ibfk_2` FOREIGN KEY (`violation_id`) REFERENCES `violations` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
--- Constraints for table `violation_list`
+-- Các ràng buộc cho bảng `violation_list`
 --
 ALTER TABLE `violation_list`
   ADD CONSTRAINT `violation_list_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
