@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 24, 2023 lúc 12:04 PM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: May 24, 2023 at 01:27 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `tvms`
+-- Database: `tvms`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `drivers_list`
+-- Table structure for table `drivers_list`
 --
 
 CREATE TABLE `drivers_list` (
@@ -34,10 +34,10 @@ CREATE TABLE `drivers_list` (
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 = active, 2 = suspended, 3 = banned',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `drivers_list`
+-- Dumping data for table `drivers_list`
 --
 
 INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_created`, `date_updated`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `drivers_list` (`id`, `license_id_no`, `name`, `status`, `date_creat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `drivers_meta`
+-- Table structure for table `drivers_meta`
 --
 
 CREATE TABLE `drivers_meta` (
@@ -55,10 +55,10 @@ CREATE TABLE `drivers_meta` (
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL,
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `drivers_meta`
+-- Dumping data for table `drivers_meta`
 --
 
 INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updated`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `drivers_meta` (`driver_id`, `meta_field`, `meta_value`, `date_updat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `news_list`
+-- Table structure for table `news_list`
 --
 
 CREATE TABLE `news_list` (
@@ -97,10 +97,10 @@ CREATE TABLE `news_list` (
   `image` text NOT NULL,
   `content` longtext NOT NULL,
   `updated_on` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `news_list`
+-- Dumping data for table `news_list`
 --
 
 INSERT INTO `news_list` (`id`, `user_id`, `title`, `sub_title`, `post_date`, `image`, `content`, `updated_on`) VALUES
@@ -118,7 +118,7 @@ INSERT INTO `news_list` (`id`, `user_id`, `title`, `sub_title`, `post_date`, `im
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `question`
+-- Table structure for table `question`
 --
 
 CREATE TABLE `question` (
@@ -133,66 +133,58 @@ CREATE TABLE `question` (
   `user_id` int(30) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `question`
+-- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`id`, `content`, `content_img`, `option_A`, `option_B`, `option_C`, `option_D`, `correct_option`, `user_id`, `date_created`, `date_updated`) VALUES
-(1, 'question 1', 'uploads/quiz_img/1684913520_avatar.jpg', 'aa', 'bb', 'cc', 'dd', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 14:32:04'),
-(2, 'question hai', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(3, 'question 3', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(4, 'question 4', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(5, 'question 5', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(6, 'question 6', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(7, 'question 7', '', 'alo', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(8, 'question 8', '', 'bay', 'b', 'c', 'd', 'b', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(9, 'question 9', '', 'a', 'b', 'c', 'd', 'c', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(10, 'question 10', '', 'a', 'b', 'c', 'd', 'd', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(11, 'question 11', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(12, 'question 12', '', 'a', 'b', 'c', 'd', 'b', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(13, 'question 13', '', 'a', 'b', 'c', 'd', 'c', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(14, 'question 14', '', 'a', 'b', 'c', 'd', 'd', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(15, 'question 15', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(16, 'question 16', '', 'a', 'b', 'c', 'd', 'b', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(17, 'question 17', '', 'a', 'b', 'c', 'd', 'c', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(18, 'question 18', '', 'a', 'b', 'c', 'd', 'd', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(19, 'question 19', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(20, 'question 20', '', 'a', 'b', 'c', 'd', 'b', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(21, 'question 21', '', 'a', 'b', 'c', 'd', 'c', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(22, 'question 22', '', 'a', 'b', 'c', 'd', 'd', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(23, 'question 23', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(24, 'question 24', '', 'a', 'b', 'c', 'd', 'b', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(25, 'question 25', '', 'a', 'b', 'c', 'd', 'c', 16, '2023-05-24 11:00:36', '0000-00-00 00:00:00'),
-(26, 'question 26', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:08:54'),
-(27, 'question 27', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:10'),
-(28, 'question 29', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:12'),
-(29, 'question 29', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:14'),
-(30, 'question 30', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:17'),
-(31, 'question 31', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:20'),
-(32, 'question 32', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:23'),
-(33, 'question 33', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:25'),
-(34, 'question 34', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:28'),
-(35, 'question 35', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:31'),
-(36, 'question 36', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:34'),
-(37, 'question 37', '', 'a', 'b', 'c', 'd', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 11:09:37'),
-(44, 'question 39', NULL, 'a', 'b', 'c', 'd', 'b', 1, '2023-05-24 14:56:26', NULL);
+(1, 'Phương tiện giao thông cơ giới đường bộ.', 'uploads/quiz_img/1684913520_avatar.jpg', 'aa', 'Phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng.', 'Cả ý 1 và ý 2.', 'Không câu nào đúng.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:45:17'),
+(2, 'Sử dụng rượu bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào ?', 'uploads/quiz_img/1684925220_cauliet3.jpg', 'Chỉ bị nhắc nhở.', 'Bị xử phạt hành chính hoặc có thể bị xử lý hình sự tùy theo mức độ vi phạm.', 'Không bị xử lý hình sự.', 'Cả ý 1 và ý 2.', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 17:47:09'),
+(3, 'Bạn đang lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên bạn có được phép vượt hay không ?', '', 'Không được vượt.', 'Được vượt khi đang đi trên cầu.', 'Được phép vượt khi đi qua nơi giao nhau có ít phương tiện cùng tham gia giao thông.', 'Được vượt khi đảm bảo an toàn.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 17:48:17'),
+(4, 'Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không ?', 'uploads/quiz_img/1684925520_cauliet5.jpg', 'Chỉ được kéo nếu đã nhìn thấy trạm xăng.', 'Chỉ được thực hiện trên đường vắng phương tiện cùng tham gia giao thông.', 'Không được phép.', 'Cả ý 1 và ý 2.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:52:08'),
+(5, 'Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại biển gì dưới đây ?', 'uploads/quiz_img/1684925580_cau6.jpg', 'Biển báo nguy hiểm.', 'Biển báo cấm.', 'Biển báo hiệu lệnh phải thi hành.', 'Biển báo chỉ dẫn.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:53:11'),
+(6, 'Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông ?', '', 'Phải báo hiệu bằng đèn hoặc còi;', 'Chỉ được báo hiệu bằng còi.', 'cPhải báo hiệu bằng cả còi và đèn.', 'Chỉ được báo hiệu bằng đèn.', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 17:54:09'),
+(7, 'Người điều khiển phương tiện tham gia giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây ?', '', 'Xe cơ giới, xe máy chuyên dùng phải bật đèn; xe thô sơ phải bật đèn hoặc có vật phát sáng báo hiệu; chỉ được dừng xe, đỗ xe ở nơi quy định.', 'Xe cơ giới phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép; được quay đầu xe, lùi xe khi cần thiết.', 'Xe máy chuyên dùng phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép; được quay đầu xe, lùi xe khi cần thiết.', 'Cả ý 2 và ý 3.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 17:55:00'),
+(8, 'Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây ?', '', 'Xe bị vượt bất ngờ tăng tốc độ và cố tình không nhường đường.', 'Xe bị vượt giảm tốc độ và nhường đường.', 'Phát hiện có xe đi ngược chiều.', 'Cả ý 1 và ý 3.', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 17:55:45'),
+(9, 'Khi điều khiển xe chạy với tốc độ dưới 60 km/h, để đảm bảo khoảng cách an toàn giữa hai xe, người lái xe phải điều khiển xe như thế nào ?', '', 'Chủ động giữ khoảng cách an toàn phù hợp với xe chạy liền trước xe của mình.', 'Đảm bảo khoảng cách an toàn theo mật độ phương tiện, tình hình giao thông thực tế.', 'Cả ý 1 và ý 2.', 'Không câu nào đúng.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:56:19'),
+(10, 'Để báo hiệu cho xe phía trước biết xe mô tô của bạn muốn vượt, bạn phải có tín hiệu như thế nào dưới đây ?', '', 'Ra tín hiệu bằng tay rồi cho xe vượt qua.', 'Tăng ga mạnh để gây sự chú ý rồi cho xe vượt qua.', 'Bạn phải có tín hiệu bằng đèn hoặc còi.', 'Cả ý 1 và ý 2.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 17:56:59'),
+(11, 'Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn ?', 'uploads/quiz_img/1684925880_cau12.jpg', 'Giữ tay ga ở mức độ phù hợp, sử dụng phanh trước và phanh sau để giảm tốc độ.', 'Nhả hết tay ga, tắt động cơ, sử dụng phanh trước và phanh sau để giảm tốc độ.', 'Sử dụng phanh trước để giảm tốc độ kết hợp với tắt chìa khóa điện của xe.', 'Không câu nào đúng.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 17:58:17'),
+(12, 'Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây ?', '', 'Để điều khiển xe chạy về phía trước.', 'Để điều tiết công suất động cơ qua đó điều khiển tốc độ của xe.', 'Để điều khiển xe chạy lùi.', 'Cả ý 1 và ý 2.', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 18:00:58'),
+(13, 'Biển nào cấm xe rẽ trái ?', 'uploads/quiz_img/1684926060_cau14.jpg', 'Biển 1.', 'Biển 2.', 'Cả ý 1 và ý 2.', 'Không câu nào đúng.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 18:01:48'),
+(14, 'Biển nào dưới đây các phương tiện không được phép đi vào ?', 'uploads/quiz_img/1684926180_cau15.jpg', 'Biển 1.', 'Biển 2.', 'Cả ý 1 và ý 2.', 'Không câu nào đúng.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 18:03:10'),
+(15, ' Biển nào xe mô tô hai bánh không được đi vào ?', 'uploads/quiz_img/1684926300_cau16.jpg', 'Biển 1.', 'Biển 2.', 'Biển 3.', 'Cả ý 1 và ý 3.', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 18:05:44'),
+(16, 'Biển nào báo hiệu nguy hiểm giao nhau với đường sắt ?', 'uploads/quiz_img/1684926360_cau17.jpg', 'Biển 1 và 2.', 'Biển 1 và 3.', 'Biển 2 và 3.', 'Cả 3 biển', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 18:06:51'),
+(17, 'Biển nào báo hiệu “Đường giao nhau” của các tuyến đường cùng cấp ?', 'uploads/quiz_img/1684926420_cau18.jpg', 'Biển 1.', 'Biển 2.', 'Biển 3.', 'Biển 2 và 3', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 18:07:45'),
+(18, 'Biển nào chỉ dẫn nơi bắt đầu đoạn đường dành cho người đi bộ ?', 'uploads/quiz_img/1684926480_cau19.jpg', 'Biển 1.', 'Biển 2.', 'Biển 3.', 'Biển 1 và 3', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 18:08:29'),
+(19, 'Biển nào dưới đây báo hiệu hết cấm vượt ?', 'uploads/quiz_img/1684926540_cau20.jpg', 'Biển 1.', 'Biển 2.', 'Biển 3.', 'Biển 2 và 3', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 18:09:07'),
+(20, 'Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy (vạch tim đường), xe không được lấn làn, không được đè lên vạch ?', 'uploads/quiz_img/1684926600_cau21.jpg', 'Vạch 1.', 'Vạch 2.', 'Vạch 3.', 'Cả 3 vạch', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 18:10:01'),
+(21, 'Theo hướng mũi tên, những hướng nào xe mô tô được phép đi ?', 'uploads/quiz_img/1684926660_cau22.jpg', 'Cả ba hướng.', 'Hướng 1 và 2.', 'Hướng 1 và 3.', 'Hướng 2 và 3.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 18:11:04'),
+(22, 'Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông ?', 'uploads/quiz_img/1684926720_cau23.jpg', 'Xe con, xe tải, xe khách.', 'Xe tải, xe khách, xe mô tô.', 'Xe khách, xe mô tô, xe con.', 'Xe khách, xe mô tô, xe tải.', 'b', 16, '2023-05-24 11:00:36', '2023-05-24 18:12:19'),
+(23, 'Theo Luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu bia khi tham gia giao thông ?', 'uploads/quiz_img/1684926780_cau24.jpg', 'Người điều khiển: Xe ô tô, xe mô tô, xe đạp, xe gắn máy.', 'Người ngồi phía sau người điều khiển xe cơ giới.', 'Người đi bộ.', 'Cả ý 1 và ý 2.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 18:13:44'),
+(24, 'Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không ?', 'uploads/quiz_img/1684926840_cau25.jpg', 'Được phép.', 'Nếu phương tiện được kéo, đẩy có khối lượng nhỏ hơn phương tiện của mình.', 'Tuỳ trường hợp.', 'Không được phép.', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 18:14:38'),
+(25, 'Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không ?', 'uploads/quiz_img/1684926900_cau26.jpg', 'Không được vận chuyển.', 'Chỉ được vận chuyển khi đã chằng buộc cẩn thận.', 'Chỉ được vận chuyển vật cồng kềnh trên xe máy nếu khoảng cách về nhà ngắn hơn 2 km.', 'Tuỳ trường hợp', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 18:15:26'),
+(26, 'Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây ?', 'uploads/quiz_img/1684926960_cau27.jpg', 'Biển báo nguy hiểm.', 'Biển báo cấm.', 'Biển báo hiệu lệnh phải thi hành.', 'Biển báo chỉ dẫn.', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 18:16:27'),
+(27, 'Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép đến mức cần thiết, chú ý quan sát và chuẩn bị sẵn sàng những tình huống có thế xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây ?', '', 'Gặp biển báo nguy hiểm trên đường.', 'Gặp biển chỉ dẫn trên đường.', 'Gặp biển báo hết mọi lệnh cấm.', 'Gặp biển báo hết hạn chế tốc độ tối đa cho phép.', 'a', 16, '2023-05-24 11:00:36', '2023-05-24 18:17:03'),
+(28, 'Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây ?', '', 'Đường ướt, đường có sỏi cát trên nền đường.', 'Đường hẹp có nhiều điểm giao cắt từ hai phía.', 'Đường đèo dốc, vòng liên tục.', 'Tất cả các ý nêu trên.', 'd', 16, '2023-05-24 11:00:36', '2023-05-24 18:17:31'),
+(29, 'Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây ?', '', 'Để quan sát an toàn phía bên trái khi chuẩn bị rẽ trái.', 'Để quan sát an toàn phía bên phải khi chuẩn bị rẽ phải.', 'Để quan sát an toàn phía sau cả bên trái và bên phải trước khi chuyển hướng.', 'Để quan sát an toàn phía trước cả bên trái và bên phải trước khi chuyển hướng.', 'c', 16, '2023-05-24 11:00:36', '2023-05-24 18:18:03'),
+(44, 'Phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại là gì ?', NULL, 'Phần mặt đường và lề đường.', 'Phần đường xe chạy.', 'Phần đường xe cơ giới.', 'Phần đường đi bộ.', 'b', 1, '2023-05-24 14:56:26', '2023-05-24 17:44:33');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `system_info`
+-- Table structure for table `system_info`
 --
 
 CREATE TABLE `system_info` (
   `id` int(30) NOT NULL,
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `system_info`
+-- Dumping data for table `system_info`
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
@@ -205,7 +197,7 @@ INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `traffic_law`
+-- Table structure for table `traffic_law`
 --
 
 CREATE TABLE `traffic_law` (
@@ -213,10 +205,10 @@ CREATE TABLE `traffic_law` (
   `law_name` varchar(200) NOT NULL,
   `image` text NOT NULL,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1:Bike, 2:Car'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `traffic_law`
+-- Dumping data for table `traffic_law`
 --
 
 INSERT INTO `traffic_law` (`id`, `law_name`, `image`, `type`) VALUES
@@ -248,7 +240,7 @@ INSERT INTO `traffic_law` (`id`, `law_name`, `image`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -262,10 +254,10 @@ CREATE TABLE `users` (
   `type` tinyint(1) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
@@ -277,7 +269,7 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `ava
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `violations`
+-- Table structure for table `violations`
 --
 
 CREATE TABLE `violations` (
@@ -292,10 +284,10 @@ CREATE TABLE `violations` (
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Inactive, 1=Active',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `violations`
+-- Dumping data for table `violations`
 --
 
 INSERT INTO `violations` (`id`, `code`, `name`, `description`, `min_fine`, `max_fine`, `law_id`, `fine`, `status`, `date_created`, `date_updated`) VALUES
@@ -375,7 +367,7 @@ INSERT INTO `violations` (`id`, `code`, `name`, `description`, `min_fine`, `max_
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `violation_items`
+-- Table structure for table `violation_items`
 --
 
 CREATE TABLE `violation_items` (
@@ -384,10 +376,10 @@ CREATE TABLE `violation_items` (
   `fine` float NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=paid',
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `violation_items`
+-- Dumping data for table `violation_items`
 --
 
 INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `status`, `date_created`) VALUES
@@ -409,7 +401,7 @@ INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `s
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `violation_list`
+-- Table structure for table `violation_list`
 --
 
 CREATE TABLE `violation_list` (
@@ -424,10 +416,10 @@ CREATE TABLE `violation_list` (
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=paid',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `violation_list`
+-- Dumping data for table `violation_list`
 --
 
 INSERT INTO `violation_list` (`id`, `ticket_no`, `driver_id`, `driver_email`, `officer_name`, `officer_id`, `total_amount`, `remarks`, `status`, `date_created`, `date_updated`) VALUES
@@ -448,7 +440,7 @@ INSERT INTO `violation_list` (`id`, `ticket_no`, `driver_id`, `driver_email`, `o
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `vnpay_payment`
+-- Table structure for table `vnpay_payment`
 --
 
 CREATE TABLE `vnpay_payment` (
@@ -464,10 +456,10 @@ CREATE TABLE `vnpay_payment` (
   `ticket_no` varchar(20) NOT NULL,
   `vnp_ResponseCode` varchar(10) NOT NULL,
   `date_pay` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `vnpay_payment`
+-- Dumping data for table `vnpay_payment`
 --
 
 INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_BankTranNo`, `vnp_CardType`, `vnp_OrderInfo`, `vnp_PayDate`, `vnp_TmnCode`, `vnp_TransactionNo`, `ticket_no`, `vnp_ResponseCode`, `date_pay`) VALUES
@@ -502,175 +494,175 @@ INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_Bank
 (65, '900000', 'NCB', 'VNP14020588', 'ATM', 'Thanh toán vi phạm giao thông số G69548204', '20230524163647', 'U5PWUDF3', '14020588', 'G69548204', '00', '2023-05-24 16:36:52');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `drivers_list`
+-- Indexes for table `drivers_list`
 --
 ALTER TABLE `drivers_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `drivers_meta`
+-- Indexes for table `drivers_meta`
 --
 ALTER TABLE `drivers_meta`
   ADD KEY `driver_id` (`driver_id`);
 
 --
--- Chỉ mục cho bảng `news_list`
+-- Indexes for table `news_list`
 --
 ALTER TABLE `news_list`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Chỉ mục cho bảng `question`
+-- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Chỉ mục cho bảng `system_info`
+-- Indexes for table `system_info`
 --
 ALTER TABLE `system_info`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `traffic_law`
+-- Indexes for table `traffic_law`
 --
 ALTER TABLE `traffic_law`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `violations`
+-- Indexes for table `violations`
 --
 ALTER TABLE `violations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `law_id` (`law_id`);
 
 --
--- Chỉ mục cho bảng `violation_items`
+-- Indexes for table `violation_items`
 --
 ALTER TABLE `violation_items`
   ADD KEY `driver_violation_id` (`driver_violation_id`),
   ADD KEY `violation_id` (`violation_id`);
 
 --
--- Chỉ mục cho bảng `violation_list`
+-- Indexes for table `violation_list`
 --
 ALTER TABLE `violation_list`
   ADD PRIMARY KEY (`id`,`ticket_no`) USING BTREE,
   ADD KEY `driver_id` (`driver_id`);
 
 --
--- Chỉ mục cho bảng `vnpay_payment`
+-- Indexes for table `vnpay_payment`
 --
 ALTER TABLE `vnpay_payment`
   ADD PRIMARY KEY (`id_vnpay`) USING BTREE;
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `drivers_list`
+-- AUTO_INCREMENT for table `drivers_list`
 --
 ALTER TABLE `drivers_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `news_list`
+-- AUTO_INCREMENT for table `news_list`
 --
 ALTER TABLE `news_list`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT cho bảng `question`
+-- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT cho bảng `system_info`
+-- AUTO_INCREMENT for table `system_info`
 --
 ALTER TABLE `system_info`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `traffic_law`
+-- AUTO_INCREMENT for table `traffic_law`
 --
 ALTER TABLE `traffic_law`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `violations`
+-- AUTO_INCREMENT for table `violations`
 --
 ALTER TABLE `violations`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT cho bảng `violation_list`
+-- AUTO_INCREMENT for table `violation_list`
 --
 ALTER TABLE `violation_list`
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT cho bảng `vnpay_payment`
+-- AUTO_INCREMENT for table `vnpay_payment`
 --
 ALTER TABLE `vnpay_payment`
   MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `drivers_meta`
+-- Constraints for table `drivers_meta`
 --
 ALTER TABLE `drivers_meta`
   ADD CONSTRAINT `drivers_meta_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Các ràng buộc cho bảng `news_list`
+-- Constraints for table `news_list`
 --
 ALTER TABLE `news_list`
   ADD CONSTRAINT `news_list_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `question`
+-- Constraints for table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Các ràng buộc cho bảng `violations`
+-- Constraints for table `violations`
 --
 ALTER TABLE `violations`
   ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`law_id`) REFERENCES `traffic_law` (`id`);
 
 --
--- Các ràng buộc cho bảng `violation_items`
+-- Constraints for table `violation_items`
 --
 ALTER TABLE `violation_items`
   ADD CONSTRAINT `violation_items_ibfk_1` FOREIGN KEY (`driver_violation_id`) REFERENCES `violation_list` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `violation_items_ibfk_2` FOREIGN KEY (`violation_id`) REFERENCES `violations` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
--- Các ràng buộc cho bảng `violation_list`
+-- Constraints for table `violation_list`
 --
 ALTER TABLE `violation_list`
   ADD CONSTRAINT `violation_list_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers_list` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
