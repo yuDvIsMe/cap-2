@@ -16,6 +16,11 @@
                     echo "<div class='card mb-4'>";
                     echo "<div class='card-body'>";
                     echo "<h5 class='card-title'>" . $questionNumber . ". " . $row["content"] . "</h5>";
+                    if (!empty($row['content_img'])) : ?>
+                        <div class="text-center mb-3">
+                            <img src="<?php echo $row['content_img']; ?>" alt="Question Image" class="img-fluid">
+                        </div>
+                    <?php endif;
                     echo "<div class='form-check'>";
                     echo "<input class='form-check-input' type='radio' name='answer[" . $row["id"] . "]' id='answer-" . $row["id"] . "-a' value='a' onclick='checkAnswer(" . $row["id"] . ", \"a\", " . $row["correct_option"] . ")'>";
                     echo "<label class='form-check-label' for='answer-" . $row["id"] . "-a'>" . $row["option_A"] . "</label>";
@@ -38,6 +43,7 @@
                 }
             }
             ?>
+            <button class="btn btn-primary" onclick="reloadPage()">Làm lại</button>
         </div>
     </div>
 </div>
@@ -60,4 +66,8 @@
             $('input[name="answer[' + questionId + ']"][value="' + correctOption + '"]').parent().addClass('text-success');
         }
     }
+
+    function reloadPage() {
+    location.reload();
+}
 </script>
