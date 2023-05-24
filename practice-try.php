@@ -3,6 +3,19 @@
 <!-- Contact Start -->
 <div class="single mt-125">
     <div class="container">
+        <ul class="breadcrumb">
+            <li class="item-breadcrumb">
+                <a href="<?php echo base_url ?>?page=home">Trang chủ</a>
+                <a style="padding-left: 10px">></a>
+            </li>
+            <li class="item-breadcrumb">
+                <a href="<?php echo base_url ?>?page=quizz">Trắc nghiệm GPLX</a>
+                <a style="padding-left: 10px">></a>
+            </li>
+            <li class="item-breadcrumb">
+                <a href="#">Luyện thi</a>
+            </li>
+        </ul>
         <div class="content">
             <h1 class="text-center mb-5">Luyện tập câu hỏi trắc nghiệm</h1>
             <?php $questionNumber = 1;
@@ -39,6 +52,7 @@
             }
             ?>
         </div>
+        
     </div>
 </div>
 <script>
