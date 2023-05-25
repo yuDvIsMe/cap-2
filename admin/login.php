@@ -173,7 +173,7 @@
     start_loader()
   </script>
   <div class="login-box">
-    <h2 class="text-center pb-4 mb-4 text-light">Admin Đăng nhập</h2>
+    <h2 class="text-center pb-4 mb-4 text-light">Đăng nhập</h2>
     <div class="card card-primary">
       <div class="card-body">
         <form id="login-frm" action="" method="post">
@@ -205,31 +205,6 @@
       </div>
     </div>
   </div>
-  <!-- /.login-box -->
-  <!-- <div>
-    <div class="login-box">
-      <h2 class="login-h2">Đăng nhập</h2>
-      <form  method="post">
-          <div class="user-box">
-              <input class="login-input" type="text" name="" required="">
-              <label class="login-label">Tên người dùng <span style="color: red">*</span></label>
-          </div>
-          <div class="user-box">
-              <input class="login-input" type="password" name="" required="">
-              <label class="login-label">Mật khẩu <span style="color: red">*</span></label>
-          </div>
-          <h5>Bạn chưa có tài khoản? Hãy <a href="sign-up.html">đăng ký</a></h5>
-          <button class="login-submit" type="submit">
-              <span class="login-span"></span>
-              <span class="login-span"></span>
-              <span class="login-span"></span>
-              <span class="login-span"></span>
-              Đăng nhập
-          </button>
-      </form>
-    </div>
-  </div> -->
-
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->

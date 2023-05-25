@@ -298,7 +298,7 @@ class Master extends DBConnection
 		$this->capture_err();
 		if ($chk > 0) {
 			$resp['status'] = 'failed';
-			$resp['msg'] = "violation Ticker No. already exist in the database. Please review and try again.";
+			$resp['msg'] = "Số quyết định xử phạt đã có sẵn trong cơ sở dữ liệu. Vui lòng thử lại.";
 			return json_encode($resp);
 			exit;
 		}
