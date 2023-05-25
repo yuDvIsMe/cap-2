@@ -114,7 +114,7 @@ if ($_GET['vnp_ResponseCode'] == '00') { ?>
                         <div class="col-12">
                             <div style="display: flex; justify-content: space-between;">
                                 <label class="lb-payment">Mã giao dịch:</label>
-                                <p><?php echo 'a' ?></p>
+                                <p><?php echo $vnp_BankTranNo ?></p>
                             </div>
                             <div class="divider-gray"></div>
 
