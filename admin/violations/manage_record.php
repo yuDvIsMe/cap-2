@@ -63,7 +63,7 @@ function generateRandomString()
                     </div>
                     <div class="form-group">
                         <lable class="control-label" for="driver_email">Email người vi phạm</lable>
-                        <input oninput="ValidateEmail()" type="email" class="form-control" name="driver_email" id="driver_email" value="<?php echo isset($driver_email) ? $driver_email : '' ?>" required>
+                        <input type="email" class="form-control" name="driver_email" id="driver_email" value="<?php echo isset($driver_email) ? $driver_email : '' ?>" required>
                         <p id="alert-email"></p>
                     </div>
                 </div>
@@ -79,10 +79,7 @@ function generateRandomString()
                     </div>
                     <div class="form-group">
                         <lable class="control-label" for="status">Trạng thái</lable>
-                        <select disabled name="status" id="status" class="custom-select" required>
-                            <option value="0" <?php echo (isset($status) && $status == '0') ? 'selected' : '' ?>>Chưa thanh toán</option>
-                            <option value="1" <?php echo (isset($status) && $status == '1') ? 'selected' : '' ?>>Đã thanh toán</option>
-                        </select>
+                        <input name="status" id="status" type="text" class="form-control form" readonly value="<?php echo (isset($status) && $status == '1') ? 'Đã thanh toán' : 'Chưa thanh toán'; ?>" />
                     </div>
                 </div>
             </div>
@@ -175,16 +172,6 @@ function generateRandomString()
     </div>
 </div>
 <script>
-
-    // Email
-    function ValidateEmail() {
-        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (value.match(mailformat)) {
-            document.getElementById("alert-email") = 'Địa chỉ email hợp lệ';
-        } else {
-            document.getElementById("alert-email") = 'Địa chỉ email không hợp lệ';
-        }
-    }
 
     // ----------------
 

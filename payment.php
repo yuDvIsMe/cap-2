@@ -26,7 +26,7 @@ $vnp_OrderInfo = "Thanh toán vi phạm giao thông số {$ticket_no}";
 $vnp_OrderType = 'billpayment';
 $vnp_Amount = $total_amount *100;
 $vnp_Locale = 'vn';
-$vnp_BankCode = 'NCB';
+$vnp_BankCode = $_POST['bank_code'];
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
 //Add Params of 2.0.1 Version
 $vnp_ExpireDate = $expire;
