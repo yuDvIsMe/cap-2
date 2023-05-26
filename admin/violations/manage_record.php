@@ -99,10 +99,10 @@ function generateRandomString()
                                 <select id="violation_id" class="custom-select select2">
                                     <option value=""></option>
                                     <?php
-                                    $driver = $conn->query("SELECT * FROM `violations` order by `name` asc ");
+                                    $driver = $conn->query("SELECT v.*,t.type FROM `violations` v join `traffic_law` t on v.law_id = t.id order by v.name asc ");
                                     while ($row = $driver->fetch_assoc()) :
                                     ?>
-                                        <option value="<?php echo $row['id'] ?>" data-code="<?php echo $row['code'] ?>" data-fine="<?php echo $row['fine'] ?>" data-name="<?php echo $row['name'] ?>"><?php echo "[" . $row['code'] . "]" . ucwords($row['name']) ?></option>
+                                        <option value="<?php echo $row['id'] ?>" data-code="<?php echo $row['code'] ?>" data-fine="<?php echo $row['fine'] ?>" data-name="<?php echo $row['name'] ?>"><?php $type = ($row['type']==1)? 'Xe máy':'Ô tô'; echo "[" . $row['code'] . "]" ." [" . $type . "] " . ucwords($row['name']) ?></option>
                                     <?php endwhile; ?>
                                 </select>
                             </div>
@@ -119,7 +119,7 @@ function generateRandomString()
                             <tr>
                                 <th>Mã vi phạm</th>
                                 <th>Vi phạm</th>
-                                <th class="text-right">Tiền phạt</th>
+                                <th class="text-center">Tiền phạt</th>
                                 <th></th>
                             </tr>
                         </thead>
