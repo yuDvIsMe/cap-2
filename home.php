@@ -40,7 +40,7 @@
                             <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=information-lookup">
                                 <div class="fact-item">
                                     <i class="fas fa-credit-card icon-home"></i>
-                                    <h2>Tra cứu hồ sơ vi phạm</h2>
+                                    <h2>Tra cứu biên bản vi phạm</h2>
                                 </div>
                             </a>
                             <a class="col-lg-4" style="cursor: pointer;" href="<?php echo base_url ?>?page=traffic-laws">
