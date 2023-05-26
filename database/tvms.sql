@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 24, 2023 lúc 04:08 PM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 8.1.6
+-- Thời gian đã tạo: Th5 26, 2023 lúc 05:55 PM
+-- Phiên bản máy phục vụ: 10.4.27-MariaDB
+-- Phiên bản PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `drivers_list` (
   `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 = active, 2 = suspended, 3 = banned',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `drivers_list`
@@ -55,7 +55,7 @@ CREATE TABLE `drivers_meta` (
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL,
   `date_updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `drivers_meta`
@@ -97,7 +97,7 @@ CREATE TABLE `news_list` (
   `image` text NOT NULL,
   `content` longtext NOT NULL,
   `updated_on` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `news_list`
@@ -135,7 +135,7 @@ CREATE TABLE `question` (
   `user_id` int(30) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `question`
@@ -183,7 +183,7 @@ CREATE TABLE `system_info` (
   `id` int(30) NOT NULL,
   `meta_field` text NOT NULL,
   `meta_value` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `system_info`
@@ -207,7 +207,7 @@ CREATE TABLE `traffic_law` (
   `law_name` varchar(200) NOT NULL,
   `image` text NOT NULL,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1:Bike, 2:Car'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `traffic_law`
@@ -252,21 +252,21 @@ CREATE TABLE `users` (
   `username` text NOT NULL,
   `password` text NOT NULL,
   `avatar` text DEFAULT NULL,
-  `last_login` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1:active 0:disable',
   `type` tinyint(1) NOT NULL DEFAULT 0,
   `date_added` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `last_login`, `type`, `date_added`, `date_updated`) VALUES
-(1, 'Adminstrator', 'Vĩnh Duy', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1624240500_avatar.png', NULL, 1, '2021-01-20 14:02:37', '2023-05-24 21:00:59'),
-(9, 'John', 'Duy', 'vinhduy', 'a65db601733aa50c3e7b51c9424b732f', 'uploads/1681449300_avatar.jpg', NULL, 1, '2021-08-19 09:24:25', '2023-04-14 12:20:09'),
-(16, 'Duy', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1681449480_wallpaper.png', NULL, 1, '2023-03-29 09:20:11', '2023-05-04 21:06:31'),
-(18, '', 'vinhduy', 'vinhduy', '202cb962ac59075b964b07152d234b70', 'uploads/1684915380_avatar.jpg', NULL, 2, '2023-05-24 15:03:04', '2023-05-24 15:04:14');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `avatar`, `status`, `type`, `date_added`, `date_updated`) VALUES
+(1, 'Adminstrator', 'Vĩnh Duy', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1624240500_avatar.png', 1, 1, '2021-01-20 14:02:37', '2023-05-26 22:29:08'),
+(9, 'John', 'Duy', 'vinhduy', 'a65db601733aa50c3e7b51c9424b732f', 'uploads/1681449300_avatar.jpg', 1, 1, '2021-08-19 09:24:25', '2023-05-26 22:29:32'),
+(16, 'Duy', 'admin', 'admin', '0192023a7bbd73250516f069df18b500', 'uploads/1681449480_wallpaper.png', 1, 1, '2023-03-29 09:20:11', '2023-05-26 22:29:35'),
+(18, '', 'vinhduy', 'vinhduy', '202cb962ac59075b964b07152d234b70', 'uploads/1684915380_avatar.jpg', 0, 2, '2023-05-24 15:03:04', '2023-05-26 22:33:39');
 
 -- --------------------------------------------------------
 
@@ -286,7 +286,7 @@ CREATE TABLE `violations` (
   `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=Inactive, 1=Active',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `violations`
@@ -378,7 +378,7 @@ CREATE TABLE `violation_items` (
   `fine` float NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=paid',
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `violation_items`
@@ -398,7 +398,9 @@ INSERT INTO `violation_items` (`driver_violation_id`, `violation_id`, `fine`, `s
 (54, 21, 150000, 0, '2023-05-24 16:28:00'),
 (55, 74, 350000, 0, '2023-05-24 16:49:00'),
 (56, 77, 900000, 0, '2023-05-24 17:30:00'),
-(57, 77, 900000, 0, '2023-05-24 17:38:00');
+(57, 77, 900000, 0, '2023-05-24 17:38:00'),
+(58, 77, 900000, 0, '2023-05-25 10:28:00'),
+(59, 77, 900000, 0, '2023-05-25 10:43:00');
 
 -- --------------------------------------------------------
 
@@ -418,7 +420,7 @@ CREATE TABLE `violation_list` (
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0=pending, 1=paid',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `violation_list`
@@ -437,7 +439,9 @@ INSERT INTO `violation_list` (`id`, `ticket_no`, `driver_id`, `driver_email`, `o
 (54, 'G34195867', 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 150000, '', 1, '2023-05-24 16:28:00', '2023-05-24 15:30:14'),
 (55, 'G36451957', 9, 'vinhduy2201@gmail.com', 'Nguyễn Aanh', '1', 350000, '', 1, '2023-05-24 16:49:00', '2023-05-24 15:51:48'),
 (56, 'G69548204', 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 900000, '', 1, '2023-05-24 17:30:00', '2023-05-24 16:36:52'),
-(57, 'G84805315', 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 900000, '', 0, '2023-05-24 17:38:00', NULL);
+(57, 'G84805315', 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 900000, '', 1, '2023-05-24 17:38:00', '2023-05-25 09:26:18'),
+(58, 'G05253114', 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 900000, '', 0, '2023-05-25 10:28:00', NULL),
+(59, 'G42836707', 9, 'vinhduy2201@gmail.com', 'Nguyễn A', '1', 900000, '', 1, '2023-05-25 10:43:00', '2023-05-26 00:28:16');
 
 -- --------------------------------------------------------
 
@@ -458,7 +462,7 @@ CREATE TABLE `vnpay_payment` (
   `ticket_no` varchar(20) NOT NULL,
   `vnp_ResponseCode` varchar(10) NOT NULL,
   `date_pay` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `vnpay_payment`
@@ -493,7 +497,9 @@ INSERT INTO `vnpay_payment` (`id_vnpay`, `vnp_Amount`, `vnp_BankCode`, `vnp_Bank
 (59, '900000', 'NCB', 'VNP14020449', 'ATM', 'Thanh toán vi phạm giao thông số G94324217', '20230524152124', 'U5PWUDF3', '14020449', 'G94324217', '00', '2023-05-24 15:21:29'),
 (61, '150000', 'NCB', 'VNP14020467', 'ATM', 'Thanh toán vi phạm giao thông số G34195867', '20230524153006', 'U5PWUDF3', '14020467', 'G34195867', '00', '2023-05-24 15:30:14'),
 (64, '350000', 'NCB', 'VNP14020494', 'ATM', 'Thanh toán vi phạm giao thông số G36451957', '20230524155138', 'U5PWUDF3', '14020494', 'G36451957', '00', '2023-05-24 15:51:48'),
-(65, '900000', 'NCB', 'VNP14020588', 'ATM', 'Thanh toán vi phạm giao thông số G69548204', '20230524163647', 'U5PWUDF3', '14020588', 'G69548204', '00', '2023-05-24 16:36:52');
+(65, '900000', 'NCB', 'VNP14020588', 'ATM', 'Thanh toán vi phạm giao thông số G69548204', '20230524163647', 'U5PWUDF3', '14020588', 'G69548204', '00', '2023-05-24 16:36:52'),
+(66, '900000', 'NCB', 'VNP14021008', 'ATM', 'Thanh toán vi phạm giao thông số G84805315', '20230525092612', 'U5PWUDF3', '14021008', 'G84805315', '00', '2023-05-25 09:26:18'),
+(67, '900000', 'NCB', 'VNP14022111', 'ATM', 'Thanh toán vi phạm giao thông số G42836707', '20230526002801', 'U5PWUDF3', '14022111', 'G42836707', '00', '2023-05-26 00:28:16');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -620,13 +626,13 @@ ALTER TABLE `violations`
 -- AUTO_INCREMENT cho bảng `violation_list`
 --
 ALTER TABLE `violation_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT cho bảng `vnpay_payment`
 --
 ALTER TABLE `vnpay_payment`
-  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_vnpay` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

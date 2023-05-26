@@ -45,7 +45,7 @@
 				<tbody>
 					<?php 
 					$i = 1;
-						$qry = $conn->query("SELECT *,lastname from `users` where id != '1' and id != '{$_settings->userdata('id')}' order by lastname asc ");
+						$qry = $conn->query("SELECT *,lastname from `users` where `status` =1 and id != '1' and id != '{$_settings->userdata('id')}' order by lastname asc ");
 						while($row = $qry->fetch_assoc()):
 					?>
 						<tr class="text-center">

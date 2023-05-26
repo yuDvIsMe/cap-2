@@ -66,7 +66,7 @@ Class Users extends DBConnection {
 	public function delete_users(){
 		extract($_POST);
 		$avatar = $this->conn->query("SELECT avatar FROM users where id = '{$id}'")->fetch_array()['avatar'];
-		$qry = $this->conn->query("DELETE FROM users where id = $id");
+		$qry = $this->conn->query("UPDATE `users` set `status`=0 where id = $id");
 		if($qry){
 			$this->settings->set_flashdata('success','Xóa thành công');
 			if(is_file(base_app.$avatar))
